@@ -20,6 +20,5 @@ var mainGameLoop = window.setInterval(function() {
 
 function loop() {
   if (tickspeed<50) {
-    
   }
 }
