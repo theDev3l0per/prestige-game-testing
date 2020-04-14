@@ -4,5 +4,6 @@ var x = 0;
 var y = 0;
 
 function pointButton() {
-  
+  points += 1;
+  document.getElementById("number").innerHTML = "Number = " + points;
 }
