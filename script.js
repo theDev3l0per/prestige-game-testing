@@ -1,5 +1,8 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
+console.log("What are you doing here in the console?");
+var points = 0;
+var x = 0;
+var y = 0;
 
-// prints "hi" in the browser's dev tools console
-console.log("hi");
+function pointButton() {
+  
+}
