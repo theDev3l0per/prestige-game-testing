@@ -8,6 +8,8 @@ var cost2 = 200;
 var cost3 = 15000;
 var x = 0;
 var y = 0;
+var xCost = 100000;
+var yCost = 100;
 var tickpart = 0;
 var tickspeed = 50;
 
@@ -26,7 +28,11 @@ function convertNumber() {
     document.getElementById("number").innerHTML = "Number = " + "x+" + Math.floor(points);
   } else if (x > 1 && y < 1){
     document.getElementById("number").innerHTML = "Number = " + x + "x+" + Math.floor(points);
-  } else if (x )
+  } else if (y = 1){
+    document.getElementById("number").innerHTML = "Number = " + "y+" + x + "x+" + Math.floor(points);
+  } else if (y > 1){
+    document.getElementById("number").innerHTML = "Number = " + y + "y+" + x + "x+" + Math.floor(points);
+  }
 }
 
 function pointButton() {
@@ -92,12 +98,9 @@ function loop() {
   points += clickers/20;
   points += factories/2;
   points += portals*50;
-  document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+  convertNumber();
   if(points > 99999){
     showElement("xButton");
-  }
-  if(x2<1){
-    
   }
 }
 
@@ -107,9 +110,9 @@ function buyClicker() {
     clickers += 1;
     cost1 *= 1.1;
     cost1 = Math.round(cost1);
-    document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+    convertNumber();
     document.getElementById("clickers").innerHTML = "Autoclickers: " + clickers;
-    document.getElementById("clickerButton").innerHTML = "Buy for " + cost1 + " points"
+    document.getElementById("clickerButton").innerHTML = "Buy for " + cost1 + " points";
   }
 }
 
@@ -119,9 +122,9 @@ function buyFactory() {
     factories += 1;
     cost2 *= 1.1;
     cost2 = Math.round(cost2);
-    document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+    convertNumber();
     document.getElementById("factories").innerHTML = "Point Factories: " + factories;
-    document.getElementById("factoryButton").innerHTML = "Buy for " + cost2 + " points"
+    document.getElementById("factoryButton").innerHTML = "Buy for " + cost2 + " points";
   }
 }
 
@@ -131,8 +134,19 @@ function buyPortal() {
     portals += 1;
     cost3 *= 1.1;
     cost3 = Math.round(cost3);
-    document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+    convertNumber();
     document.getElementById("portals").innerHTML = "Point Portals: " + portals;
-    document.getElementById("portalButton").innerHTML = "Buy for " + cost3 + " points"
+    document.getElementById("portalButton").innerHTML = "Buy for " + cost3 + " points";
+  }
+}
+
+function convertToX() {
+  if(points >= xCost){
+    points -= xCost;
+    x += 1;
+    xCost *= 1.1;
+    xCost = Math.round(xCost);
+    convertNumber();
+    document.getElementById("xButton").innerHTML = "Get an x for " + xCost + " points";
   }
 }
