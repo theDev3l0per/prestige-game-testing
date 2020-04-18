@@ -19,3 +19,8 @@ h1 {
 .number {
   font-size: 25px;
 }
+
+.buildingButton {
+  background-color: black;
+  color: white;
+}

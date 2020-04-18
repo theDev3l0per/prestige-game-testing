@@ -30,3 +30,39 @@ function loop() {
   points += portals*50;
   document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
 }
+
+function buyClicker() {
+  if(points >= cost1){
+    points -= cost1;
+    clickers += 1;
+    cost1 *= 1.1;
+    cost1 = Math.round(cost1);
+    document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+    document.getElementById("clickers").innerHTML = "Autoclickers: " + clickers;
+    document.getElementById("clickerButton").innerHTML = "Buy for " + cost1 + " points"
+  }
+}
+
+function buyFactory() {
+  if(points >= cost2){
+    points -= cost2;
+    factories += 1;
+    cost2 *= 1.1;
+    cost2 = Math.round(cost2);
+    document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+    document.getElementById("factories").innerHTML = "Point Factories: " + factories;
+    document.getElementById("cButton").innerHTML = "Buy for " + cost1 + " points"
+  }
+}
+
+function buyPortal() {
+  if(points >= cost1){
+    points -= cost1;
+    clickers += 1;
+    cost1 *= 1.1;
+    cost1 = Math.round(cost1);
+    document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+    document.getElementById("clickers").innerHTML = "Autoclickers: " + clickers;
+    document.getElementById("clickerButton").innerHTML = "Buy for " + cost1 + " points"
+  }
+}
