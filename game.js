@@ -19,13 +19,6 @@ function hideElement(element) {
   document.getElementById(element).style.display = "none";
 }
 
-  showElement("clickers");
-  showElement("clickerButton");
-  showElement("factories");
-  showElement("factoryButton");
-  showElement("portals");
-  showElement("portalButton");
-
 function pointButton() {
   points += 1;
   document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
@@ -47,6 +40,7 @@ function upgrades() {
   hideElement("factoryButton");
   hideElement("portals");
   hideElement("portalButton");
+  hideElement("xButton");
 }
 
 function options() {
@@ -56,6 +50,7 @@ function options() {
   hideElement("factoryButton");
   hideElement("portals");
   hideElement("portalButton");
+  hideElement("xButton");
 }
 
 function achievements() {
@@ -65,6 +60,11 @@ function achievements() {
   hideElement("factoryButton");
   hideElement("portals");
   hideElement("portalButton");
+  hideElement("xButton");
+}
+function init() {
+hideElement("xButton");
+generation();
 }
 
 var mainGameLoop = window.setInterval(function() {
