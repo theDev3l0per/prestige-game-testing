@@ -40,7 +40,25 @@ function generation() {
   showElement("portalButton");
 }
 
+function upgrades() {
+  hideElement("clickers");
+  hideElement("clickerButton");
+  hideElement("factories");
+  hideElement("factoryButton");
+  hideElement("portals");
+  hideElement("portalButton");
+}
+
 function options() {
+  hideElement("clickers");
+  hideElement("clickerButton");
+  hideElement("factories");
+  hideElement("factoryButton");
+  hideElement("portals");
+  hideElement("portalButton");
+}
+
+function achievements() {
   hideElement("clickers");
   hideElement("clickerButton");
   hideElement("factories");
