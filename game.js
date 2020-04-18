@@ -19,9 +19,19 @@ function hideElement(element) {
   document.getElementById(element).style.display = "none";
 }
 
+function convertNumber() {
+  if(x < 1 && y < 1){
+    document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+  } else if (x = 1 && y < 1){
+    document.getElementById("number").innerHTML = "Number = " + "x+" + Math.floor(points);
+  } else if (x > 1 && y < 1){
+    document.getElementById("number").innerHTML = "Number = " + x + "x+" + Math.floor(points);
+  } else if (x )
+}
+
 function pointButton() {
   points += 1;
-  document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+  convertNumber();
 }
 
 function generation() {
@@ -62,10 +72,13 @@ function achievements() {
   hideElement("portalButton");
   hideElement("xButton");
 }
+
 function init() {
-hideElement("xButton");
-generation();
+  hideElement("xButton");
+  generation();
 }
+
+init();
 
 var mainGameLoop = window.setInterval(function() {
   tickpart += 50
@@ -80,6 +93,12 @@ function loop() {
   points += factories/2;
   points += portals*50;
   document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+  if(points > 99999){
+    showElement("xButton");
+  }
+  if(x2<1){
+    
+  }
 }
 
 function buyClicker() {
