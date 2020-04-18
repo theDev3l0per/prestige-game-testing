@@ -15,3 +15,7 @@ h1 {
   border-color: white;
   color: gray;
 }
+
+.number {
+  font-size: 25px;
+}
