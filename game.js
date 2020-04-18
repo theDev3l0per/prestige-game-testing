@@ -11,9 +11,42 @@ var y = 0;
 var tickpart = 0;
 var tickspeed = 50;
 
+function showElement(element) {
+  document.getElementById(element).style.display = "inline";
+}
+
+function hideElement(element) {
+  document.getElementById(element).style.display = "none";
+}
+
+  showElement("clickers");
+  showElement("clickerButton");
+  showElement("factories");
+  showElement("factoryButton");
+  showElement("portals");
+  showElement("portalButton");
+
 function pointButton() {
   points += 1;
   document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+}
+
+function generation() {
+  showElement("clickers");
+  showElement("clickerButton");
+  showElement("factories");
+  showElement("factoryButton");
+  showElement("portals");
+  showElement("portalButton");
+}
+
+function options() {
+  hideElement("clickers");
+  hideElement("clickerButton");
+  hideElement("factories");
+  hideElement("factoryButton");
+  hideElement("portals");
+  hideElement("portalButton");
 }
 
 var mainGameLoop = window.setInterval(function() {

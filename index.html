@@ -10,16 +10,16 @@
     <script src="/game.js" defer></script>
   </head>
   <body>
-    <button id="generation" class="tab">
+    <button id="generation" onclick="generation()" class="tab">
       Generation
     </button>
-    <button id="upgrades" class="tab">
+    <button id="upgrades" onclick="upgrades()" class="tab">
       Upgrades
     </button>
-    <button id="options" class="tab">
+    <button id="options" onclick="options()" class="tab">
       Options
     </button>
-    <button id="achievements" class="tab">
+    <button id="achievements" onclick="achievements()" class="tab">
       Achievements
     </button>
     <br>
@@ -36,6 +36,7 @@
     <div id="clickers">
       Autoclickers: 0
     </div>
+    <br>
     <button id="clickerButton" onclick="buyClicker()" class="buildingButton">
       Buy for 25 points
     </button>
@@ -44,6 +45,7 @@
     <div id="factories">
       Point Factories: 0
     </div>
+    <br>
     <button id="factoryButton" onclick="buyFactory()" class="buildingButton">
       Buy for 200 points
     </button>
@@ -52,6 +54,7 @@
     <div id="portals">
       Point Portals: 0
     </div>
+    <br>
     <button id="portalButton" onclick="buyPortal()" class="buildingButton">
       Buy for 15000 points
     </button>
