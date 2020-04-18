@@ -51,18 +51,18 @@ function buyFactory() {
     cost2 = Math.round(cost2);
     document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
     document.getElementById("factories").innerHTML = "Point Factories: " + factories;
-    document.getElementById("cButton").innerHTML = "Buy for " + cost1 + " points"
+    document.getElementById("factoryButton").innerHTML = "Buy for " + cost2 + " points"
   }
 }
 
 function buyPortal() {
-  if(points >= cost1){
-    points -= cost1;
-    clickers += 1;
-    cost1 *= 1.1;
-    cost1 = Math.round(cost1);
+  if(points >= cost3){
+    points -= cost3;
+    portals += 1;
+    cost3 *= 1.1;
+    cost3 = Math.round(cost3);
     document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
-    document.getElementById("clickers").innerHTML = "Autoclickers: " + clickers;
-    document.getElementById("clickerButton").innerHTML = "Buy for " + cost1 + " points"
+    document.getElementById("portals").innerHTML = "Point Portals: " + portals;
+    document.getElementById("portalButton").innerHTML = "Buy for " + cost3 + " points"
   }
 }
