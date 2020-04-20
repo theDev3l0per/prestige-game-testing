@@ -29,3 +29,8 @@ h1 {
   background-color: #FF00FF;
   font-size: 18px;
 }
+
+.upgradeButton {
+  height: 200;
+  width: 250;
+}

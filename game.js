@@ -47,9 +47,11 @@ function generation() {
   showElement("factoryButton");
   showElement("portals");
   showElement("portalButton");
+  hideElement("upg1");
 }
 
 function upgrades() {
+  showElement("upg1");
   hideElement("clickers");
   hideElement("clickerButton");
   hideElement("factories");
@@ -67,6 +69,7 @@ function options() {
   hideElement("portals");
   hideElement("portalButton");
   hideElement("xButton");
+  hideElement("upg1");
 }
 
 function achievements() {
@@ -77,6 +80,7 @@ function achievements() {
   hideElement("portals");
   hideElement("portalButton");
   hideElement("xButton");
+  hideElement("upg1");
 }
 
 function init() {
