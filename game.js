@@ -48,10 +48,16 @@ function generation() {
   showElement("portals");
   showElement("portalButton");
   hideElement("upg1");
+  hideElement("upg2");
+  hideElement("upg3");
+  hideElement("upg4");
 }
 
 function upgrades() {
   showElement("upg1");
+  showElement("upg2");
+  showElement("upg3");
+  showElement("upg4");
   hideElement("clickers");
   hideElement("clickerButton");
   hideElement("factories");
@@ -70,6 +76,9 @@ function options() {
   hideElement("portalButton");
   hideElement("xButton");
   hideElement("upg1");
+  hideElement("upg2");
+  hideElement("upg3");
+  hideElement("upg4");
 }
 
 function achievements() {
@@ -81,6 +90,9 @@ function achievements() {
   hideElement("portalButton");
   hideElement("xButton");
   hideElement("upg1");
+  hideElement("upg2");
+  hideElement("upg3");
+  hideElement("upg4");
 }
 
 function init() {
