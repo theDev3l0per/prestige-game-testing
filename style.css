@@ -31,6 +31,7 @@ h1 {
 }
 
 .upgradeButton {
-  height: 200;
-  width: 250;
+  background-color: #00FF00;
+  height: 100px;
+  width: 150px;
 }
