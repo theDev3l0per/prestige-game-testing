@@ -12,6 +12,8 @@ var xCost = 100000;
 var yCost = 100;
 var tickpart = 0;
 var tickspeed = 50;
+var scaling = 1.1;
+var genMult = 1;
 
 function showElement(element) {
   document.getElementById(element).style.display = "inline";
@@ -123,9 +125,9 @@ var mainGameLoop = window.setInterval(function() {
 }, 50);
 
 function loop() {
-  points += clickers/20;
-  points += factories/2;
-  points += portals*50;
+  points += (clickers/20)*genMult;
+  points += (factories/2)*genMult;
+  points += (portals*50)*genMult;
   convertNumber();
   if(points > 99999){
     showElement("xButton");
@@ -137,7 +139,7 @@ function buyClicker() {
   if(points >= cost1){
     points -= cost1;
     clickers += 1;
-    cost1 *= 1.1;
+    cost1 *= scaling;
     cost1 = Math.round(cost1);
     convertNumber();
     document.getElementById("clickers").innerHTML = "Autoclickers: " + clickers;
@@ -149,7 +151,7 @@ function buyFactory() {
   if(points >= cost2){
     points -= cost2;
     factories += 1;
-    cost2 *= 1.1;
+    cost2 *= scaling;
     cost2 = Math.round(cost2);
     convertNumber();
     document.getElementById("factories").innerHTML = "Point Factories: " + factories;
@@ -161,10 +163,15 @@ function buyPortal() {
   if(points >= cost3){
     points -= cost3;
     portals += 1;
-    cost3 *= 1.1;
+    cost3 *= scaling;
     cost3 = Math.round(cost3);
     convertNumber();
     document.getElementById("portals").innerHTML = "Point Portals: " + portals;
     document.getElementById("portalButton").innerHTML = "Buy for " + cost3 + " points";
+  }
+}
+
+function buyUpg1() {
+  if(x >= 10){
   }
 }
