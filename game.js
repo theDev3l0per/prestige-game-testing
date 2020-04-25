@@ -14,6 +14,7 @@ var tickpart = 0;
 var tickspeed = 50;
 var scaling = 1.1;
 var genMult = 1;
+var thicc = 0;
 
 function showElement(element) {
   document.getElementById(element).style.display = "inline";
@@ -67,10 +68,18 @@ function generation() {
 }
 
 function upgrades() {
-  showElement("upg1");
-  showElement("upg2");
-  showElement("upg3");
-  showElement("upg4");
+  if(scaling = 1.1){
+    showElement("upg1"); 
+  }
+  if(genMult = 1){
+    showElement("upg2");
+  }
+  if(thicc <= 0){
+    showElement("upg3");
+  }
+  if(thicc <= 1){
+    showElement("upg4");
+  }
   hideElement("clickers");
   hideElement("clickerButton");
   hideElement("factories");
@@ -173,5 +182,7 @@ function buyPortal() {
 
 function buyUpg1() {
   if(x >= 10){
+    scaling = 1.06;
+    hideElement("upg1");
   }
 }
