@@ -61,6 +61,7 @@ function generation() {
   showElement("factoryButton");
   showElement("portals");
   showElement("portalButton");
+  showElement("xButton");
   hideElement("upg1");
   hideElement("upg2");
   hideElement("upg3");
@@ -139,7 +140,9 @@ function loop() {
   points += (portals*50)*genMult;
   convertNumber();
   if(points > 99999){
-    showElement("xButton");
+    if(document.getElementById("portals").style.display == "inline"){
+      showElement("xButton"); 
+    }
     showElement("upgrades");
   }
 }
@@ -183,6 +186,28 @@ function buyPortal() {
 function buyUpg1() {
   if(x >= 10){
     scaling = 1.06;
+    hideElement("upg1");
+  }
+}
+
+function buyUpg2() {
+  if(x >= 20){
+    genMult = 3;
+    hideElement("upg2");
+  }
+}
+
+function buyUpg3() {
+  if(x >= 30){
+    thicc = 1;
+    xCost *= 0.5;
+    hideElement("upg3");
+  }
+}
+
+function buyUpg4() {
+  if(x >= 50){
+    thicc = 2;
     hideElement("upg1");
   }
 }
