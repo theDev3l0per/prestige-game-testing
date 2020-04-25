@@ -140,9 +140,7 @@ function loop() {
   points += (portals*50)*genMult;
   convertNumber();
   if(points > 99999){
-    if(document.getElementById("portals").style.display == "inline"){
       showElement("xButton"); 
-    }
     showElement("upgrades");
   }
 }
