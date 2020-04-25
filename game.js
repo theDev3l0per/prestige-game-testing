@@ -40,6 +40,17 @@ function pointButton() {
   convertNumber();
 }
 
+function convertToX() {
+  if(points >= xCost){
+    points -= xCost;
+    x += 1;
+    xCost *= 1.1;
+    xCost = Math.round(xCost);
+    convertNumber();
+    document.getElementById("xButton").innerHTML = "Get an x for " + xCost + " points";
+  }
+}
+
 function generation() {
   showElement("clickers");
   showElement("clickerButton");
@@ -153,16 +164,5 @@ function buyPortal() {
     convertNumber();
     document.getElementById("portals").innerHTML = "Point Portals: " + portals;
     document.getElementById("portalButton").innerHTML = "Buy for " + cost3 + " points";
-  }
-}
-
-function convertToX() {
-  if(points >= xCost){
-    points -= xCost;
-    x += 1;
-    xCost *= 1.1;
-    xCost = Math.round(xCost);
-    convertNumber();
-    document.getElementById("xButton").innerHTML = "Get an x for " + xCost + " points";
   }
 }
