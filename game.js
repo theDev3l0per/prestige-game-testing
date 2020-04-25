@@ -108,6 +108,7 @@ function achievements() {
 
 function init() {
   hideElement("xButton");
+  hideElement("upgrades")
   generation();
 }
 
@@ -128,6 +129,7 @@ function loop() {
   convertNumber();
   if(points > 99999){
     showElement("xButton");
+    showElement("upgrades");
   }
 }
 
