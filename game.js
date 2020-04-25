@@ -22,15 +22,15 @@ function hideElement(element) {
 }
 
 function convertNumber() {
-  if(x < 1 && y < 1){
+  if(x < 1 && y < 1) {
     document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
-  } else if (x = 1 && y < 1){
+  } else if (x === 1 && y < 1) {
     document.getElementById("number").innerHTML = "Number = " + "x+" + Math.floor(points);
-  } else if (x > 1 && y < 1){
+  } else if (x > 1 && y < 1) {
     document.getElementById("number").innerHTML = "Number = " + x + "x+" + Math.floor(points);
-  } else if (y = 1){
+  } else if (y === 1) {
     document.getElementById("number").innerHTML = "Number = " + "y+" + x + "x+" + Math.floor(points);
-  } else if (y > 1){
+  } else if (y > 1) {
     document.getElementById("number").innerHTML = "Number = " + y + "y+" + x + "x+" + Math.floor(points);
   }
 }
