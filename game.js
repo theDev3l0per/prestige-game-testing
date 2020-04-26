@@ -15,6 +15,7 @@ var tickspeed = 50;
 var scaling = 1.1;
 var genMult = 1;
 var thicc = 0;
+var visible = 0;
 
 function showElement(element) {
   document.getElementById(element).style.display = "inline";
@@ -61,7 +62,11 @@ function generation() {
   showElement("factoryButton");
   showElement("portals");
   showElement("portalButton");
-  showElement("xButton");
+  if(visible === 1 && points > 99999){
+    showElement("xButton"); 
+  }else{
+    hideElement("xButton");
+  }
   hideElement("upg1");
   hideElement("upg2");
   hideElement("upg3");
@@ -69,10 +74,10 @@ function generation() {
 }
 
 function upgrades() {
-  if(scaling = 1.1){
+  if(scaling === 1.1){
     showElement("upg1"); 
   }
-  if(genMult = 1){
+  if(genMult === 1){
     showElement("upg2");
   }
   if(thicc <= 0){
@@ -87,7 +92,7 @@ function upgrades() {
   hideElement("factoryButton");
   hideElement("portals");
   hideElement("portalButton");
-  hideElement("xButton");
+  visible = 0;
 }
 
 function options() {
@@ -102,6 +107,7 @@ function options() {
   hideElement("upg2");
   hideElement("upg3");
   hideElement("upg4");
+  visible = 0;
 }
 
 function achievements() {
@@ -116,6 +122,7 @@ function achievements() {
   hideElement("upg2");
   hideElement("upg3");
   hideElement("upg4");
+  visible = 0;
 }
 
 function init() {
@@ -140,9 +147,12 @@ function loop() {
   points += (portals*50)*genMult;
   convertNumber();
   if(points > 99999){
-      showElement("xButton"); 
-    showElement("upgrades");
+    visible = 1;
   }
+  if(visible === 1 && points > 99999){
+    showElement("xButton"); 
+    showElement("upgrades");
+  } 
 }
 
 function buyClicker() {
@@ -206,6 +216,6 @@ function buyUpg3() {
 function buyUpg4() {
   if(x >= 50){
     thicc = 2;
-    hideElement("upg1");
+    hideElement("upg4");
   }
 }
