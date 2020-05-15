@@ -17,6 +17,7 @@ var genMult = 1;
 var thicc = 0;
 var visible = 0;
 var multCost = 50;
+var resetPoints = 0;
 
 function showElement(element) {
   document.getElementById(element).style.display = "inline";
@@ -158,7 +159,8 @@ function achievements() {
 
 function init() {
   hideElement("xButton");
-  hideElement("upgrades")
+  hideElement("upgrades");
+  hideElement("resetButton");
   generation();
 }
 
@@ -184,9 +186,13 @@ function loop() {
     showElement("xButton"); 
     showElement("upgrades");
   }
-  if(x > 99){
+  if(x >= 100){
     showElement("yButton"); 
   }
+  if(y >= 1){
+    showElement("resetButton");
+  }
+  document.getElementById("resetButton").innerHTML = "Reset for " + Math.floor(y+(x/100)) + " reset points";
 }
 
 function buyClicker() {
@@ -263,4 +269,26 @@ function buyMult() {
     document.getElementById("multText").innerHTML = "Current generator multiplier: " + genMult + "x";
     document.getElementById("multButton").innerHTML = "Upgrade mutliplier for " + multCost + "x";
   }
+}
+
+function reset() {
+  resetPoints += Math.floor(y+(x/100));
+  points = 0;
+  clickers = 0;
+  factories = 0;
+  portals = 0;
+  cost1 = 25;
+  cost2 = 200;
+  cost3 = 15000;
+  x = 0;
+  y = 0;
+  xCost = 100000;
+  yCost = 100;
+  tickpart = 0;
+  tickspeed = 50;
+  scaling = 1.1;
+  genMult = 1;
+  thicc = 0;
+  visible = 0;
+  multCost = 50;
 }
