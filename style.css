@@ -40,3 +40,14 @@ h1 {
   background-color: #00FF00;
   font-size: 18px;
 }
+
+.mult {
+  color: orange;
+}
+
+.multButton {
+  background-color: orange;
+  border-color: #000000;
+  border-width: 3px;
+  color: white; 
+}

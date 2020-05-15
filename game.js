@@ -87,6 +87,13 @@ function generation() {
   hideElement("upg2");
   hideElement("upg3");
   hideElement("upg4");
+  if(thicc > 1){
+    showElement("multButton");
+    showElement("multText");
+  }else{
+    hideElement("multButton");
+    hideElement("multText");
+  }
 }
 
 function upgrades() {
