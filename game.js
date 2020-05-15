@@ -161,6 +161,7 @@ function init() {
   hideElement("xButton");
   hideElement("upgrades");
   hideElement("resetButton");
+  hideElement("resetPoints");
   generation();
 }
 
@@ -272,6 +273,7 @@ function buyMult() {
 }
 
 function reset() {
+  showElement("resetPoints");
   resetPoints += Math.floor(y+(x/100));
   points = 0;
   clickers = 0;
