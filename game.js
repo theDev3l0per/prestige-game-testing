@@ -94,6 +94,7 @@ function generation() {
   }else{
     hideElement("multButton");
     hideElement("multText");
+    hideElement("objectives");
   }
 }
 
@@ -140,6 +141,7 @@ function options() {
 }
 
 function achievements() {
+  showElement("objectives");
   hideElement("clickers");
   hideElement("clickerButton");
   hideElement("factories");
