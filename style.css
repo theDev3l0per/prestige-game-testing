@@ -35,3 +35,8 @@ h1 {
   height: 100px;
   width: 150px;
 }
+
+.yButton {
+  background-color: #00FF00;
+  font-size: 18px;
+}

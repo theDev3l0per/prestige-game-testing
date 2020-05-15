@@ -55,6 +55,17 @@ function convertToX() {
   }
 }
 
+function convertToY () {
+  if(points >= yCost){
+    points -= yCost;
+    y += 1;
+    yCost *= 1.15;
+    yCost = Math.round(yCost);
+    convertNumber();
+    document.getElementById("yButton").innerHTML = "Get a y for " + yCost + "x";
+  }
+}
+
 function generation() {
   showElement("clickers");
   showElement("clickerButton");
@@ -66,6 +77,11 @@ function generation() {
     showElement("xButton"); 
   }else{
     hideElement("xButton");
+  }
+  if(x > 99){
+    showElement("yButton"); 
+  }else{
+    hideElement("yButton");
   }
   hideElement("upg1");
   hideElement("upg2");
@@ -139,12 +155,12 @@ var mainGameLoop = window.setInterval(function() {
     tickpart -= tickspeed
     loop();
   }
-}, 50);
+}, 33);
 
 function loop() {
-  points += (clickers/20)*genMult;
-  points += (factories/2)*genMult;
-  points += (portals*50)*genMult;
+  points += (clickers/33)*genMult;
+  points += (factories/3.3)*genMult;
+  points += (portals*303.03)*genMult;
   convertNumber();
   if(points > 99999){
     visible = 1;
@@ -152,7 +168,10 @@ function loop() {
   if(visible === 1 && points > 99999){
     showElement("xButton"); 
     showElement("upgrades");
-  } 
+  }
+  if(x > 99){
+    showElement("yButton"); 
+  }
 }
 
 function buyClicker() {
