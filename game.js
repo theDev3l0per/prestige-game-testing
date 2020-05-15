@@ -16,6 +16,7 @@ var scaling = 1.1;
 var genMult = 1;
 var thicc = 0;
 var visible = 0;
+var multCost = 50;
 
 function showElement(element) {
   document.getElementById(element).style.display = "inline";
@@ -56,8 +57,7 @@ function convertToX() {
 }
 
 function convertToY () {
-  if(points >= yCost){
-    points -= yCost;
+  if(x >= yCost){
     y += 1;
     yCost *= 1.15;
     yCost = Math.round(yCost);
@@ -115,6 +115,8 @@ function upgrades() {
   hideElement("factoryButton");
   hideElement("portals");
   hideElement("portalButton");
+  hideElement("multButton");
+  hideElement("multText");
   visible = 0;
 }
 
@@ -130,6 +132,9 @@ function options() {
   hideElement("upg2");
   hideElement("upg3");
   hideElement("upg4");
+  hideElement("yButton");
+  hideElement("multButton");
+  hideElement("multText");
   visible = 0;
 }
 
@@ -145,6 +150,9 @@ function achievements() {
   hideElement("upg2");
   hideElement("upg3");
   hideElement("upg4");
+  hideElement("yButton");
+  hideElement("multButton");
+  hideElement("multText");
   visible = 0;
 }
 
@@ -243,5 +251,15 @@ function buyUpg4() {
   if(x >= 50){
     thicc = 2;
     hideElement("upg4");
+  }
+}
+
+function buyMult() {
+  if(x >= multCost){
+    multCost += 5;
+    genMult *= 1.6;
+    genMult = Math.floor(genMult);
+    document.getElementById("multText").innerHTML = "Current generator multiplier: " + genMult + "x";
+    document.getElementById("multButton").innerHTML = "Upgrade mutliplier for " + multCost + "x";
   }
 }
