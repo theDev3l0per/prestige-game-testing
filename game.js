@@ -258,7 +258,7 @@ function buyMult() {
   if(x >= multCost){
     multCost += 5;
     genMult *= 1.6;
-    genMult = Math.floor(genMult);
+    genMult = Math.round(genMult);
     document.getElementById("multText").innerHTML = "Current generator multiplier: " + genMult + "x";
     document.getElementById("multButton").innerHTML = "Upgrade mutliplier for " + multCost + "x";
   }
