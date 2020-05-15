@@ -94,7 +94,6 @@ function generation() {
   }else{
     hideElement("multButton");
     hideElement("multText");
-    hideElement("objectives");
   }
 }
 
@@ -119,6 +118,7 @@ function upgrades() {
   hideElement("portalButton");
   hideElement("multButton");
   hideElement("multText");
+  hideElement("objectives");
   visible = 0;
 }
 
@@ -137,6 +137,7 @@ function options() {
   hideElement("yButton");
   hideElement("multButton");
   hideElement("multText");
+  hideElement("objectives");
   visible = 0;
 }
 
@@ -159,11 +160,30 @@ function achievements() {
   visible = 0;
 }
 
+function resetting() {
+  hideElement("clickers");
+  hideElement("clickerButton");
+  hideElement("factories");
+  hideElement("factoryButton");
+  hideElement("portals");
+  hideElement("portalButton");
+  hideElement("xButton");
+  hideElement("upg1");
+  hideElement("upg2");
+  hideElement("upg3");
+  hideElement("upg4");
+  hideElement("yButton");
+  hideElement("multButton");
+  hideElement("multText");
+  hideElement("objectives");
+}
+
 function init() {
   hideElement("xButton");
   hideElement("upgrades");
   hideElement("resetButton");
   hideElement("resetPoints");
+  hideElement("br");
   generation();
 }
 
@@ -276,7 +296,9 @@ function buyMult() {
 
 function reset() {
   showElement("resetPoints");
+  showElement("br");
   resetPoints += Math.floor(y+(x/100));
+  document.getElementById("resetPoints").innerHTML = "Reset Points: " + resetPoints;
   points = 0;
   clickers = 0;
   factories = 0;

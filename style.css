@@ -61,3 +61,10 @@ h1 {
 .resetPoints {
   color: #FF00FF;
 }
+
+.resetTab {
+  background-color: purple;
+  border-color: #FF00FF;
+  color: #FF00FF; 
+  font-size: 18px;
+}
