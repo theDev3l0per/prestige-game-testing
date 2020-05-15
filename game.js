@@ -184,6 +184,7 @@ function init() {
   hideElement("resetButton");
   hideElement("resetPoints");
   hideElement("br");
+  hideElement("resetting");
   generation();
 }
 
@@ -297,6 +298,7 @@ function buyMult() {
 function reset() {
   showElement("resetPoints");
   showElement("br");
+  showElement("resetting");
   resetPoints += Math.floor(y+(x/100));
   document.getElementById("resetPoints").innerHTML = "Reset Points: " + resetPoints;
   points = 0;
