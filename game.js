@@ -244,6 +244,7 @@ function buyUpg3() {
     thicc = 1;
     xCost *= 0.5;
     hideElement("upg3");
+    document.getElementById("xButton").innerHTML = "Get an x for " + xCost + " points";
   }
 }
 
