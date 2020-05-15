@@ -160,7 +160,7 @@ var mainGameLoop = window.setInterval(function() {
 function loop() {
   points += (clickers/33)*genMult;
   points += (factories/3.3)*genMult;
-  points += (portals*303.03)*genMult;
+  points += (portals*30.303)*genMult;
   convertNumber();
   if(points > 99999){
     visible = 1;
