@@ -185,6 +185,7 @@ function init() {
   hideElement("resetPoints");
   hideElement("br");
   hideElement("resetting");
+  hideElement("objectives")
   generation();
 }
 
