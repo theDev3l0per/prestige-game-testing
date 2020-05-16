@@ -191,6 +191,26 @@ function init() {
 
 init();
 
+var objectives = [
+  "1. Get your first Autoclicker",
+  "2. Get your first Point Factory",
+  "3. Get your first Point Portal",
+  "4. Get an x",
+  "5. Buy an upgrade",
+  "6. Unlock the generator multiplier",
+  "7. Reach 100,000,000 points",
+  "8. Get a y",
+  "9. Reset"
+];
+
+var message = 0;
+
+function spacing() {
+  while(message < 9){
+    
+  }
+}
+
 var mainGameLoop = window.setInterval(function() {
   tickpart += 50
   if (tickpart>=tickspeed) {
@@ -204,6 +224,7 @@ function loop() {
   points += (factories/3.3)*genMult;
   points += (portals*30.303)*genMult;
   convertNumber();
+  spacing();
   if(points > 99999){
     visible = 1;
   }
