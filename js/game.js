@@ -95,12 +95,13 @@ function generation() {
   }else{
     hideElement("multButton");
     hideElement("multText");
+    hideElement("objectives");
   }
 }
 
 function upgrades() {
   if(scaling === 1.1){
-    showElement("upg1"); 
+    showElement("upg1");
   }
   if(genMult === 1){
     showElement("upg2");
@@ -241,16 +242,42 @@ function loop() {
   if(y >= 1){
     showElement("resetButton");
   }
-  if(clickers = 1){
+  if(clickers === 1){
     message[0] = "1. Get your first Autoclicker (Completed)";
+    spacing();
   }
-  if(factories = 1){
+  if(factories === 1){
     message[1] = "2. Get your first Point Factory (Completed)";
+    spacing();
   }
-  if(portals = 1){
+  if(portals === 1){
     message[2] = "3. Get your first Point Portal (Completed)";
+    spacing();
   }
-  
+  if(x === 1){
+    message[3] = "4. Get an x (Completed)";
+    spacing();
+  }
+  if(scaling === 1.06){
+    message[4] = "5. Buy an upgrade (Completed)";
+    spacing();
+  }
+  if(thicc === 2){
+    message[5] = "6. Unlock the generator multiplier (Completed)";
+    spacing();
+  }
+  if(points > 99999999){
+    message[6] = "7. Reach 100,000,000 points (Completed)";
+    spacing();
+  }
+  if(y === 1){
+    message[7] = "8. Get a y (Completed)";
+    spacing();
+  }
+  if(resetPoints > 0){
+    message[8] = "9. Reset (Completed)";
+    spacing();
+  }
 }
 
 function buyClicker() {
