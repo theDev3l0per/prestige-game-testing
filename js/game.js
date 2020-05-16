@@ -18,6 +18,7 @@ var thicc = 0;
 var visible = 0;
 var multCost = 50;
 var resetPoints = 0;
+var message = 0;
 
 function showElement(element) {
   document.getElementById(element).style.display = "inline";
@@ -203,13 +204,15 @@ var objectives = [
   "9. Reset"
 ];
 
-var message = 0;
-
 function spacing() {
-  while(message < 9){
-    
+  document.getElementById("objectives").innerHTML = "";
+  while(message < objectives.length){
+    document.getElementById("objectives").innerHTML = document.getElementById("objectives").innerHTML + objectives[message] + "<br>";
+    message += 1;
   }
 }
+
+spacing();
 
 var mainGameLoop = window.setInterval(function() {
   tickpart += 50
@@ -224,7 +227,7 @@ function loop() {
   points += (factories/3.3)*genMult;
   points += (portals*30.303)*genMult;
   convertNumber();
-  spacing();
+  document.getElementById("resetButton").innerHTML = "Reset for " + Math.floor(y+(x/100)) + " reset points";
   if(points > 99999){
     visible = 1;
   }
@@ -238,7 +241,16 @@ function loop() {
   if(y >= 1){
     showElement("resetButton");
   }
-  document.getElementById("resetButton").innerHTML = "Reset for " + Math.floor(y+(x/100)) + " reset points";
+  if(clickers = 1){
+    message[0] = "1. Get your first Autoclicker (Completed)";
+  }
+  if(factories = 1){
+    message[1] = "2. Get your first Point Factory (Completed)";
+  }
+  if(portals = 1){
+    message[2] = "3. Get your first Point Portal (Completed)";
+  }
+  
 }
 
 function buyClicker() {
