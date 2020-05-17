@@ -68,23 +68,6 @@ function convertToY () {
   }
 }
 
-hideElement("reupg11");
-hideElement("reupg12");
-hideElement("reupg13");
-hideElement("reupg14");
-hideElement("reupg21");
-hideElement("reupg22");
-hideElement("reupg23");
-hideElement("reupg24");
-hideElement("reupg31");
-hideElement("reupg32");
-hideElement("reupg33");
-hideElement("reupg34");
-hideElement("reupg41");
-hideElement("reupg42");
-hideElement("reupg43");
-hideElement("reupg44");
-
 function generation() {
   showElement("clickers");
   showElement("clickerButton");
