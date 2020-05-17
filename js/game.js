@@ -68,6 +68,23 @@ function convertToY () {
   }
 }
 
+hideElement("reupg11");
+hideElement("reupg12");
+hideElement("reupg13");
+hideElement("reupg14");
+hideElement("reupg21");
+hideElement("reupg22");
+hideElement("reupg23");
+hideElement("reupg24");
+hideElement("reupg31");
+hideElement("reupg32");
+hideElement("reupg33");
+hideElement("reupg34");
+hideElement("reupg41");
+hideElement("reupg42");
+hideElement("reupg43");
+hideElement("reupg44");
+
 function generation() {
   showElement("clickers");
   showElement("clickerButton");
@@ -95,8 +112,24 @@ function generation() {
   }else{
     hideElement("multButton");
     hideElement("multText");
-    hideElement("objectives");
+    hideElement("objectives");  
   }
+  hideElement("reupg11");
+  hideElement("reupg12");
+  hideElement("reupg13");
+  hideElement("reupg14");
+  hideElement("reupg21");
+  hideElement("reupg22");
+  hideElement("reupg23");
+  hideElement("reupg24");
+  hideElement("reupg31");
+  hideElement("reupg32");
+  hideElement("reupg33");
+  hideElement("reupg34");
+  hideElement("reupg41");
+  hideElement("reupg42");
+  hideElement("reupg43");
+  hideElement("reupg44");
 }
 
 function upgrades() {
@@ -121,6 +154,22 @@ function upgrades() {
   hideElement("multButton");
   hideElement("multText");
   hideElement("objectives");
+  hideElement("reupg11");
+  hideElement("reupg12");
+  hideElement("reupg13");
+  hideElement("reupg14");
+  hideElement("reupg21");
+  hideElement("reupg22");
+  hideElement("reupg23");
+  hideElement("reupg24");
+  hideElement("reupg31");
+  hideElement("reupg32");
+  hideElement("reupg33");
+  hideElement("reupg34");
+  hideElement("reupg41");
+  hideElement("reupg42");
+  hideElement("reupg43");
+  hideElement("reupg44");
   visible = 0;
 }
 
@@ -140,6 +189,22 @@ function options() {
   hideElement("multButton");
   hideElement("multText");
   hideElement("objectives");
+  hideElement("reupg11");
+  hideElement("reupg12");
+  hideElement("reupg13");
+  hideElement("reupg14");
+  hideElement("reupg21");
+  hideElement("reupg22");
+  hideElement("reupg23");
+  hideElement("reupg24");
+  hideElement("reupg31");
+  hideElement("reupg32");
+  hideElement("reupg33");
+  hideElement("reupg34");
+  hideElement("reupg41");
+  hideElement("reupg42");
+  hideElement("reupg43");
+  hideElement("reupg44");
   visible = 0;
 }
 
@@ -159,10 +224,42 @@ function achievements() {
   hideElement("yButton");
   hideElement("multButton");
   hideElement("multText");
+  hideElement("reupg11");
+  hideElement("reupg12");
+  hideElement("reupg13");
+  hideElement("reupg14");
+  hideElement("reupg21");
+  hideElement("reupg22");
+  hideElement("reupg23");
+  hideElement("reupg24");
+  hideElement("reupg31");
+  hideElement("reupg32");
+  hideElement("reupg33");
+  hideElement("reupg34");
+  hideElement("reupg41");
+  hideElement("reupg42");
+  hideElement("reupg43");
+  hideElement("reupg44");
   visible = 0;
 }
 
 function resetting() {
+  showElement("reupg11");
+  showElement("reupg12");
+  showElement("reupg13");
+  showElement("reupg14");
+  showElement("reupg21");
+  showElement("reupg22");
+  showElement("reupg23");
+  showElement("reupg24");
+  showElement("reupg31");
+  showElement("reupg32");
+  showElement("reupg33");
+  showElement("reupg34");
+  showElement("reupg41");
+  showElement("reupg42");
+  showElement("reupg43");
+  showElement("reupg44");
   hideElement("clickers");
   hideElement("clickerButton");
   hideElement("factories");

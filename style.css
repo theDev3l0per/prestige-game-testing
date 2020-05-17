@@ -68,3 +68,11 @@ h1 {
   color: #FF00FF; 
   font-size: 18px;
 }
+
+.reupg {
+  background-color: purple;
+  border-color: #FF00FF;
+  color: #FF00FF;
+  height: 100px;
+  width: 150px;
+}
