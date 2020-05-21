@@ -52,7 +52,7 @@ h1 {
   color: white; 
 }
 
-#resetButton {
+.resetButton {
   background-color: purple;
   border-color: #FF00FF;
   color: #FF00FF; 
@@ -75,4 +75,33 @@ h1 {
   color: #FF00FF;
   height: 100px;
   width: 150px;
+}
+#generation:hover {
+  background-color: gray;
+  border-color: lightgray;
+  color: white
+}
+#upgrades:hover {
+  background-color: gray;
+  border-color: lightgray;
+  color: white
+}
+#options:hover {
+  background-color: gray;
+  border-color: lightgray;
+  color: white
+}
+#achievements:hover {
+  background-color: gray;
+  border-color: lightgray;
+  color: white
+}
+#resetting:hover {
+  background-color: #FF00FF;
+  border-color: purple;
+  color: purple; 
+  font-size: 18px;
+}
+button {
+  border-radius: 7px /*made rounded borders also this is how you comment in css*/
 }

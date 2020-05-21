@@ -100,22 +100,7 @@ function generation() {
     hideElement("multText");
     hideElement("objectives");  
   }
-  hideElement("reupg11");
-  hideElement("reupg12");
-  hideElement("reupg13");
-  hideElement("reupg14");
-  hideElement("reupg21");
-  hideElement("reupg22");
-  hideElement("reupg23");
-  hideElement("reupg24");
-  hideElement("reupg31");
-  hideElement("reupg32");
-  hideElement("reupg33");
-  hideElement("reupg34");
-  hideElement("reupg41");
-  hideElement("reupg42");
-  hideElement("reupg43");
-  hideElement("reupg44");
+  Array.from(c("reupg")).forEach(element => element.style.display = "none");
 }
 
 function upgrades() {
@@ -131,47 +116,22 @@ function upgrades() {
   if(thicc <= 1){
     showElement("upg4");
   }
-  hideElement("clickers");
-  hideElement("clickerButton");
-  hideElement("factories");
-  hideElement("factoryButton");
-  hideElement("portals");
-  hideElement("portalButton");
+  
+  Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
+  Array.from(c("building")).forEach(element => element.style.display = "none");
   hideElement("multButton");
   hideElement("multText");
   hideElement("objectives");
-  hideElement("reupg11");
-  hideElement("reupg12");
-  hideElement("reupg13");
-  hideElement("reupg14");
-  hideElement("reupg21");
-  hideElement("reupg22");
-  hideElement("reupg23");
-  hideElement("reupg24");
-  hideElement("reupg31");
-  hideElement("reupg32");
-  hideElement("reupg33");
-  hideElement("reupg34");
-  hideElement("reupg41");
-  hideElement("reupg42");
-  hideElement("reupg43");
-  hideElement("reupg44");
+  Array.from(c("reupg")).forEach(element => element.style.display = "none"); // el
   visible = 0;
 }
 
 function options() {
-  hideElement("clickers");
-  hideElement("clickerButton");
-  hideElement("factories");
-  hideElement("factoryButton");
-  hideElement("portals");
-  hideElement("portalButton");
+  Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
+  Array.from(c("building")).forEach(element => element.style.display = "none");
   hideElement("xButton");
-  hideElement("upg1");
-  hideElement("upg2");
-  hideElement("upg3");
-  hideElement("upg4");
-  Array.from(c("reupg")).forEach(element => element.style.display = "none") // this saves tons of space repeat that for other tabs
+  Array.from(c("upgradeButton")).forEach(element => element.style.display = "none");
+  Array.from(c("reupg")).forEach(element => element.style.display = "none"); // this saves tons of space repeat that for other tabs
   hideElement("yButton");
   hideElement("multButton");
   hideElement("multText");
@@ -181,37 +141,22 @@ function options() {
 //what is "reupg"? i think yahtzee added those classes, for all reupgx elements it has that class
 function achievements() {
   showElement("objectives");
-  hideElement("clickers");
-  hideElement("clickerButton");
-  hideElement("factories");
-  hideElement("factoryButton");
-  hideElement("portals");
-  hideElement("portalButton");
+  Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
+  Array.from(c("building")).forEach(element => element.style.display = "none");
   hideElement("xButton");
-  hideElement("upg1");
-  hideElement("upg2");
-  hideElement("upg3");
-  hideElement("upg4");
+  Array.from(c("upgradeButton")).forEach(element => element.style.display = "none");
   hideElement("yButton");
   hideElement("multButton");
   hideElement("multText");
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
   visible = 0;
 }
-
 function resetting() {
   Array.from(c("reupg")).forEach(element => element.style.display = "inline");
-  hideElement("clickers");
-  hideElement("clickerButton");
-  hideElement("factories");
-  hideElement("factoryButton");
-  hideElement("portals");
-  hideElement("portalButton");
-  hideElement("xButton");
-  hideElement("upg1");
-  hideElement("upg2");
-  hideElement("upg3");
-  hideElement("upg4");
+  Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
+  Array.from(c("building")).forEach(element => element.style.display = "none");
+  hideElement("xButton"); // wetime to make button hover animation things what did you do tuba
+  Array.from(c("upgradeButton")).forEach(element => element.style.display = "none");
   hideElement("yButton");
   hideElement("multButton");
   hideElement("multText");
