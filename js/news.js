@@ -3,9 +3,10 @@ var newsArray = [
   "placeholder 2",
   "placeholder 3",
   "Wait 5 hours for the update",
-  "'OMG it's just a cookie clicker clone' -literally everyone"
+  "'OMG it's just a cookie clicker clone' -literally everyone",
+  "At 69420 anti-points you unlock something really cool!",
+  "@Pinglol#1337"
 ];
-// u forgot to link file to index.html the news changes midway lol
 function showNews() {
   let message = Math.floor(Math.random() * newsArray.length);
 
@@ -14,13 +15,12 @@ function showNews() {
   }else{
       $("newsTicker").innerHTML = newsArray[message];
   }
-}
-
+}// done
 function changeNews() {
   showNews();
-}
+}// just use onfinish
+ 
 
-setInterval(showNews, 10000);
-while(true) {
-  console.log($())
-}
+
+
+// theres an onfinish attribute but it dont work aw wait wat if i use onbounce
