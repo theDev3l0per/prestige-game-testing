@@ -4,7 +4,7 @@ var clickers = 0;
 var factories = 0;
 var portals = 0;
 var cost1 = 25;
-var cost2 = 200;
+var cost2 = 200; //...
 var cost3 = 15000;
 var x = 0;
 var y = 0;
@@ -19,22 +19,24 @@ var visible = 0;
 var multCost = 50;
 var resetPoints = 0;
 var message = 0;
+$ = id => document.getElementById(id)
 
+//ooh arrow function ^
 function showElement(element) {
-  document.getElementById(element).style.display = "inline";
+  $(element).style.display = "inline";
 }
 
 function hideElement(element) {
-  document.getElementById(element).style.display = "none";
+  $(element).style.display = "none";
 }
 
 function convertNumber() {
   if(x < 1 && y < 1) {
-    document.getElementById("number").innerHTML = "Number = " + Math.floor(points);
+    $("number").innerHTML = "Number = " + Math.floor(points);
   } else if (x === 1 && y < 1) {
-    document.getElementById("number").innerHTML = "Number = " + "x+" + Math.floor(points);
+    $("number").innerHTML = "Number = " + "x+" + Math.floor(points);
   } else if (x > 1 && y < 1) {
-    document.getElementById("number").innerHTML = "Number = " + x + "x+" + Math.floor(points);
+    ("number").innerHTML = "Number = " + x + "x+" + Math.floor(points);
   } else if (y === 1) {
     document.getElementById("number").innerHTML = "Number = " + "y+" + x + "x+" + Math.floor(points);
   } else if (y > 1) {
