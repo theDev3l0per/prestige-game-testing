@@ -20,4 +20,4 @@ function changeNews() {
   showNews();
 }
 
-//pinglol
+//pinglol uhhhh
