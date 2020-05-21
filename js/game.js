@@ -19,7 +19,8 @@ var visible = 0;
 var multCost = 50;
 var resetPoints = 0;
 var message = 0;
-$ = id => document.getElementById(id)
+const $ = id => document.getElementById(id)
+const c = id => document.getElementsByClassName(id)
 
 //ooh arrow function ^
 function showElement(element) {
@@ -36,11 +37,11 @@ function convertNumber() {
   } else if (x === 1 && y < 1) {
     $("number").innerHTML = "Number = " + "x+" + Math.floor(points);
   } else if (x > 1 && y < 1) {
-    ("number").innerHTML = "Number = " + x + "x+" + Math.floor(points);
+    $("number").innerHTML = "Number = " + x + "x+" + Math.floor(points);
   } else if (y === 1) {
-    document.getElementById("number").innerHTML = "Number = " + "y+" + x + "x+" + Math.floor(points);
+    $("number").innerHTML = "Number = " + "y+" + x + "x+" + Math.floor(points);
   } else if (y > 1) {
-    document.getElementById("number").innerHTML = "Number = " + y + "y+" + x + "x+" + Math.floor(points);
+    $("number").innerHTML = "Number = " + y + "y+" + x + "x+" + Math.floor(points);
   }
 }
 
@@ -56,7 +57,7 @@ function convertToX() {
     xCost *= 1.1;
     xCost = Math.round(xCost);
     convertNumber();
-    document.getElementById("xButton").innerHTML = "Get an x for " + xCost + " points";
+    $("xButton").innerHTML = "Get an x for " + xCost + " points";
   }
 }
 
@@ -66,7 +67,7 @@ function convertToY () {
     yCost *= 1.15;
     yCost = Math.round(yCost);
     convertNumber();
-    document.getElementById("yButton").innerHTML = "Get a y for " + yCost + "x";
+  $("yButton").innerHTML = "Get a y for " + yCost + "x";
   }
 }
 
@@ -170,29 +171,14 @@ function options() {
   hideElement("upg2");
   hideElement("upg3");
   hideElement("upg4");
+  Array.from(c("reupg")).forEach(element => element.style.display = "none") // this saves tons of space repeat that for other tabs
   hideElement("yButton");
   hideElement("multButton");
   hideElement("multText");
   hideElement("objectives");
-  hideElement("reupg11");
-  hideElement("reupg12");
-  hideElement("reupg13");
-  hideElement("reupg14");
-  hideElement("reupg21");
-  hideElement("reupg22");
-  hideElement("reupg23");
-  hideElement("reupg24");
-  hideElement("reupg31");
-  hideElement("reupg32");
-  hideElement("reupg33");
-  hideElement("reupg34");
-  hideElement("reupg41");
-  hideElement("reupg42");
-  hideElement("reupg43");
-  hideElement("reupg44");
-  visible = 0;
+  visible = 0;// it does foreach and c gets all elements with a certain class
 }
-
+//what is "reupg"? i think yahtzee added those classes, for all reupgx elements it has that class
 function achievements() {
   showElement("objectives");
   hideElement("clickers");
@@ -209,42 +195,12 @@ function achievements() {
   hideElement("yButton");
   hideElement("multButton");
   hideElement("multText");
-  hideElement("reupg11");
-  hideElement("reupg12");
-  hideElement("reupg13");
-  hideElement("reupg14");
-  hideElement("reupg21");
-  hideElement("reupg22");
-  hideElement("reupg23");
-  hideElement("reupg24");
-  hideElement("reupg31");
-  hideElement("reupg32");
-  hideElement("reupg33");
-  hideElement("reupg34");
-  hideElement("reupg41");
-  hideElement("reupg42");
-  hideElement("reupg43");
-  hideElement("reupg44");
+  Array.from(c("reupg")).forEach(element => element.style.display = "none");
   visible = 0;
 }
 
 function resetting() {
-  showElement("reupg11");
-  showElement("reupg12");
-  showElement("reupg13");
-  showElement("reupg14");
-  showElement("reupg21");
-  showElement("reupg22");
-  showElement("reupg23");
-  showElement("reupg24");
-  showElement("reupg31");
-  showElement("reupg32");
-  showElement("reupg33");
-  showElement("reupg34");
-  showElement("reupg41");
-  showElement("reupg42");
-  showElement("reupg43");
-  showElement("reupg44");
+  Array.from(c("reupg")).forEach(element => element.style.display = "inline");
   hideElement("clickers");
   hideElement("clickerButton");
   hideElement("factories");
@@ -288,12 +244,14 @@ var objectives = [
 ];
 
 function spacing() {
-  document.getElementById("objectives").innerHTML = "";
+  $("objectives").innerHTML = "";
   while(message < objectives.length){
-    document.getElementById("objectives").innerHTML = document.getElementById("objectives").innerHTML + objectives[message] + "<br>";
+    $("objectives").innerHTML = $("objectives").innerHTML + objectives[message] + "<br>";
     message += 1;
   }
 }
+
+//buggy ^
 
 spacing();
 
@@ -301,7 +259,7 @@ var mainGameLoop = window.setInterval(function() {
   tickpart += 50
   if (tickpart>=tickspeed) {
     tickpart -= tickspeed
-    loop();
+    loop(); // time to change the loop function to switches 
   }
 }, 33);
 
@@ -369,8 +327,8 @@ function buyClicker() {
     cost1 *= scaling;
     cost1 = Math.round(cost1);
     convertNumber();
-    document.getElementById("clickers").innerHTML = "Autoclickers: " + clickers;
-    document.getElementById("clickerButton").innerHTML = "Buy for " + cost1 + " points";
+    $("clickers").innerHTML = "Autoclickers: " + clickers;
+    $("clickerButton").innerHTML = "Buy for " + cost1 + " points";
   }
 }
 
@@ -381,8 +339,8 @@ function buyFactory() {
     cost2 *= scaling;
     cost2 = Math.round(cost2);
     convertNumber();
-    document.getElementById("factories").innerHTML = "Point Factories: " + factories;
-    document.getElementById("factoryButton").innerHTML = "Buy for " + cost2 + " points";
+    $("factories").innerHTML = "Point Factories: " + factories;
+    $("factoryButton").innerHTML = "Buy for " + cost2 + " points";
   }
 }
 
@@ -393,8 +351,8 @@ function buyPortal() {
     cost3 *= scaling;
     cost3 = Math.round(cost3);
     convertNumber();
-    document.getElementById("portals").innerHTML = "Point Portals: " + portals;
-    document.getElementById("portalButton").innerHTML = "Buy for " + cost3 + " points";
+    $("portals").innerHTML = "Point Portals: " + portals;
+    $("portalButton").innerHTML = "Buy for " + cost3 + " points";
   }
 }
 
@@ -417,7 +375,7 @@ function buyUpg3() {
     thicc = 1;
     xCost *= 0.5;
     hideElement("upg3");
-    document.getElementById("xButton").innerHTML = "Get an x for " + xCost + " points";
+    $("xButton").innerHTML = "Get an x for " + xCost + " points";
   }
 }
 
@@ -433,17 +391,17 @@ function buyMult() {
     multCost += 5;
     genMult *= 1.6;
     genMult = Math.round(genMult);
-    document.getElementById("multText").innerHTML = "Current generator multiplier: " + genMult + "x";
-    document.getElementById("multButton").innerHTML = "Upgrade mutliplier for " + multCost + "x";
+    $("multText").innerHTML = "Current generator multiplier: " + genMult + "x";
+    $("multButton").innerHTML = "Upgrade mutliplier for " + multCost + "x";
   }
 }
-
+//hmm oh i have an amazing idea to tear the code into pieces as in make it way smaller so uh what are the ones nvm
 function reset() {
   showElement("resetPoints");
   showElement("br");
   showElement("resetting");
   resetPoints += Math.floor(y+(x/100));
-  document.getElementById("resetPoints").innerHTML = "Reset Points: " + resetPoints;
+  $("resetPoints").innerHTML = "Reset Points: " + resetPoints;
   points = 0;
   clickers = 0;
   factories = 0;

@@ -52,7 +52,7 @@ h1 {
   color: white; 
 }
 
-.resetButton {
+#resetButton {
   background-color: purple;
   border-color: #FF00FF;
   color: #FF00FF; 
