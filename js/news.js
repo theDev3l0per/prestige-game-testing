@@ -15,12 +15,9 @@ function showNews() {
   }else{
       $("newsTicker").innerHTML = newsArray[message];
   }
-}// done
+}
 function changeNews() {
   showNews();
-}// just use onfinish
- 
+}
 
-
-
-// theres an onfinish attribute but it dont work aw wait wat if i use onbounce
+//pinglol
