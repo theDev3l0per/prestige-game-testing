@@ -76,27 +76,19 @@ h1 {
   height: 100px;
   width: 150px;
 }
-#generation:hover {
-  background-color: gray;
-  border-color: lightgray;
-  color: white;
-  transition-durato
+.tab {
+  transition-duration: 0.2s
 }
-#upgrades:hover {
+.tab:hover {
   background-color: gray;
   border-color: lightgray;
   color: white
 }
-#options:hover {
-  background-color: gray;
-  border-color: lightgray;
-  color: white
+
+#resetting {
+  transition-duration: 0.2s
 }
-#achievements:hover {
-  background-color: gray;
-  border-color: lightgray;
-  color: white
-}
+
 #resetting:hover {
   background-color: #FF00FF;
   border-color: purple;
@@ -119,6 +111,10 @@ button {
   margin: 0;
   line-height: 25px;
   white-space: nowrap;
-  animation: marquee 10s linear infinite;
-  animation-name: tab
+  animation: marquee 10s linear infinite
+}
+
+@keyframes marquee {
+  0% { transform: translateX(800%); }
+  100% { transform: translateX(-100%); }
 }
