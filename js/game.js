@@ -1,5 +1,5 @@
 console.log("What are you doing here in the console?");
-var game;
+var game = {};
 game.points = 0;
 game.clickers = 0;
 game.factories = 0;
@@ -102,9 +102,11 @@ function generation() {
     hideElement("objectives");  
   }
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
+  hideElement("save");
 }
 
 function upgrades() {
+  showElement("save");
   if(game.scaling === 1.1){
     showElement("upg1");
   }
@@ -150,6 +152,7 @@ function achievements() {
   hideElement("multButton");
   hideElement("multText");
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
+  hideElement("save");
   game.visible = 0;
 }
 
@@ -163,6 +166,7 @@ function resetting() {
   hideElement("multButton");
   hideElement("multText");
   hideElement("objectives");
+  hideElement("save");
 }
 
 function init() {
