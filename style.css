@@ -84,7 +84,8 @@ h1 {
 #upgrades:hover {
   background-color: gray;
   border-color: lightgray;
-  color: white
+  color: white;
+  animation-duration: 5s
 }
 #options:hover {
   background-color: gray;
@@ -119,9 +120,14 @@ button {
   line-height: 25px;
   white-space: nowrap;
   animation: marquee 10s linear infinite;
+  animati
 }
 
 @keyframes marquee {
   0% { transform: translateX(800%); }
   100% { transform: translateX(-100%); }
+}
+@keyframes tab {
+  from {background-color: red;}
+  to {background-color: yellow;}}
 }

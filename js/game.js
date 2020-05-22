@@ -19,6 +19,7 @@ game.thicc = 0;
 game.visible = 0;
 game.multCost = 50;
 game.resetPoints = 0;
+game.timePlayed = 0;
 let message = 0;
 const $ = id => document.getElementById(id)
 const c = id => document.getElementsByClassName(id)
@@ -287,7 +288,7 @@ function loop() {
     message[8] = "9. Reset (Completed)";
     spacing();
   }
-  devtools-detect
+  
 }
 
 function buyClicker() {
