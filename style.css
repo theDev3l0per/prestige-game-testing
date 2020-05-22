@@ -105,10 +105,23 @@ h1 {
 button {
   border-radius: 5px /**/
 }
-marquee {
-  border-style: solid;
-  border-radius: 5px;
-  border-width: 4px;8
-} /*it works like really itc*/
--webkit-marquee: auto medium infinite scroll normal; 
-overflow-x: -webkit-marquee;
+.marquee {
+  position: relative;
+  overflow: hidden;
+  height: 25px;
+  width: 100%;
+  border: 1px solid orange;
+}
+
+.marquee p {
+  position: absolute;
+  margin: 0;
+  line-height: 25px;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(800%); }
+  100% { transform: translateX(-100%); }
+}

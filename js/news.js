@@ -19,5 +19,5 @@ function showNews() {
 function changeNews() {
   showNews();
 }
-
+setInterval(showNews, 10000)
 //pinglol uhhhh
