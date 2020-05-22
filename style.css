@@ -23,6 +23,11 @@ h1 {
 .buildingButton {
   background-color: black;
   color: white;
+  transition-duration: 0.2s
+}
+.buildingButton:hover {
+  background-color: lightgray;
+  color: gray;
 }
 
 .xButton {
@@ -125,4 +130,11 @@ button {
   background-color: #0000FF;
   color: #00FFFF;
   border-color: #0000FF;
+}
+#pointButton {
+  transition-duration: 0.2s
+}
+#pointButton:hover {
+  background-color: gray;
+  color: white
 }
