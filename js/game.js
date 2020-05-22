@@ -125,7 +125,7 @@ function upgrades() {
   hideElement("multButton");
   hideElement("multText");
   hideElement("objectives");
-  Array.from(c("reupg")).forEach(element => element.style.display = "none"); // el
+  Array.from(c("reupg")).forEach(element => element.style.display = "none");
   hideElement("save");
   game.visible = 0;
 }
@@ -136,14 +136,14 @@ function options() {
   Array.from(c("building")).forEach(element => element.style.display = "none");
   hideElement("xButton");
   Array.from(c("upgradeButton")).forEach(element => element.style.display = "none");
-  Array.from(c("reupg")).forEach(element => element.style.display = "none"); // this saves tons of space repeat that for other tabs
+  Array.from(c("reupg")).forEach(element => element.style.display = "none");
   hideElement("yButton");
   hideElement("multButton");
   hideElement("multText");
   hideElement("objectives");
-  game.visible = 0;// it does foreach and c gets all elements with a certain class
+  game.visible = 0;
 }
-//what is "reupg"? i think yahtzee added those classes, for all reupgx elements it has that class
+
 function achievements() {
   showElement("objectives");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
@@ -162,7 +162,7 @@ function resetting() {
   Array.from(c("reupg")).forEach(element => element.style.display = "inline");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
   Array.from(c("building")).forEach(element => element.style.display = "none");
-  hideElement("xButton"); // wetime to make button hover animation things what did you do tuba
+  hideElement("xButton");
   Array.from(c("upgradeButton")).forEach(element => element.style.display = "none");
   hideElement("yButton");
   hideElement("multButton");
@@ -222,7 +222,7 @@ var mainGameLoop = window.setInterval(function() {
   game.tickpart += 50
   if (game.tickpart>=game.tickspeed) {
     game.tickpart -= game.tickspeed
-    loop(); // time to change the loop function to switches 
+    loop();
   }
 }, 33);
 
@@ -358,11 +358,21 @@ function buyMult() {
     $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   }
 }
-//hmm oh i have an amazing idea to tear the code into pieces as in make it way smaller so uh what are the ones nvm
+
 function reset() {
   showElement("resetPoints");
   showElement("br");
   showElement("resetting");
+  $("clickers").innerHTML = "Autoclickers: " + game.clickers;
+  $("clickerButton").innerHTML = "Buy for " + game.cost1 + " points";
+  $("factories").innerHTML = "Point Factories: " + game.factories;
+  $("factoryButton").innerHTML = "Buy for " + game.cost2 + " points";
+  $("portals").innerHTML = "Point Portals: " + game.portals;
+  $("portalButton").innerHTML = "Buy for " + game.cost3 + " points";
+  $("xButton").innerHTML = "Get an x for " + game.xCost + " points";
+  $("yButton").innerHTML = "Get a y for " + game.yCost + "x";
+  $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
+  $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   game.resetPoints += Math.floor(game.y+(game.x/100));
   $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
   game.points = 0;
