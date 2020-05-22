@@ -188,6 +188,8 @@ function init() {
   $("portalButton").innerHTML = "Buy for " + game.cost3 + " points";
   $("xButton").innerHTML = "Get an x for " + game.xCost + " points";
   $("yButton").innerHTML = "Get a y for " + game.yCost + "x";
+  $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
+  $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
 }
 
 init();
