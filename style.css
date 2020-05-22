@@ -81,6 +81,15 @@ h1 {
   height: 100px;
   width: 150px;
 }
+
+.reupg2 {
+  background-color: #FF00FF;
+  border-color: purple;
+  color: purple;
+  height: 100px;
+  width: 150px;
+}
+
 .tab {
   transition-duration: 0.2s
 }

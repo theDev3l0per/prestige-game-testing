@@ -260,7 +260,7 @@ var mainGameLoop = window.setInterval(function() {
 function loop() {
   game.points += (game.clickers/33)*game.genMult*game.timePlayedMult;
   game.points += (game.factories/3.3)*game.genMult*game.timePlayedMult;
-  game.points += (game.portals*30.303)*game.genMult*game.timePlayedMult;
+  game.points += (game.portals*30.303)*game.genMult*game.timePlayedMult*game.ppMult;
   convertNumber();
   document.getElementById("resetButton").innerHTML = "Reset for " + Math.floor(game.y+(game.x/100)) + " reset points";
   if(game.points > 99999){
@@ -314,7 +314,10 @@ function loop() {
   }
   game.timePlayed += (1/30);
   if(game.rtu11 === 1){
-    game.timePlayedMult = Math.log(game.timePlayed);
+    game.timePlayedMult = Math.sqrt(game.timePlayed);
+  }
+  if(game.rtu12 === 1){
+    game.ppMult = Math.sqrt(game.clickers);
   }
 }
 
@@ -398,6 +401,17 @@ function buyReupg11() {
   if(game.resetPoints >= 2 && game.rtu11 === 0){
     game.resetPoints -= 2;
     game.rtu11 = 1;
+    $("reupg11").className = "reupg2";
+    $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+  }
+}
+
+function buyReupg12() {
+  if(game.resetPoints >= 2 && game.rtu12 === 0){
+    game.resetPoints -= 2;
+    game.rtu12 = 1;
+    $("reupg12").className = "reupg2";
+    $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
   }
 }
 
