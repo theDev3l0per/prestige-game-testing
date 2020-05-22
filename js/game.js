@@ -76,7 +76,11 @@ function convertToX() {
   if(game.points >= game.xCost){
     game.points -= game.xCost;
     game.x += 1;
-    game.xCost *= 1.1;
+    if(game.rtu13 === 1){
+      game.xCost *= 1.05; 
+    }else{
+      game.xCost *= 1.1;
+    }
     game.xCost = Math.round(game.xCost);
     convertNumber();
     $("xButton").innerHTML = "Get an x for " + game.xCost + " points";
@@ -123,6 +127,7 @@ function generation() {
     hideElement("objectives");  
   }
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
+  Array.from(c("reupg2")).forEach(element => element.style.display = "none");
   hideElement("save");
   hideElement("discord");
 }
@@ -147,6 +152,7 @@ function upgrades() {
   hideElement("multText");
   hideElement("objectives");
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
+  Array.from(c("reupg2")).forEach(element => element.style.display = "none");
   hideElement("save");
   hideElement("discord");
   game.visible = 0;
@@ -160,6 +166,7 @@ function options() {
   hideElement("xButton");
   Array.from(c("upgradeButton")).forEach(element => element.style.display = "none");
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
+  Array.from(c("reupg2")).forEach(element => element.style.display = "none");
   hideElement("yButton");
   hideElement("multButton");
   hideElement("multText");
@@ -177,6 +184,7 @@ function achievements() {
   hideElement("multButton");
   hideElement("multText");
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
+  Array.from(c("reupg2")).forEach(element => element.style.display = "none");
   hideElement("save");
   hideElement("discord");
   game.visible = 0;
@@ -184,6 +192,7 @@ function achievements() {
 
 function resetting() {
   Array.from(c("reupg")).forEach(element => element.style.display = "inline");
+  Array.from(c("reupg2")).forEach(element => element.style.display = "inline");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
   Array.from(c("building")).forEach(element => element.style.display = "none");
   hideElement("xButton");
@@ -220,6 +229,54 @@ function init() {
     showElement("resetPoints");
     showElement("br");
     showElement("resetting");
+  }
+  if(game.rtu11 === 1){
+    $("reupg11").className = "reupg2"; 
+  }
+  if(game.rtu12 === 1){
+    $("reupg12").className = "reupg2";
+  }
+  if(game.rtu13 === 1){
+    $("reupg13").className = "reupg2";
+  }
+  if(game.rtu14 === 1){
+    $("reupg14").className = "reupg2";
+  }
+  if(game.rtu21 === 1){
+    $("reupg21").className = "reupg2";
+  }
+  if(game.rtu22 === 1){
+    $("reupg22").className = "reupg2";
+  }
+  if(game.rtu23 === 1){
+    $("reupg23").className = "reupg2";
+  }
+  if(game.rtu24 === 1){
+    $("reupg24").className = "reupg2";
+  }
+  if(game.rtu31 === 1){
+    $("reupg31").className = "reupg2";
+  }
+  if(game.rtu32 === 1){
+    $("reupg32").classList[0] = "reupg2";
+  }
+  if(game.rtu33 === 1){
+    $("reupg33").classList[0] = "reupg2";
+  }
+  if(game.rtu34 === 1){
+    $("reupg34").classList[0] = "reupg2";
+  }
+  if(game.rtu41 === 1){
+    $("reupg41").classList[0] = "reupg2";
+  }
+  if(game.rtu42 === 1){
+    $("reupg42").classList[0] = "reupg2";
+  }
+  if(game.rtu43 === 1){
+    $("reupg43").classList[0] = "reupg2";
+  }
+  if(game.rtu44 === 1){
+    $("reupg44").classList[0] = "reupg2";
   }
 }
 
@@ -401,7 +458,7 @@ function buyReupg11() {
   if(game.resetPoints >= 2 && game.rtu11 === 0){
     game.resetPoints -= 2;
     game.rtu11 = 1;
-    $("reupg11").className = "reupg2";
+    $("reupg11").classList[0] = "reupg2";
     $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
   }
 }
@@ -410,7 +467,16 @@ function buyReupg12() {
   if(game.resetPoints >= 2 && game.rtu12 === 0){
     game.resetPoints -= 2;
     game.rtu12 = 1;
-    $("reupg12").className = "reupg2";
+    $("reupg12").classList[0] = "reupg2";
+    $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+  }
+}
+
+function buyReupg13() {
+  if(game.resetPoints >= 4 && game.rtu13 === 0){
+    game.resetPoints -= 4;
+    game.rtu13 = 1;
+    $("reupg13").className = "reupg2";
     $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
   }
 }
