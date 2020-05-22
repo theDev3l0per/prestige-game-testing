@@ -20,6 +20,25 @@ game.visible = 0;
 game.multCost = 50;
 game.resetPoints = 0;
 game.timePlayed = 0;
+game.rtu11 = 0;
+game.rtu12 = 0;
+game.rtu13 = 0;
+game.rtu14 = 0;
+game.rtu21 = 0;
+game.rtu22 = 0;
+game.rtu23 = 0;
+game.rtu24 = 0;
+game.rtu31 = 0;
+game.rtu32 = 0;
+game.rtu33 = 0;
+game.rtu34 = 0;
+game.rtu41 = 0;
+game.rtu42 = 0;
+game.rtu43 = 0;
+game.rtu44 = 0;
+game.timePlayedMult = 1;
+game.ppMult = 1;
+game.yMult = 1;
 let message = 0;
 const $ = id => document.getElementById(id)
 const c = id => document.getElementsByClassName(id)
@@ -293,7 +312,7 @@ function loop() {
     message[8] = "9. Reset (Completed)";
     spacing();
   }
-  
+  game.timePlayed += (1/30);
 }
 
 function buyClicker() {
@@ -373,7 +392,9 @@ function buyMult() {
 }
 
 function buyReupg11() {
-  
+  if(game.resetPoints >= 2){
+    
+  }
 }
 
 function reset() {
