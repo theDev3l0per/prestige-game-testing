@@ -30,7 +30,9 @@ var newsArray = [
   "randomtuba was slain by Xx_ThinkinW/Portalz420_xX using 'Buy for 15000 points'",
   "bruh moment",
   "Sometimes you just wanna [REDACTED] someone so hard they split into the fifteenth dimension",
-  "Don't you hate when the message <br> splits apart"
+  "Don't you hate when the message doesn't finish its sente",
+  "Don't eat points. Eat paper instead."
+  "There isn't a"
 ];
 function showNews() {
   let message = Math.floor(Math.random() * newsArray.length);

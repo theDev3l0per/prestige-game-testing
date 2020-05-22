@@ -190,6 +190,12 @@ function init() {
   $("yButton").innerHTML = "Get a y for " + game.yCost + "x";
   $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
   $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
+  $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+  if(game.resetPoints > 0){
+    showElement("resetPoints");
+    showElement("br");
+    showElement("resetting");
+  }
 }
 
 init();
