@@ -138,3 +138,13 @@ button {
   background-color: gray;
   color: white
 }
+
+#resetButton {
+  transition-duration: 0.2s
+}
+
+#resetButton:hover {
+  background-color: #FF00FF;
+  border-color: purple;
+  color: purple; 
+}

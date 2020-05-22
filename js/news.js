@@ -6,6 +6,7 @@ var newsArray = [
   "@Pinglol#1337",
   "Click, click, click...",
   "lol get rekt",
+  "<p onclick=\"window.location.href=\"https://www.youtube.com/watch?v=DLzxrzFCyOs\"\">Click me!</p>",
   "You can't reach 1.79e308",
   "That's a lot of x's",
   "Algebraic Progression NGUd'^^-----++++",
@@ -24,6 +25,7 @@ var newsArray = [
   "[insert text here]",
   "showNews();",
   "Can you put an array inside of an array? -randomtuba",
+  "how do i make a table -randomtuba",
   "Take the point portals from the shadow realm, and you're good to go!",
   "1e420.69",
   "Stop! Wait 5 hours",
@@ -41,7 +43,9 @@ var newsArray = [
   "pls like and scrubsibe for Algebraic Progression content",
   "'oops I broke it' -randomtuba",
   "Don't say that people shouldn't program. Don't say that this game is 'just a cookie clicker clone'. If you say both of those things, then fuck you.",
-  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  ":ripaarex:",
+  "Can you enter "
 ];
 function showNews() {
   let message = Math.floor(Math.random() * newsArray.length);
