@@ -105,6 +105,7 @@ function generation() {
   }
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
   hideElement("save");
+  hideElement("discord");
 }
 
 function upgrades() {
@@ -128,11 +129,13 @@ function upgrades() {
   hideElement("objectives");
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
   hideElement("save");
+  hideElement("discord");
   game.visible = 0;
 }
 
 function options() {
   showElement("save");
+  showElement("discord");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
   Array.from(c("building")).forEach(element => element.style.display = "none");
   hideElement("xButton");
@@ -156,6 +159,7 @@ function achievements() {
   hideElement("multText");
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
   hideElement("save");
+  hideElement("discord");
   game.visible = 0;
 }
 
@@ -170,6 +174,7 @@ function resetting() {
   hideElement("multText");
   hideElement("objectives");
   hideElement("save");
+  hideElement("discord");
 }
 
 function init() {
