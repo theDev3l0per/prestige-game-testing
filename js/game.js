@@ -372,20 +372,14 @@ function buyMult() {
   }
 }
 
+function buyReupg11() {
+  
+}
+
 function reset() {
   showElement("resetPoints");
   showElement("br");
   showElement("resetting");
-  $("clickers").innerHTML = "Autoclickers: " + game.clickers;
-  $("clickerButton").innerHTML = "Buy for " + game.cost1 + " points";
-  $("factories").innerHTML = "Point Factories: " + game.factories;
-  $("factoryButton").innerHTML = "Buy for " + game.cost2 + " points";
-  $("portals").innerHTML = "Point Portals: " + game.portals;
-  $("portalButton").innerHTML = "Buy for " + game.cost3 + " points";
-  $("xButton").innerHTML = "Get an x for " + game.xCost + " points";
-  $("yButton").innerHTML = "Get a y for " + game.yCost + "x";
-  $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
-  $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   game.resetPoints += Math.floor(game.y+(game.x/100));
   $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
   game.points = 0;
@@ -406,4 +400,14 @@ function reset() {
   game.thicc = 0;
   game.visible = 0;
   game.multCost = 50;
+  $("clickerButton").innerHTML = "Buy for " + game.cost1 + " points";
+  $("clickers").innerHTML = "Autoclickers: " + game.clickers;
+  $("factoryButton").innerHTML = "Buy for " + game.cost2 + " points";
+  $("factories").innerHTML = "Point Factories: " + game.factories;
+  $("portalButton").innerHTML = "Buy for " + game.cost3 + " points";
+  $("portals").innerHTML = "Point Portals: " + game.portals;
+  $("xButton").innerHTML = "Get an x for " + game.xCost + " points";
+  $("yButton").innerHTML = "Get a y for " + game.yCost + "x";
+  $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
+  $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
 }
