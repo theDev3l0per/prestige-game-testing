@@ -39,6 +39,7 @@ game.rtu44 = 0;
 game.timePlayedMult = 1;
 game.ppMult = 1;
 game.yMult = 1;
+game.resetUnlocked = 0;
 let message = 0;
 const $ = id => document.getElementById(id)
 const c = id => document.getElementsByClassName(id)
@@ -77,7 +78,7 @@ function convertToX() {
     game.points -= game.xCost;
     game.x += 1;
     if(game.rtu13 === 1){
-      game.xCost *= 1.05; 
+      game.xCost *= 1.08; 
     }else{
       game.xCost *= 1.1;
     }
@@ -258,25 +259,25 @@ function init() {
     $("reupg31").className = "reupg2";
   }
   if(game.rtu32 === 1){
-    $("reupg32").classList[0] = "reupg2";
+    $("reupg32").className = "reupg2";
   }
   if(game.rtu33 === 1){
-    $("reupg33").classList[0] = "reupg2";
+    $("reupg33").className = "reupg2";
   }
   if(game.rtu34 === 1){
-    $("reupg34").classList[0] = "reupg2";
+    $("reupg34").className = "reupg2";
   }
   if(game.rtu41 === 1){
-    $("reupg41").classList[0] = "reupg2";
+    $("reupg41").className = "reupg2";
   }
   if(game.rtu42 === 1){
-    $("reupg42").classList[0] = "reupg2";
+    $("reupg42").className = "reupg2";
   }
   if(game.rtu43 === 1){
-    $("reupg43").classList[0] = "reupg2";
+    $("reupg43").className = "reupg2";
   }
   if(game.rtu44 === 1){
-    $("reupg44").classList[0] = "reupg2";
+    $("reupg44").className = "reupg2";
   }
 }
 
@@ -365,16 +366,16 @@ function loop() {
     message[7] = "8. Get a y (Completed)";
     spacing();
   }
-  if(game.resetPoints > 0){
+  if(game.resetUnlocked === 1) {
     message[8] = "9. Reset (Completed)";
     spacing();
   }
   game.timePlayed += (1/30);
   if(game.rtu11 === 1){
-    game.timePlayedMult = Math.sqrt(game.timePlayed);
+    game.timePlayedMult = Math.log(game.timePlayed);
   }
   if(game.rtu12 === 1){
-    game.ppMult = Math.sqrt(game.clickers);
+    game.ppMult = Math.log(game.clickers);
   }
 }
 
@@ -453,38 +454,39 @@ function buyMult() {
     $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   }
 }
-
-function buyReupg11() {
-  if(game.resetPoints >= 2 && game.rtu11 === 0){
-    game.resetPoints -= 2;
-    game.rtu11 = 1;
-    $("reupg11").classList[0] = "reupg2";
-    $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+function buyReupg(id) {
+  switch(id) {
+    case 11:
+      if(game.resetPoints >= 2 && game.rtu11 === 0){
+        game.resetPoints -= 2;
+        game.rtu11 = 1;
+        $("reupg11").classList[0] = "reupg2";
+        $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+      }
+    case 12:
+      if(game.resetPoints >= 2 && game.rtu12 === 0){
+        game.resetPoints -= 2;
+        game.rtu12 = 1;
+        $("reupg12").classList[0] = "reupg2";
+        $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+      }
+    case 13:
+        if(game.resetPoints >= 4 && game.rtu13 === 0){
+          game.resetPoints -= 4;
+          game.rtu13 = 1;
+          $("reupg13").classList[0] = "reupg2";
+          $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+        }
   }
-}
-
-function buyReupg12() {
-  if(game.resetPoints >= 2 && game.rtu12 === 0){
-    game.resetPoints -= 2;
-    game.rtu12 = 1;
-    $("reupg12").classList[0] = "reupg2";
-    $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
   }
-}
 
-function buyReupg13() {
-  if(game.resetPoints >= 4 && game.rtu13 === 0){
-    game.resetPoints -= 4;
-    game.rtu13 = 1;
-    $("reupg13").className = "reupg2";
-    $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
-  }
-}
+
 
 function reset() {
   showElement("resetPoints");
   showElement("br");
   showElement("resetting");
+  hideElement("resetButton");
   game.resetPoints += Math.floor(game.y+(game.x/100));
   $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
   game.points = 0;
