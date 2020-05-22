@@ -37,7 +37,8 @@ var newsArray = [
   "Whomst'd've'zh'bh'rh't'd've done this?!",
   "ur not an epic gamer chad like me yuo noob",
   "pls like and scrubsibe for Algebraic Progression content",
-  "'oops I broke it' -randomtuba"
+  "'oops I broke it' -randomtuba",
+  "Don't say that people shouldn't program. Don't say that this game is 'just a cookie clicker clone'. If you say both of those things, then fuck you."
 ];
 function showNews() {
   let message = Math.floor(Math.random() * newsArray.length);
