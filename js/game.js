@@ -365,7 +365,7 @@ function buyUpg4() {
 function buyMult() {
   if(game.x >= game.multCost){
     game.multCost += 5;
-    game.genMult *= 1.6;
+    game.genMult *= 1.25;
     game.genMult = Math.round(game.genMult);
     $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
     $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
