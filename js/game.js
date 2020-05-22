@@ -22,7 +22,8 @@ game.resetPoints = 0;
 let message = 0;
 const $ = id => document.getElementById(id)
 const c = id => document.getElementsByClassName(id)
-
+const t = id => document.getElementsByTagName(id)
+const D = thing => new Decimal(thing)
 //ooh arrow function ^
 function showElement(element) {
   $(element).style.display = "inline";
@@ -178,6 +179,10 @@ function init() {
   hideElement("resetting");
   hideElement("objectives")
   generation();
+  $("clickers").innerHTML = "Autoclickers: " + game.clickers;
+  $("clickerButton").innerHTML = "Buy for " + game.cost1 + " points";
+  $("factories").innerHTML = "Point Factories: " + game.factories;
+  $("factoryButton").innerHTML = "Buy for " + game.cost2 + " points";
 }
 
 init();

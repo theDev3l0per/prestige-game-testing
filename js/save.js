@@ -11,7 +11,7 @@ function objectToDecimal(object) {
       objectToDecimal(object[i]);
     }
   }
-
+}
 function merge(base, source) {
   for (let i in base) {
     if (source[i] != undefined) {
@@ -36,7 +36,7 @@ function merge(base, source) {
 }
 
 function isDecimal(x) {
-  if (x.s == undefined) {
+  if (x instanceof Decimal) {
     return false;
   } else {
     return true;
@@ -75,6 +75,7 @@ function importSave(text) {
 
   save();
 }
-  
+
 load();
-setInterval(save,50)
+setInterval(loop,50);
+setInterval(save, 50) 
