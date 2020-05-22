@@ -287,6 +287,7 @@ function loop() {
     message[8] = "9. Reset (Completed)";
     spacing();
   }
+  devtools-detect
 }
 
 function buyClicker() {

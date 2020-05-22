@@ -35,10 +35,13 @@ var newsArray = [
   "There isn't a discord server for this game yet, but we're working on it",
   "CHOCOLATE",
   "Whomst'd've'zh'bh'rh't'd've done this?!",
+  "ono it broke again - TheMKeyHolder",
+  "Is this good CSS or terrible CSS?",
   "ur not an epic gamer chad like me yuo noob",
   "pls like and scrubsibe for Algebraic Progression content",
   "'oops I broke it' -randomtuba",
-  "Don't say that people shouldn't program. Don't say that this game is 'just a cookie clicker clone'. If you say both of those things, then fuck you."
+  "Don't say that people shouldn't program. Don't say that this game is 'just a cookie clicker clone'. If you say both of those things, then fuck you.",
+  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 ];
 function showNews() {
   let message = Math.floor(Math.random() * newsArray.length);
