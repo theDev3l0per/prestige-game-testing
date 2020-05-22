@@ -31,13 +31,18 @@ var newsArray = [
   "bruh moment",
   "Sometimes you just wanna [REDACTED] someone so hard they split into the fifteenth dimension",
   "Don't you hate when the message doesn't finish its sente",
-  "Don't eat points. Eat paper instead."
-  "There isn't a"
+  "Don't eat points. Eat paper instead.",
+  "There isn't a discord server for this game yet, but we're working on it",
+  "CHOCOLATE",
+  "Whomst'd've'zh'bh'rh't'd've done this?!",
+  "ur not an epic gamer chad like me yuo noob",
+  "pls like and scrubsibe for Algebraic Progression content",
+  "'oops I broke it' -randomtuba"
 ];
 function showNews() {
   let message = Math.floor(Math.random() * newsArray.length);
 
-  if(Math.round(Math.random(100,1)) == 100){
+  if(Math.round(Math.random(100,1)) === 100){
       $("newsTicker").innerHTML = "You have a 1% chance to get this news ticker. Woah!";
   }else{
       $("newsTicker").innerHTML = newsArray[message];
