@@ -45,7 +45,12 @@ var newsArray = [
   "Don't say that people shouldn't program. Don't say that this game is 'just a cookie clicker clone'. If you say both of those things, then fuck you.",
   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   ":ripaarex:",
-  "Can you enter "
+  "Scientists discovered that Point Portals can contain themselves. Oh no.",
+  "'Just because this game doesn't have polynomial growth doesn't mean that this game is bad!!!' -randomtuba",
+  "'I need triple exponential growth or else I'm not playing' -someone",
+  "https://cookie-clickr.glitch.me",
+  "'bet you can't reach 9.99e999'-someone from the AD server",
+  "Algebraic Progression? More like Algebraic Depressio-"
 ];
 function showNews() {
   let message = Math.floor(Math.random() * newsArray.length);
@@ -59,5 +64,5 @@ function showNews() {
 function changeNews() {
   showNews();
 }
-setInterval(showNews, 10000)
+setInterval(showNews, 15000)
 //pinglol uhhhh
