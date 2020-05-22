@@ -92,95 +92,109 @@
       <br>
       9. Reset
     </div>
-    <button id="reupg11" onclick="buyReupg11()" class="reupg">
+    <table>
+      <tr>
+      <td><button id="reupg11" onclick="buyReupg11()" class="reupg">
       Generators gain a multiplier based on time played
       <br>
       Cost: 2 Reset Points
-    </button>
-    <button id="reupg12" onclick="buyReupg12()" class="reupg">
+    </button></td>
+      <td><button id="reupg12" onclick="buyReupg12()" class="reupg">
       Point Portals gain a mutliplier based on Autoclickers
       <br>
       Cost: 2 Reset Points
     </button>
-    <button id="reupg13" onclick="buyReupg13()" class="reupg">
+    </td>
+      <td><button id="reupg13" onclick="buyReupg13()" class="reupg">
       X scaling becomes *1.05 instead of *1.1
       <br>
       Cost: 4 Reset Points
     </button>
+    </td>
+    <td>
     <button id="reupg14" onclick="buyReupg14()" class="reupg">
       Unlock Coordinate Plane
       <br>
       Requirement: 10 Reset Points
     </button>
-    <br>
-    <button id="clickerButton" onclick="buyClicker()" class="buildingButton">
-      Buy for 25 points
-    </button>
-    <button id="reupg21" onclick="buyReupg21()" class="reupg">
+    </td> 
+      </tr>
+      <tr>
+        <td><button id="reupg21" onclick="buyReupg21()" class="reupg">
       Generator multiplier mult gain becomes *1.75 instead of *1.6
       <br>
       Cost: 7 Reset Points
-    </button>
-    <button id="reupg22" onclick="buyReupg22()" class="reupg">
+    </button></td>
+        <td><button id="reupg22" onclick="buyReupg22()" class="reupg">
       You keep all your upgrades
       <br>
       Cost: 15 Reset Points
-    </button>
-    <button id="reupg23" onclick="buyReupg23()" class="reupg">
+    </button></td>
+        <td><button id="reupg23" onclick="buyReupg23()" class="reupg">
       Y scaling becomes *1.1 instead of *1.15
       <br>
       Cost: 20 Reset Points
-    </button>
-    <button id="reupg24" onclick="buyReupg24()" class="reupg">
+    </button></td>
+        <td><button id="reupg24" onclick="buyReupg24()" class="reupg">
       Generator multiplier cost gets added by +3x instead of +5x
       <br>
       Cost: 25 Reset Points
-    </button>
-    <br>
-    <button id="reupg31" onclick="buyReupg31()" class="reupg">
+    </button></td>
+      </tr>
+      <tr>
+        <td><button id="reupg31" onclick="buyReupg31()" class="reupg">
       Reset Point formula is better
       <br>
       Cost: 80 Reset Points
-    </button>
-    <button id="reupg32" onclick="buyReupg32()" class="reupg">
+    </button></td>
+        <td><button id="reupg32" onclick="buyReupg32()" class="reupg">
       Coordinate Plane is more effective
       <br>
       Cost: 80 Reset Points
-    </button>
-    <button id="reupg33" onclick="buyReupg33()" class="reupg">
+    </button></td>
+        <td><button id="reupg33" onclick="buyReupg33()" class="reupg">
       Generators gain a multiplier based on y's
       <br>
       Cost: 90 Reset Points
-    </button>
-    <button id="reupg34" onclick="buyReupg34()" class="reupg">
+    </button></td>
+        <td><button id="reupg34" onclick="buyReupg34()" class="reupg">
       Unlock Square Root
       <br>
       Requirement: 150 Reset Points
+    </button>
+    <br></td>
+      </tr>
+      <tr>
+        <td><button id="reupg41" onclick="buyReupg41()" class="reupg">
+      rtu11 and rtu33 are stronger
+      <br>
+      Cost: 120 Reset Points
+    </button></td>
+        <td><button id="reupg42" onclick="buyReupg42()" class="reupg">
+      Unlock Root Epicenter
+      <br>
+      Requirement: 200 Reset Points
+    </button></td>
+        <td><button id="reupg43" onclick="buyReupg43()" class="reupg">
+            Unlock new Root Epicenter Tasks
+          </button> 
+        </td>
+        <td><button id="reupg44" onclick="buyReupg44()" class="reupg">
+      <b>Unlock the next layer</b>
+      <br>
+      Requirement: 1000 Reset Points and 6 RTE completions
+    </button></td> <!--done yay-->
+      </tr>
+    </table>
+    
+    <br>
+    <button id="clickerButton" onclick="buyClicker()" class="buildingButton">
+      Buy for 25 points
     </button>
     <br>
     <div id="factories" class="building">
       Point Factories: 0
     </div>
-    <button id="reupg41" onclick="buyReupg41()" class="reupg">
-      rtu11 and rtu33 are stronger
-      <br>
-      Cost: 120 Reset Points
-    </button>
-    <button id="reupg42" onclick="buyReupg42()" class="reupg">
-      Unlock Root Epicenter
-      <br>
-      Requirement: 200 Reset Points
-    </button>
-    <button id="reupg43" onclick="buyReupg43()" class="reupg">
-      Unlock new Root Epicenter Tasks
-      <br>
-      Requirement: 250 Reset Points and 3 RTE Completions
-    </button>
-    <button id="reupg44" onclick="buyReupg44()" class="reupg">
-      <b>Unlock the next layer</b>
-      <br>
-      Requirement: 1000 Reset Points and 6 RTE completions
-    </button>
     <br>
     <button id="factoryButton" onclick="buyFactory()" class="buildingButton">
       Buy for 200 points
