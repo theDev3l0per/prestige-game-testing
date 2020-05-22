@@ -14,11 +14,7 @@
     
   </head>
   <body>
-    <div class="ticker-wrap">
-<div class="ticker">
-  <div class="ticker__item">Place your news text here.</div>
-  </div>
-</div>
+    <div class="marquee" style="width: 100%"><p>Scrolling text goes here.</p></div>
     <br>
     <br>
     <button id="generation" onclick="generation()" class="tab">
@@ -54,7 +50,7 @@
     <div id="clickers" class="building">
       Autoclickers: 0
     </div>
-    <button id="save">
+    <button id="save" onclick="save()">
       Save
     </button>
     <button id="upg1" onclick="buyUpg1()" class="upgradeButton">
