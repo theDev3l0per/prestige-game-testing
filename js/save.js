@@ -57,6 +57,9 @@ function load() {
   }
 }
 
+function getNewSave() {
+}
+
 function wipeSave() {
   getNewSave();
   save();

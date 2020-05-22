@@ -226,10 +226,13 @@ function init() {
   $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
   $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
-  if(game.resetPoints > 0){
+  if(game.resetUnlocked === 1){
     showElement("resetPoints");
     showElement("br");
     showElement("resetting");
+  }
+  if(game.resetPoints > 0) {
+    game.resetUnlocked = 1
   }
   if(game.rtu11 === 1){
     $("reupg11").className = "reupg2"; 
@@ -323,6 +326,14 @@ function loop() {
   document.getElementById("resetButton").innerHTML = "Reset for " + Math.floor(game.y+(game.x/100)) + " reset points";
   if(game.points > 99999){
     game.visible = 1;
+  }
+  if(game.resetUnlocked === 1){
+    showElement("resetPoints");
+    showElement("br");
+    showElement("resetting");
+  }
+  if(game.resetPoints > 0) {
+    game.resetUnlocked = 1
   }
   if(game.visible === 1 && game.points > 99999){
     showElement("xButton"); 
@@ -464,15 +475,15 @@ function buyReupg(id) {
         $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
     case 12:
-      if(game.resetPoints >= 2 && game.rtu12 === 0){
-        game.resetPoints -= 2;
+      if(game.resetPoints >= 4 && game.rtu12 === 0){
+        game.resetPoints -= 4;
         game.rtu12 = 1;
         $("reupg12").classList[0] = "reupg2";
         $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
     case 13:
-        if(game.resetPoints >= 4 && game.rtu13 === 0){
-          game.resetPoints -= 4;
+        if(game.resetPoints >= 8 && game.rtu13 === 0){
+          game.resetPoints -= 8;
           game.rtu13 = 1;
           $("reupg13").classList[0] = "reupg2";
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
