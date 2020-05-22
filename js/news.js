@@ -64,5 +64,4 @@ function showNews() {
 function changeNews() {
   showNews();
 }
-setInterval(showNews, 15000)
 //pinglol uhhhh
