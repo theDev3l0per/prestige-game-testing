@@ -1,24 +1,25 @@
 console.log("What are you doing here in the console?");
-var points = 0;
-var clickers = 0;
-var factories = 0;
-var portals = 0;
-var cost1 = 25;
-var cost2 = 200; //...
-var cost3 = 15000;
-var x = 0;
-var y = 0;
-var xCost = 100000;
-var yCost = 100;
-var tickpart = 0;
-var tickspeed = 50;
-var scaling = 1.1;
-var genMult = 1;
-var thicc = 0;
-var visible = 0;
-var multCost = 50;
-var resetPoints = 0;
-var message = 0;
+var game;
+game.points = 0;
+game.clickers = 0;
+game.factories = 0;
+game.portals = 0;
+game.cost1 = 25;
+game.cost2 = 200; //...
+game.cost3 = 15000;
+game.x = 0;
+game.y = 0;
+game.xCost = 100000;
+game.yCost = 100;
+game.tickpart = 0;
+game.tickspeed = 50;
+game.scaling = 1.1;
+game.genMult = 1;
+game.thicc = 0;
+game.visible = 0;
+game.multCost = 50;
+game.resetPoints = 0;
+let message = 0;
 const $ = id => document.getElementById(id)
 const c = id => document.getElementsByClassName(id)
 
@@ -32,42 +33,42 @@ function hideElement(element) {
 }
 
 function convertNumber() {
-  if(x < 1 && y < 1) {
-    $("number").innerHTML = "Number = " + Math.floor(points);
-  } else if (x === 1 && y < 1) {
-    $("number").innerHTML = "Number = " + "x+" + Math.floor(points);
-  } else if (x > 1 && y < 1) {
-    $("number").innerHTML = "Number = " + x + "x+" + Math.floor(points);
-  } else if (y === 1) {
-    $("number").innerHTML = "Number = " + "y+" + x + "x+" + Math.floor(points);
-  } else if (y > 1) {
-    $("number").innerHTML = "Number = " + y + "y+" + x + "x+" + Math.floor(points);
+  if(game.x < 1 && game.y < 1) {
+    $("number").innerHTML = "Number = " + Math.floor(game.points);
+  } else if (game.x === 1 && game.y < 1) {
+    $("number").innerHTML = "Number = " + "x+" + Math.floor(game.points);
+  } else if (game.x > 1 && game.y < 1) {
+    $("number").innerHTML = "Number = " + game.x + "x+" + Math.floor(game.points);
+  } else if (game.y === 1) {
+    $("number").innerHTML = "Number = " + "y+" + game.x + "x+" + Math.floor(game.points);
+  } else if (game.y > 1) {
+    $("number").innerHTML = "Number = " + game.y + "y+" + game.x + "x+" + Math.floor(game.points);
   }
 }
 
 function pointButton() {
-  points += 1;
+  game.points += 1;
   convertNumber();
 }
 
 function convertToX() {
-  if(points >= xCost){
-    points -= xCost;
-    x += 1;
-    xCost *= 1.1;
-    xCost = Math.round(xCost);
+  if(game.points >= game.xCost){
+    game.points -= game.xCost;
+    game.x += 1;
+    game.xCost *= 1.1;
+    game.xCost = Math.round(game.xCost);
     convertNumber();
-    $("xButton").innerHTML = "Get an x for " + xCost + " points";
+    $("xButton").innerHTML = "Get an x for " + game.xCost + " points";
   }
 }
 
 function convertToY () {
-  if(x >= yCost){
-    y += 1;
-    yCost *= 1.15;
-    yCost = Math.round(yCost);
+  if(game.x >= game.yCost){
+    game.y += 1;
+    game.yCost *= 1.15;
+    game.yCost = Math.round(game.yCost);
     convertNumber();
-  $("yButton").innerHTML = "Get a y for " + yCost + "x";
+  $("yButton").innerHTML = "Get a y for " + game.yCost + "x";
   }
 }
 
@@ -78,12 +79,12 @@ function generation() {
   showElement("factoryButton");
   showElement("portals");
   showElement("portalButton");
-  if(visible === 1 && points > 99999){
+  if(game.visible === 1 && game.points > 99999){
     showElement("xButton"); 
   }else{
     hideElement("xButton");
   }
-  if(x > 99){
+  if(game.x > 99){
     showElement("yButton"); 
   }else{
     hideElement("yButton");
@@ -92,7 +93,7 @@ function generation() {
   hideElement("upg2");
   hideElement("upg3");
   hideElement("upg4");
-  if(thicc > 1){
+  if(game.thicc > 1){
     showElement("multButton");
     showElement("multText");
   }else{
@@ -104,16 +105,16 @@ function generation() {
 }
 
 function upgrades() {
-  if(scaling === 1.1){
+  if(game.scaling === 1.1){
     showElement("upg1");
   }
-  if(genMult === 1){
+  if(game.genMult === 1){
     showElement("upg2");
   }
-  if(thicc <= 0){
+  if(game.thicc <= 0){
     showElement("upg3");
   }
-  if(thicc <= 1){
+  if(game.thicc <= 1){
     showElement("upg4");
   }
   
@@ -123,7 +124,7 @@ function upgrades() {
   hideElement("multText");
   hideElement("objectives");
   Array.from(c("reupg")).forEach(element => element.style.display = "none"); // el
-  visible = 0;
+  game.visible = 0;
 }
 
 function options() {
@@ -136,7 +137,7 @@ function options() {
   hideElement("multButton");
   hideElement("multText");
   hideElement("objectives");
-  visible = 0;// it does foreach and c gets all elements with a certain class
+  game.visible = 0;// it does foreach and c gets all elements with a certain class
 }
 //what is "reupg"? i think yahtzee added those classes, for all reupgx elements it has that class
 function achievements() {
@@ -149,8 +150,9 @@ function achievements() {
   hideElement("multButton");
   hideElement("multText");
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
-  visible = 0;
+  game.visible = 0;
 }
+
 function resetting() {
   Array.from(c("reupg")).forEach(element => element.style.display = "inline");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
@@ -201,143 +203,143 @@ function spacing() {
 spacing();
 
 var mainGameLoop = window.setInterval(function() {
-  tickpart += 50
-  if (tickpart>=tickspeed) {
-    tickpart -= tickspeed
+  game.tickpart += 50
+  if (game.tickpart>=game.tickspeed) {
+    game.tickpart -= game.tickspeed
     loop(); // time to change the loop function to switches 
   }
 }, 33);
 
 function loop() {
-  points += (clickers/33)*genMult;
-  points += (factories/3.3)*genMult;
-  points += (portals*30.303)*genMult;
+  game.points += (game.clickers/33)*game.genMult;
+  game.points += (game.factories/3.3)*game.genMult;
+  game.points += (game.portals*30.303)*game.genMult;
   convertNumber();
-  document.getElementById("resetButton").innerHTML = "Reset for " + Math.floor(y+(x/100)) + " reset points";
-  if(points > 99999){
-    visible = 1;
+  document.getElementById("resetButton").innerHTML = "Reset for " + Math.floor(game.y+(game.x/100)) + " reset points";
+  if(game.points > 99999){
+    game.visible = 1;
   }
-  if(visible === 1 && points > 99999){
+  if(game.visible === 1 && game.points > 99999){
     showElement("xButton"); 
     showElement("upgrades");
   }
-  if(x >= 100){
+  if(game.x >= 100){
     showElement("yButton"); 
   }
-  if(y >= 1){
+  if(game.y >= 1){
     showElement("resetButton");
   }
-  if(clickers === 1){
+  if(game.clickers === 1){
     message[0] = "1. Get your first Autoclicker (Completed)";
     spacing();
   }
-  if(factories === 1){
+  if(game.factories === 1){
     message[1] = "2. Get your first Point Factory (Completed)";
     spacing();
   }
-  if(portals === 1){
+  if(game.portals === 1){
     message[2] = "3. Get your first Point Portal (Completed)";
     spacing();
   }
-  if(x === 1){
+  if(game.x === 1){
     message[3] = "4. Get an x (Completed)";
     spacing();
   }
-  if(scaling === 1.06){
+  if(game.scaling === 1.06){
     message[4] = "5. Buy an upgrade (Completed)";
     spacing();
   }
-  if(thicc === 2){
+  if(game.thicc === 2){
     message[5] = "6. Unlock the generator multiplier (Completed)";
     spacing();
   }
-  if(points > 99999999){
+  if(game.points > 99999999){
     message[6] = "7. Reach 100,000,000 points (Completed)";
     spacing();
   }
-  if(y === 1){
+  if(game.y === 1){
     message[7] = "8. Get a y (Completed)";
     spacing();
   }
-  if(resetPoints > 0){
+  if(game.resetPoints > 0){
     message[8] = "9. Reset (Completed)";
     spacing();
   }
 }
 
 function buyClicker() {
-  if(points >= cost1){
-    points -= cost1;
-    clickers += 1;
-    cost1 *= scaling;
-    cost1 = Math.round(cost1);
+  if(game.points >= game.cost1){
+    game.points -= game.cost1;
+    game.clickers += 1;
+    game.cost1 *= game.scaling;
+    game.cost1 = Math.round(game.cost1);
     convertNumber();
-    $("clickers").innerHTML = "Autoclickers: " + clickers;
-    $("clickerButton").innerHTML = "Buy for " + cost1 + " points";
+    $("clickers").innerHTML = "Autoclickers: " + game.clickers;
+    $("clickerButton").innerHTML = "Buy for " + game.cost1 + " points";
   }
 }
 
 function buyFactory() {
-  if(points >= cost2){
-    points -= cost2;
-    factories += 1;
-    cost2 *= scaling;
-    cost2 = Math.round(cost2);
+  if(game.points >= game.cost2){
+    game.points -= game.cost2;
+    game.factories += 1;
+    game.cost2 *= game.scaling;
+    game.cost2 = Math.round(game.cost2);
     convertNumber();
-    $("factories").innerHTML = "Point Factories: " + factories;
-    $("factoryButton").innerHTML = "Buy for " + cost2 + " points";
+    $("factories").innerHTML = "Point Factories: " + game.factories;
+    $("factoryButton").innerHTML = "Buy for " + game.cost2 + " points";
   }
 }
 
 function buyPortal() {
-  if(points >= cost3){
-    points -= cost3;
-    portals += 1;
-    cost3 *= scaling;
-    cost3 = Math.round(cost3);
+  if(game.points >= game.cost3){
+    game.points -= game.cost3;
+    game.portals += 1;
+    game.cost3 *= game.scaling;
+    game.cost3 = Math.round(game.cost3);
     convertNumber();
-    $("portals").innerHTML = "Point Portals: " + portals;
-    $("portalButton").innerHTML = "Buy for " + cost3 + " points";
+    $("portals").innerHTML = "Point Portals: " + game.portals;
+    $("portalButton").innerHTML = "Buy for " + game.cost3 + " points";
   }
 }
 
 function buyUpg1() {
-  if(x >= 10){
-    scaling = 1.06;
+  if(game.x >= 10){
+    game.scaling = 1.06;
     hideElement("upg1");
   }
 }
 
 function buyUpg2() {
-  if(x >= 20){
-    genMult = 3;
+  if(game.x >= 20){
+    game.genMult = 3;
     hideElement("upg2");
   }
 }
 
 function buyUpg3() {
-  if(x >= 30){
-    thicc = 1;
-    xCost *= 0.5;
+  if(game.x >= 30){
+    game.thicc = 1;
+    game.xCost *= 0.5;
     hideElement("upg3");
-    $("xButton").innerHTML = "Get an x for " + xCost + " points";
+    $("xButton").innerHTML = "Get an x for " + game.xCost + " points";
   }
 }
 
 function buyUpg4() {
-  if(x >= 50){
-    thicc = 2;
+  if(game.x >= 50){
+    game.thicc = 2;
     hideElement("upg4");
   }
 }
 
 function buyMult() {
-  if(x >= multCost){
-    multCost += 5;
-    genMult *= 1.6;
-    genMult = Math.round(genMult);
-    $("multText").innerHTML = "Current generator multiplier: " + genMult + "x";
-    $("multButton").innerHTML = "Upgrade mutliplier for " + multCost + "x";
+  if(game.x >= game.multCost){
+    game.multCost += 5;
+    game.genMult *= 1.6;
+    game.genMult = Math.round(game.genMult);
+    $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
+    $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   }
 }
 //hmm oh i have an amazing idea to tear the code into pieces as in make it way smaller so uh what are the ones nvm
@@ -345,24 +347,24 @@ function reset() {
   showElement("resetPoints");
   showElement("br");
   showElement("resetting");
-  resetPoints += Math.floor(y+(x/100));
-  $("resetPoints").innerHTML = "Reset Points: " + resetPoints;
-  points = 0;
-  clickers = 0;
-  factories = 0;
-  portals = 0;
-  cost1 = 25;
-  cost2 = 200;
-  cost3 = 15000;
-  x = 0;
-  y = 0;
-  xCost = 100000;
-  yCost = 100;
-  tickpart = 0;
-  tickspeed = 50;
-  scaling = 1.1;
-  genMult = 1;
-  thicc = 0;
-  visible = 0;
-  multCost = 50;
+  game.resetPoints += Math.floor(game.y+(game.x/100));
+  $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+  game.points = 0;
+  game.clickers = 0;
+  game.factories = 0;
+  game.portals = 0;
+  game.cost1 = 25;
+  game.cost2 = 200;
+  game.cost3 = 15000;
+  game.x = 0;
+  game.y = 0;
+  game.xCost = 100000;
+  game.yCost = 100;
+  game.tickpart = 0;
+  game.tickspeed = 50;
+  game.scaling = 1.1;
+  game.genMult = 1;
+  game.thicc = 0;
+  game.visible = 0;
+  game.multCost = 50;
 }
