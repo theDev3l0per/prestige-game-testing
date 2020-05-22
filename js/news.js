@@ -49,7 +49,7 @@ var newsArray = [
   "'Just because this game doesn't have polynomial growth doesn't mean that this game is bad!!!' -randomtuba",
   "'I need triple exponential growth or else I'm not playing' -someone",
   "https://cookie-clickr.glitch.me",
-  "'bet you can't reach 9.99e999'-someone from the AD server",
+  "'bet you can't reach 9.99e999' -someone from the AD server",
   "Algebraic Progression? More like Algebraic Depressio-"
 ];
 function showNews() {
