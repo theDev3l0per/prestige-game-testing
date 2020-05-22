@@ -77,5 +77,5 @@ function importSave(text) {
 }
 
 load();
-setInterval(loop,50);
+init();
 setInterval(save, 50) 

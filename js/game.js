@@ -107,7 +107,6 @@ function generation() {
 }
 
 function upgrades() {
-  showElement("save");
   if(game.scaling === 1.1){
     showElement("upg1");
   }
@@ -127,10 +126,12 @@ function upgrades() {
   hideElement("multText");
   hideElement("objectives");
   Array.from(c("reupg")).forEach(element => element.style.display = "none"); // el
+  hideElement("save");
   game.visible = 0;
 }
 
 function options() {
+  showElement("save");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
   Array.from(c("building")).forEach(element => element.style.display = "none");
   hideElement("xButton");
@@ -183,6 +184,10 @@ function init() {
   $("clickerButton").innerHTML = "Buy for " + game.cost1 + " points";
   $("factories").innerHTML = "Point Factories: " + game.factories;
   $("factoryButton").innerHTML = "Buy for " + game.cost2 + " points";
+  $("portals").innerHTML = "Point Portals: " + game.portals;
+  $("portalButton").innerHTML = "Buy for " + game.cost3 + " points";
+  $("xButton").innerHTML = "Get an x for " + game.xCost + " points";
+  $("yButton").innerHTML = "Get a y for " + game.yCost + "x";
 }
 
 init();

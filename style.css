@@ -108,12 +108,7 @@ button {
 marquee {
   border-style: solid;
   border-radius: 5px;
-  border-width: 4px;
-  font-family: helvetica, arial, sans-serif, typewriter;
-  font-size: 18px;
-} /*it works like #generation:hover {
-  background-color: gray;
-  border-color: lightgray;
-  color: white figuring out the js logic could be hard tho ill find a way
-} wats regular font oh i kno
-really it does it goes across the screen ew the font is badc*/
+  border-width: 4px;8
+} /*it works like really itc*/
+-webkit-marquee: auto medium infinite scroll normal; 
+overflow-x: -webkit-marquee;
