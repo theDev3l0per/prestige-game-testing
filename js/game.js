@@ -319,6 +319,13 @@ var mainGameLoop = window.setInterval(function() {
 }, 33);
 
 function loop() {
+  game.timePlayed += 0.033;
+  if(game.rtu11 === 1 && game.timePlayed >= 1){
+    game.timePlayedMult = Math.log(game.timePlayed);
+  }
+  if(game.rtu12 === 1){
+    game.ppMult = Math.log(game.clickers);
+  }
   game.points += (game.clickers/33)*game.genMult*game.timePlayedMult;
   game.points += (game.factories/3.3)*game.genMult*game.timePlayedMult;
   game.points += (game.portals*30.303)*game.genMult*game.timePlayedMult*game.ppMult;
@@ -380,13 +387,6 @@ function loop() {
   if(game.resetUnlocked === 1) {
     message[8] = "9. Reset (Completed)";
     spacing();
-  }
-  game.timePlayed += (1/30);
-  if(game.rtu11 === 1){
-    game.timePlayedMult = Math.log(game.timePlayed);
-  }
-  if(game.rtu12 === 1){
-    game.ppMult = Math.log(game.clickers);
   }
 }
 
