@@ -131,6 +131,7 @@ function generation() {
   Array.from(c("reupg2")).forEach(element => element.style.display = "none");
   hideElement("save");
   hideElement("discord");
+  Array.from(c("subtab")).forEach(element => element.style.display = "none");
 }
 
 function upgrades() {
@@ -156,6 +157,7 @@ function upgrades() {
   Array.from(c("reupg2")).forEach(element => element.style.display = "none");
   hideElement("save");
   hideElement("discord");
+  Array.from(c("subtab")).forEach(element => element.style.display = "none");
   game.visible = 0;
 }
 
@@ -172,6 +174,7 @@ function options() {
   hideElement("multButton");
   hideElement("multText");
   hideElement("objectives");
+  Array.from(c("subtab")).forEach(element => element.style.display = "none");
   game.visible = 0;
 }
 
@@ -188,12 +191,30 @@ function achievements() {
   Array.from(c("reupg2")).forEach(element => element.style.display = "none");
   hideElement("save");
   hideElement("discord");
+  Array.from(c("subtab")).forEach(element => element.style.display = "none");
   game.visible = 0;
 }
 
 function resetting() {
+  Array.from(c("subtab")).forEach(element => element.style.display = "inline");
   Array.from(c("reupg")).forEach(element => element.style.display = "inline");
   Array.from(c("reupg2")).forEach(element => element.style.display = "inline");
+  Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
+  Array.from(c("building")).forEach(element => element.style.display = "none");
+  hideElement("xButton");
+  Array.from(c("upgradeButton")).forEach(element => element.style.display = "none");
+  hideElement("yButton");
+  hideElement("multButton");
+  hideElement("multText");
+  hideElement("objectives");
+  hideElement("save");
+  hideElement("discord");
+}
+
+function cplane() {
+  Array.from(c("subtab")).forEach(element => element.style.display = "inline");
+  Array.from(c("reupg")).forEach(element => element.style.display = "none");
+  Array.from(c("reupg2")).forEach(element => element.style.display = "none");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
   Array.from(c("building")).forEach(element => element.style.display = "none");
   hideElement("xButton");

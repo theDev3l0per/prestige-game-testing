@@ -99,6 +99,12 @@ h1 {
   color: white
 }
 
+.subtab {
+  background-color: purple;
+  border-color: #FF00FF;
+  color: #FF00FF;
+}
+
 #resetting {
   transition-duration: 0.2s
 }
@@ -153,6 +159,16 @@ button {
 }
 
 #resetButton:hover {
+  background-color: #FF00FF;
+  border-color: purple;
+  color: purple; 
+}
+
+.subtab {
+  transition-duration: 0.2s
+}
+
+.subtab:hover {
   background-color: #FF00FF;
   border-color: purple;
   color: purple; 
