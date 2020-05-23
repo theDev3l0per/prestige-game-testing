@@ -196,7 +196,10 @@ function achievements() {
 }
 
 function resetting() {
-  Array.from(c("subtab")).forEach(element => element.style.display = "inline");
+  showElement("subtab1");
+  if(game.rtu14 === 1){
+    showElement("subtab2");
+  }
   Array.from(c("reupg")).forEach(element => element.style.display = "inline");
   Array.from(c("reupg2")).forEach(element => element.style.display = "inline");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
