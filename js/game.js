@@ -192,6 +192,7 @@ function achievements() {
   hideElement("save");
   hideElement("discord");
   Array.from(c("subtab")).forEach(element => element.style.display = "none");
+  Array.from(c("cplane")).forEach(element => element.style.display = "none");
   game.visible = 0;
 }
 
@@ -202,6 +203,7 @@ function resetting() {
   }
   Array.from(c("reupg")).forEach(element => element.style.display = "inline");
   Array.from(c("reupg2")).forEach(element => element.style.display = "inline");
+  Array.from(c("cplane")).forEach(element => element.style.display = "none");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
   Array.from(c("building")).forEach(element => element.style.display = "none");
   hideElement("xButton");
@@ -216,6 +218,7 @@ function resetting() {
 
 function cplane() {
   Array.from(c("subtab")).forEach(element => element.style.display = "inline");
+  Array.from(c("cplane")).forEach(element => element.style.display = "inline");
   Array.from(c("reupg")).forEach(element => element.style.display = "none");
   Array.from(c("reupg2")).forEach(element => element.style.display = "none");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
@@ -499,21 +502,21 @@ function buyReupg(id) {
       if(game.resetPoints >= 2 && game.rtu11 === 0){
         game.resetPoints -= 2;
         game.rtu11 = 1;
-        $("reupg11").classList[0] = "reupg2";
+        $("reupg11").className = "reupg2";
         $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
     case 12:
       if(game.resetPoints >= 4 && game.rtu12 === 0){
         game.resetPoints -= 4;
         game.rtu12 = 1;
-        $("reupg12").classList[0] = "reupg2";
+        $("reupg12").className = "reupg2";
         $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
     case 13:
         if(game.resetPoints >= 8 && game.rtu13 === 0){
           game.resetPoints -= 8;
           game.rtu13 = 1;
-          $("reupg13").classList[0] = "reupg2";
+          $("reupg13").className = "reupg2";
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
         }
   }

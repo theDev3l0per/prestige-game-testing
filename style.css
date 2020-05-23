@@ -173,3 +173,13 @@ button {
   border-color: purple;
   color: purple; 
 }
+
+#sacrifice {
+  background-color: black;
+  color: white;
+  transition-duration: 0.2s
+}
+#sacrifice:hover {
+  background-color: lightgray;
+  color: gray;
+}
