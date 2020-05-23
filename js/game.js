@@ -40,6 +40,8 @@ game.timePlayedMult = 1;
 game.ppMult = 1;
 game.yMult = 1;
 game.resetUnlocked = 0;
+game.sacY = 0;
+game.xPerMin = 0;
 let message = 0;
 const $ = id => document.getElementById(id)
 const c = id => document.getElementsByClassName(id)
@@ -256,6 +258,8 @@ function init() {
   $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
   $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+  $("cplane").innerHTML = "You are generating " + game.xPerMin + " per minute. <br> Sacrificed y's: " + game.sacY;
+  
   if(game.resetUnlocked === 1){
     showElement("resetPoints");
     showElement("br");
@@ -532,7 +536,15 @@ function buyReupg(id) {
   }
   }
 
-
+function sacrificeY() {
+  if(game.y >= 1){
+    game.y -= 1;
+    convertNumber();
+    game.sacY += 1;
+    game.xPerMin += 1;
+    $("cplane").innerHTML = "You are generating " + game.xPerMin + " per minute. <br> Sacrificed y's: " + game.sacY;
+  }
+}
 
 function reset() {
   showElement("resetPoints");
