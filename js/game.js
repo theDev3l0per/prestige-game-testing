@@ -322,9 +322,13 @@ function loop() {
   game.timePlayed += 0.033;
   if(game.rtu11 === 1 && game.timePlayed >= 1){
     game.timePlayedMult = Math.log(game.timePlayed);
+  }else{
+    game.timePlayedMult = 1;
   }
-  if(game.rtu12 === 1){
+  if(game.rtu12 === 1 && game.clickers >= 1){
     game.ppMult = Math.log(game.clickers);
+  }else{
+    game.ppMult = 1;
   }
   game.points += (game.clickers/33)*game.genMult*game.timePlayedMult;
   game.points += (game.factories/3.3)*game.genMult*game.timePlayedMult;
