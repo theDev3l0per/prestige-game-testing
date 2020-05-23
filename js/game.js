@@ -59,7 +59,7 @@ function hideElement(element) {
 function convertNumber() {
   if(game.x < 1 && game.y < 1) {
     $("number").innerHTML = "Number = " + Math.floor(game.points);
-  } else if (game.x === 1 && game.y < 1) {
+  } else if (Math.floor(game.x) === 1 && game.y < 1) {
     $("number").innerHTML = "Number = " + "x+" + Math.floor(game.points);
   } else if (game.x > 1 && game.y < 1) {
     $("number").innerHTML = "Number = " + Math.floor(game.x) + "x+" + Math.floor(game.points);
@@ -258,7 +258,7 @@ function init() {
   $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
   $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
-  $("cplane").innerHTML = "You are generating " + game.xPerMin + " per minute. <br> Sacrificed y's: " + game.sacY;
+  $("cplane").innerHTML = "You are generating " + game.xPerMin + "x per minute. <br> Sacrificed y's: " + game.sacY;
   
   if(game.resetUnlocked === 1){
     showElement("resetPoints");
@@ -543,7 +543,7 @@ function sacrificeY() {
     convertNumber();
     game.sacY += 1;
     game.xPerMin += 1;
-    $("cplane").innerHTML = "You are generating " + game.xPerMin + " per minute. <br> Sacrificed y's: " + game.sacY;
+    $("cplane").innerHTML = "You are generating " + game.xPerMin + "x per minute. <br> Sacrificed y's: " + game.sacY;
   }
 }
 
