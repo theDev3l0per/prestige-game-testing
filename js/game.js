@@ -132,6 +132,7 @@ function generation() {
   hideElement("save");
   hideElement("discord");
   Array.from(c("subtab")).forEach(element => element.style.display = "none");
+  Array.from(c("cplane")).forEach(element => element.style.display = "none");
 }
 
 function upgrades() {
@@ -158,6 +159,7 @@ function upgrades() {
   hideElement("save");
   hideElement("discord");
   Array.from(c("subtab")).forEach(element => element.style.display = "none");
+  Array.from(c("cplane")).forEach(element => element.style.display = "none");
   game.visible = 0;
 }
 
@@ -175,6 +177,7 @@ function options() {
   hideElement("multText");
   hideElement("objectives");
   Array.from(c("subtab")).forEach(element => element.style.display = "none");
+  Array.from(c("cplane")).forEach(element => element.style.display = "none");
   game.visible = 0;
 }
 
@@ -517,6 +520,13 @@ function buyReupg(id) {
           game.resetPoints -= 8;
           game.rtu13 = 1;
           $("reupg13").className = "reupg2";
+          $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+        }
+    case 14:
+        if(game.resetPoints >= 16 && game.rtu14 === 0){
+          game.resetPoints -= 16;
+          game.rtu14 = 1;
+          $("reupg14").className = "reupg2";
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
         }
   }
