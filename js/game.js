@@ -62,11 +62,11 @@ function convertNumber() {
   } else if (game.x === 1 && game.y < 1) {
     $("number").innerHTML = "Number = " + "x+" + Math.floor(game.points);
   } else if (game.x > 1 && game.y < 1) {
-    $("number").innerHTML = "Number = " + game.x + "x+" + Math.floor(game.points);
+    $("number").innerHTML = "Number = " + Math.floor(game.x) + "x+" + Math.floor(game.points);
   } else if (game.y === 1) {
-    $("number").innerHTML = "Number = " + "y+" + game.x + "x+" + Math.floor(game.points);
+    $("number").innerHTML = "Number = " + "y+" + Math.floor(game.x) + "x+" + Math.floor(game.points);
   } else if (game.y > 1) {
-    $("number").innerHTML = "Number = " + game.y + "y+" + game.x + "x+" + Math.floor(game.points);
+    $("number").innerHTML = "Number = " + game.y + "y+" + Math.floor(game.x) + "x+" + Math.floor(game.points);
   }
 }
 
@@ -367,6 +367,7 @@ function loop() {
   game.points += (game.clickers/33)*game.genMult*game.timePlayedMult;
   game.points += (game.factories/3.3)*game.genMult*game.timePlayedMult;
   game.points += (game.portals*30.303)*game.genMult*game.timePlayedMult*game.ppMult;
+  game.x += (game.xPerMin/1980)
   convertNumber();
   document.getElementById("resetButton").innerHTML = "Reset for " + Math.floor(game.y+(game.x/100)) + " reset points";
   if(game.points > 99999){
