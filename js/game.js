@@ -135,6 +135,7 @@ function generation() {
   hideElement("discord");
   Array.from(c("subtab")).forEach(element => element.style.display = "none");
   Array.from(c("cplane")).forEach(element => element.style.display = "none");
+  hideElement("theme");
 }
 
 function upgrades() {
@@ -162,12 +163,14 @@ function upgrades() {
   hideElement("discord");
   Array.from(c("subtab")).forEach(element => element.style.display = "none");
   Array.from(c("cplane")).forEach(element => element.style.display = "none");
+  hideElement("theme");
   game.visible = 0;
 }
 
 function options() {
   showElement("save");
   showElement("discord");
+  showElement("theme");
   Array.from(c("buildingButton")).forEach(element => element.style.display = "none");
   Array.from(c("building")).forEach(element => element.style.display = "none");
   hideElement("xButton");
@@ -198,6 +201,7 @@ function achievements() {
   hideElement("discord");
   Array.from(c("subtab")).forEach(element => element.style.display = "none");
   Array.from(c("cplane")).forEach(element => element.style.display = "none");
+  hideElement("theme");
   game.visible = 0;
 }
 
@@ -219,6 +223,7 @@ function resetting() {
   hideElement("objectives");
   hideElement("save");
   hideElement("discord");
+  hideElement("theme");
 }
 
 function cplane() {
@@ -236,6 +241,7 @@ function cplane() {
   hideElement("objectives");
   hideElement("save");
   hideElement("discord");
+  hideElement("theme");
 }
 
 function init() {
@@ -544,6 +550,14 @@ function sacrificeY() {
     game.sacY += 1;
     game.xPerMin += 1;
     $("cplane").innerHTML = "You are generating " + game.xPerMin + "x per minute. <br> Sacrificed y's: " + game.sacY;
+  }
+}
+
+function changeTheme() {
+  if($("theme").innerHTML = "Theme: Light"){
+    $("theme").innerHTML = "Theme: Dark";
+  }else{
+    $("theme").innerHTML = "Theme: Light";
   }
 }
 
