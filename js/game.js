@@ -387,7 +387,7 @@ function loop() {
   if(game.resetPoints > 0) {
     game.resetUnlocked = 1
   }
-  if(game.visible === 1 && game.points > 99999){
+  if(game.visible === 1 && game.points > 99999 || game.x >= 1){
     showElement("xButton"); 
     showElement("upgrades");
   }
@@ -554,9 +554,9 @@ function sacrificeY() {
 }
 
 function changeTheme() {
-  if($("theme").innerHTML = "Theme: Light"){
+  if($("theme").innerHTML === "Theme: Light"){
     $("theme").innerHTML = "Theme: Dark";
-  }else{
+  }else if ($("theme").innerHTML === "Theme: Dark"){
     $("theme").innerHTML = "Theme: Light";
   }
 }
