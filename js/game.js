@@ -554,10 +554,12 @@ function sacrificeY() {
 }
 
 function changeTheme() {
-  if($("theme").innerHTML === "Theme: Light"){
+  if($("style").href == "stylesheets/Light.css"){
     $("theme").innerHTML = "Theme: Dark";
-  }else if ($("theme").innerHTML === "Theme: Dark"){
+    $("style").href = "stylesheets/Dark.css"
+  }else if ($("style").href = "stylesheets/Dark.css"){
     $("theme").innerHTML = "Theme: Light";
+    $("style").href = "stylesheets/Light.css"
   }
 }
 
