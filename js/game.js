@@ -42,6 +42,7 @@ game.yMult = 1;
 game.resetUnlocked = 0;
 game.sacY = 0;
 game.xPerMin = 0;
+game.sacYCost = 1;
 let message = 0;
 const $ = id => document.getElementById(id)
 const c = id => document.getElementsByClassName(id)
@@ -93,7 +94,11 @@ function convertToX() {
 function convertToY () {
   if(game.x >= game.yCost){
     game.y += 1;
-    game.yCost *= 1.15;
+    if(game.rtu23 === 1){
+      game.yCost *= 1.1;
+    }else{
+      game.yCost *= 1.15;
+    }
     game.yCost = Math.round(game.yCost);
     convertNumber();
   $("yButton").innerHTML = "Get a y for " + game.yCost + "x";
@@ -265,6 +270,11 @@ function init() {
   $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
   $("cplane").innerHTML = "You are generating " + game.xPerMin + "x per minute. <br> Sacrificed y's: " + game.sacY;
+  if(Math.floor(game.sacYCost) === 1){
+    $("sacrifice").innerHTML = "Sacrifice a y in exchange for x generation"; 
+  }else{
+    $("sacrifice").innerHTML = "Sacrifice " + Math.floor(game.sacYCost) + " in exchange for x generation";
+  }
   
   if(game.resetUnlocked === 1){
     showElement("resetPoints");
@@ -503,13 +513,22 @@ function buyUpg4() {
 
 function buyMult() {
   if(game.x >= game.multCost){
-    game.multCost += 5;
-    game.genMult *= 1.25;
+    if(game.rtu24 === 1){
+      game.multCost += 3;
+    }else{
+      game.multCost += 5;
+    }
+    if(game.rtu21 === 1){
+      game.genMult *= 1.4;
+    }else{
+      game.genMult *= 1.25; 
+    }
     game.genMult = Math.round(game.genMult);
     $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
     $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   }
 }
+
 function buyReupg(id) {
   switch(id) {
     case 11:
@@ -527,41 +546,87 @@ function buyReupg(id) {
         $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
     case 13:
-        if(game.resetPoints >= 8 && game.rtu13 === 0){
+      if(game.resetPoints >= 8 && game.rtu13 === 0){
           game.resetPoints -= 8;
           game.rtu13 = 1;
           $("reupg13").className = "reupg2";
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
-        }
+      }
     case 14:
-        if(game.resetPoints >= 16 && game.rtu14 === 0){
+      if(game.resetPoints >= 16 && game.rtu14 === 0){
           game.resetPoints -= 16;
           game.rtu14 = 1;
           $("reupg14").className = "reupg2";
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
-        }
+          showElement("subtab2");
+      }
+    case 21:
+      if(game.resetPoints >= 14 && game.rtu21 === 0){
+          game.resetPoints -= 14;
+          game.rtu21 = 1;
+          $("reupg21").className = "reupg2";
+          $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+      }
+    case 22:
+      if(game.resetPoints >= 30 && game.rtu22 === 0){
+          game.resetPoints -= 30;
+          game.rtu22 = 1;
+          $("reupg22").className = "reupg2";
+          $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+      }
+    case 23:
+      if(game.resetPoints >= 40 && game.rtu23 === 0){
+          game.resetPoints -= 40;
+          game.rtu23 = 1;
+          $("reupg23").className = "reupg2";
+          $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+      }
+    case 24:
+      if(game.resetPoints >= 50 && game.rtu24 === 0){
+          game.resetPoints -= 50;
+          game.rtu24= 1;
+          $("reupg24").className = "reupg2";
+          $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+      }
   }
   }
 
 function sacrificeY() {
-  if(game.y >= 1){
-    game.y -= 1;
+  if(game.y >= Math.floor(game.sacYCost)){
+    game.y -= Math.floor(game.sacYCost);
     convertNumber();
-    game.sacY += 1;
+    game.sacY += Math.floor(game.sacYCost);
+    game.sacYCost *= 1.1;
     game.xPerMin += 1;
     $("cplane").innerHTML = "You are generating " + game.xPerMin + "x per minute. <br> Sacrificed y's: " + game.sacY;
+    if(Math.floor(game.sacYCost) === 1){
+      $("sacrifice").innerHTML = "Sacrifice a y in exchange for x generation"; 
+    }else{
+      $("sacrifice").innerHTML = "Sacrifice " + Math.floor(game.sacYCost) + "y in exchange for x generation";
+    }
   }
 }
 
-function changeTheme() {
-  if($("style").href == "stylesheets/Light.css"){
-    $("theme").innerHTML = "Theme: Dark";
-    $("style").href = "stylesheets/Dark.css"
-  }else if ($("style").href = "stylesheets/Dark.css"){
-    $("theme").innerHTML = "Theme: Light";
-    $("style").href = "stylesheets/Light.css"
+function changeTheme(theme) {
+  switch(theme) {
+    case 'light':
+      $("style").href = "stylesheets/Dark.css";
+      $("theme").onclick = "changeTheme('dark')";
+    break;
+    case 'dark':
+      $("style").href = "stylesheets/Classic.css";
+      $("theme").onclick = "changeTheme('classic')";
+    break;
+    case 'classic':
+      $("style").href = "stylesheets/Void.css";
+      $("theme").onclick = "changeTheme('void')";
+    break;
+    case 'void':
+      $("style").href = "stylesheets/Light.css"; // yes i know this makes no sense but it works lol nvm ohhhh it has to be a function reeee
+      $("theme").onclick = "changeTheme('light')";
+    break;
   }
-}
+} // this function does not work
 
 function reset() {
   showElement("resetPoints");
@@ -583,9 +648,11 @@ function reset() {
   game.yCost = 100;
   game.tickpart = 0;
   game.tickspeed = 50;
+  if(game.rtu22 === 0){
   game.scaling = 1.1;
   game.genMult = 1;
   game.thicc = 0;
+  }
   game.visible = 0;
   game.multCost = 50;
   $("clickerButton").innerHTML = "Buy for " + game.cost1 + " points";
@@ -596,6 +663,7 @@ function reset() {
   $("portals").innerHTML = "Point Portals: " + game.portals;
   $("xButton").innerHTML = "Get an x for " + game.xCost + " points";
   $("yButton").innerHTML = "Get a y for " + game.yCost + "x";
-  $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
+  $("multText").innerHTML = "Current generator multiplier: 3x";
   $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
+  generation();
 }

@@ -11,7 +11,6 @@
     <script src="js/game.js" defer></script>
     <script src="js/news.js" defer></script>
     <script src="js/save.js" defer></script>
-    
   </head>
   <body>
     <div class="marquee" style="width: 100%"><p><text id="newsTicker">Welcome to Algebraic Progression</text></p></div>
@@ -53,12 +52,11 @@
     </button>
     <br>
     <br>
-    
     <button id="save" onclick="save()">
       Save
     </button>
-    <button id="theme" onclick="changeTheme()">
-      Theme: Light
+    <button id="theme" onclick="changeTheme('light')">
+      Switch Theme
     </button>
     <button id="discord" onclick="window.location.href = 'https://discord.gg/6zApJHD';" class="discord">
       Discord
@@ -247,6 +245,7 @@
     <button id="yButton" onclick="convertToY()" class="yButton">
       Get a y for 100x
     </button>
+    <br>
     <button id="resetButton" onclick="reset()" class="resetButton">
       Reset for 0 reset points
     </button>
