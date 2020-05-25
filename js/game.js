@@ -519,7 +519,7 @@ function buyMult() {
       game.multCost += 5;
     }
     if(game.rtu21 === 1){
-      game.genMult *= 1.4;
+      game.genMult *= 1.28;
     }else{
       game.genMult *= 1.25; 
     }
@@ -649,9 +649,11 @@ function reset() {
   game.tickpart = 0;
   game.tickspeed = 50;
   if(game.rtu22 === 0){
-  game.scaling = 1.1;
-  game.genMult = 1;
-  game.thicc = 0;
+    game.scaling = 1.1;
+    game.thicc = 0;
+    game.genMult = 1;
+  }else{
+    game.genMult = 3;
   }
   game.visible = 0;
   game.multCost = 50;
