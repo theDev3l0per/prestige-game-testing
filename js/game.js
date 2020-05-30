@@ -514,7 +514,7 @@ function buyUpg4() {
 function buyMult() {
   if(game.x >= game.multCost){
     if(game.rtu24 === 1){
-      game.multCost += 4;
+      game.multCost += 3;
     }else{
       game.multCost += 5;
     }
