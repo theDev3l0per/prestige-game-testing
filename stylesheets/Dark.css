@@ -10,6 +10,9 @@ h1 {
   font-style: italic;
   color: #373fff;
 }
+#newsTicker {
+  color: white;
+}
 
 .pointButton {
   background-color: black;
@@ -63,6 +66,13 @@ h1 {
   border-color: #000000;
   border-width: 3px;
   color: white; 
+}
+
+.multButton2 {
+  background-color: gray;
+  border-color: #000000;
+  border-width: 3px;
+  color: white;
 }
 
 .resetButton {
@@ -187,6 +197,7 @@ button {
   color: black;
   transition-duration: 0.2s
 }
+
 #sacrifice:hover {
   background-color: black;
   color: white;
@@ -201,5 +212,9 @@ button {
 }
 
 #portals {
+  color: white;
+}
+
+#cplane {
   color: white;
 }

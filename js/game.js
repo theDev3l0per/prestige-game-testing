@@ -1,63 +1,63 @@
 console.log("What are you doing here in the console?");
 var game = {};
-game.points = 0;
-game.clickers = 0;
-game.factories = 0;
-game.portals = 0;
-game.cost1 = 25;
-game.cost2 = 200; //...
-game.cost3 = 15000;
-game.x = 0;
-game.y = 0;
-game.xCost = 100000;
-game.yCost = 100;
-game.tickpart = 0;
-game.tickspeed = 50;
-game.scaling = 1.1;
-game.genMult = 1;
-game.thicc = 0;
-game.visible = 0;
-game.multCost = 50;
-game.resetPoints = 0;
-game.timePlayed = 0;
-game.rtu11 = 0;
-game.rtu12 = 0;
-game.rtu13 = 0;
-game.rtu14 = 0;
-game.rtu21 = 0;
-game.rtu22 = 0;
-game.rtu23 = 0;
-game.rtu24 = 0;
-game.rtu31 = 0;
-game.rtu32 = 0;
-game.rtu33 = 0;
-game.rtu34 = 0;
-game.rtu41 = 0;
-game.rtu42 = 0;
-game.rtu43 = 0;
-game.rtu44 = 0;
-game.timePlayedMult = 1;
-game.ppMult = 1;
-game.yMult = 1;
-game.resetUnlocked = 0;
-game.sacY = 0;
-game.xPerMin = 0;
-game.sacYCost = 1;
+game.points = 0; // points
+game.clickers = 0; // autoclicker amount
+game.factories = 0; // point factory amount
+game.portals = 0; // point portal amount
+game.cost1 = 25; // autoclicker cost
+game.cost2 = 200; // point factory cost
+game.cost3 = 15000; // point portal cost
+game.x = 0; // x's
+game.y = 0; // y's
+game.xCost = 100000; // x cost
+game.yCost = 100; // y cost
+game.tickpart = 0; // used with tickspeed
+game.tickspeed = 50; // tickspeed
+game.scaling = 1.1; // cost scaling
+game.genMult = 1; // generator multiplier
+game.thicc = 0; // used for upgrade displaying
+game.visible = 0; // useless
+game.multCost = 50; // generator multiplier cost
+game.resetPoints = 0; // reset points
+game.timePlayed = 0; // time online
+game.rtu11 = 0; // detects when rtu11 is bought
+game.rtu12 = 0; // detects when rtu12 is bought
+game.rtu13 = 0; // detects when rtu13 is bought
+game.rtu14 = 0; // detects when rtu14 is bought
+game.rtu21 = 0; // detects when rtu21 is bought
+game.rtu22 = 0; // detects when rtu22 is bought
+game.rtu23 = 0; // detects when rtu23 is bought
+game.rtu24 = 0; // detects when rtu24 is bought
+game.rtu31 = 0; // detects when rtu31 is bought
+game.rtu32 = 0; // detects when rtu32 is bought
+game.rtu33 = 0; // detects when rtu33 is bought
+game.rtu34 = 0; // detects when rtu34 is bought
+game.rtu41 = 0; // detects when rtu41 is bought
+game.rtu42 = 0; // detects when rtu42 is bought
+game.rtu43 = 0; // detects when rtu43 is bought
+game.rtu44 = 0; // detects when rtu44 is bought
+game.timePlayedMult = 1; // multiplier to generators
+game.ppMult = 1; // multiplier to generators
+game.yMult = 1; // multiplier to generators
+game.resetUnlocked = 0; // used for displaying upon refresh
+game.sacY = 0; // sacrificed y's
+game.xPerMin = 0; // x per minute via coordinate plane
+game.sacYCost = 1; // cost to get +1 (or +3) x per minute
 let message = 0;
 const $ = id => document.getElementById(id)
 const c = id => document.getElementsByClassName(id)
 const t = id => document.getElementsByTagName(id)
 const D = thing => new Decimal(thing)
 //ooh arrow function ^
-function showElement(element) {
+function showElement(element) { // shows element
   $(element).style.display = "inline";
 }
 
-function hideElement(element) {
+function hideElement(element) { // hides element
   $(element).style.display = "none";
 }
 
-function convertNumber() {
+function convertNumber() { // very important, used for displaying number
   if(game.x < 1 && game.y < 1) {
     $("number").innerHTML = "Number = " + Math.floor(game.points);
   } else if (Math.floor(game.x) === 1 && game.y < 1) {
@@ -71,12 +71,12 @@ function convertNumber() {
   }
 }
 
-function pointButton() {
+function pointButton() { // click function
   game.points += 1;
   convertNumber();
 }
 
-function convertToX() {
+function convertToX() { // buy x function
   if(game.points >= game.xCost){
     game.points -= game.xCost;
     game.x += 1;
@@ -91,7 +91,7 @@ function convertToX() {
   }
 }
 
-function convertToY () {
+function convertToY () { // buy y function
   if(game.x >= game.yCost){
     game.y += 1;
     if(game.rtu23 === 1){
@@ -105,7 +105,8 @@ function convertToY () {
   }
 }
 
-function generation() {
+// tab functions
+function generation() { 
   showElement("clickers");
   showElement("clickerButton");
   showElement("factories");
@@ -249,7 +250,8 @@ function cplane() {
   hideElement("theme");
 }
 
-function init() {
+function init() { // only run this once 
+  // don't change this stuff unless you know what you're doing
   hideElement("xButton");
   hideElement("upgrades");
   hideElement("resetButton");
@@ -270,10 +272,16 @@ function init() {
   $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
   $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
   $("cplane").innerHTML = "You are generating " + game.xPerMin + "x per minute. <br> Sacrificed y's: " + game.sacY;
+  if(game.multCost >= 300){
+      game.multCost = 100000;
+      $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
+      $("multButton").innerHTML = "Generator multiplier has been maxed out";
+      $("multButton").className = "multButton2";
+    }
   if(Math.floor(game.sacYCost) === 1){
     $("sacrifice").innerHTML = "Sacrifice a y in exchange for x generation"; 
   }else{
-    $("sacrifice").innerHTML = "Sacrifice " + Math.floor(game.sacYCost) + " in exchange for x generation";
+    $("sacrifice").innerHTML = "Sacrifice " + Math.floor(game.sacYCost) + "y in exchange for x generation";
   }
   
   if(game.resetUnlocked === 1){
@@ -336,31 +344,7 @@ function init() {
 
 init();
 
-var objectives = [
-  "1. Get your first Autoclicker",
-  "2. Get your first Point Factory",
-  "3. Get your first Point Portal",
-  "4. Get an x",
-  "5. Buy an upgrade",
-  "6. Unlock the generator multiplier",
-  "7. Reach 100,000,000 points",
-  "8. Get a y",
-  "9. Reset"
-];
-
-function spacing() {
-  $("objectives").innerHTML = "";
-  while(message < objectives.length){
-    $("objectives").innerHTML = $("objectives").innerHTML + objectives[message] + "<br>";
-    message += 1;
-  }
-}
-
-//buggy ^
-
-spacing();
-
-var mainGameLoop = window.setInterval(function() {
+var mainGameLoop = window.setInterval(function() { // runs the loop
   game.tickpart += 50
   if (game.tickpart>=game.tickspeed) {
     game.tickpart -= game.tickspeed
@@ -368,7 +352,7 @@ var mainGameLoop = window.setInterval(function() {
   }
 }, 33);
 
-function loop() {
+function loop() { // don't change this stuff unless you know what you're doing
   game.timePlayed += 0.033;
   if(game.rtu11 === 1 && game.timePlayed >= 1){
     game.timePlayedMult = Math.log(game.timePlayed);
@@ -380,12 +364,21 @@ function loop() {
   }else{
     game.ppMult = 1;
   }
+  if(game.rtu33 === 1 && game.y >= 1){
+    game.yMult = Math.log(game.y);
+  }else{
+    game.yMult = 1;
+  }
   game.points += (game.clickers/33)*game.genMult*game.timePlayedMult;
   game.points += (game.factories/3.3)*game.genMult*game.timePlayedMult;
   game.points += (game.portals*30.303)*game.genMult*game.timePlayedMult*game.ppMult;
   game.x += (game.xPerMin/1980)
   convertNumber();
-  document.getElementById("resetButton").innerHTML = "Reset for " + Math.floor(game.y+(game.x/100)) + " reset points";
+  if(game.rtu31 === 1){
+    $("resetButton").innerHTML = "Reset for " + Math.floor((game.y+(game.x/100))*Math.log((game.y+(game.x/100)))) + " reset points"; 
+  }else{
+    $("resetButton").innerHTML = "Reset for " + Math.floor(game.y+(game.x/100)) + " reset points";
+  }
   if(game.points > 99999){
     game.visible = 1;
   }
@@ -407,45 +400,9 @@ function loop() {
   if(game.y >= 1){
     showElement("resetButton");
   }
-  if(game.clickers === 1){
-    message[0] = "1. Get your first Autoclicker (Completed)";
-    spacing();
-  }
-  if(game.factories === 1){
-    message[1] = "2. Get your first Point Factory (Completed)";
-    spacing();
-  }
-  if(game.portals === 1){
-    message[2] = "3. Get your first Point Portal (Completed)";
-    spacing();
-  }
-  if(game.x === 1){
-    message[3] = "4. Get an x (Completed)";
-    spacing();
-  }
-  if(game.scaling === 1.06){
-    message[4] = "5. Buy an upgrade (Completed)";
-    spacing();
-  }
-  if(game.thicc === 2){
-    message[5] = "6. Unlock the generator multiplier (Completed)";
-    spacing();
-  }
-  if(game.points > 99999999){
-    message[6] = "7. Reach 100,000,000 points (Completed)";
-    spacing();
-  }
-  if(game.y === 1){
-    message[7] = "8. Get a y (Completed)";
-    spacing();
-  }
-  if(game.resetUnlocked === 1) {
-    message[8] = "9. Reset (Completed)";
-    spacing();
-  }
 }
 
-function buyClicker() {
+function buyClicker() { // buy autoclicker function
   if(game.points >= game.cost1){
     game.points -= game.cost1;
     game.clickers += 1;
@@ -457,7 +414,7 @@ function buyClicker() {
   }
 }
 
-function buyFactory() {
+function buyFactory() { // buy point factory function
   if(game.points >= game.cost2){
     game.points -= game.cost2;
     game.factories += 1;
@@ -469,7 +426,7 @@ function buyFactory() {
   }
 }
 
-function buyPortal() {
+function buyPortal() { // buy point portal function
   if(game.points >= game.cost3){
     game.points -= game.cost3;
     game.portals += 1;
@@ -481,6 +438,7 @@ function buyPortal() {
   }
 }
 
+// upgrade functions
 function buyUpg1() {
   if(game.x >= 10){
     game.scaling = 1.06;
@@ -511,7 +469,7 @@ function buyUpg4() {
   }
 }
 
-function buyMult() {
+function buyMult() { // buy generator multiplier function
   if(game.x >= game.multCost){
     if(game.rtu24 === 1){
       game.multCost += 3;
@@ -519,17 +477,27 @@ function buyMult() {
       game.multCost += 5;
     }
     if(game.rtu21 === 1){
-      game.genMult *= 1.28;
+      game.genMult *= 1.3;
     }else{
       game.genMult *= 1.25; 
     }
     game.genMult = Math.round(game.genMult);
     $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
     $("multButton").innerHTML = "Upgrade mutliplier for " + game.multCost + "x";
+    if(game.multCost >= 300){
+      game.multCost = 100000;
+      $("multText").innerHTML = "Current generator multiplier: " + game.genMult + "x";
+      $("multButton").innerHTML = "Generator multiplier has been maxed out";
+      $("multButton").className = "multButton2";
+    }
   }
 }
 
-function buyReupg(id) {
+function newPrestigeLayerWhen() {
+ console.log("Take a screenshot of this message and you will get a special role!") 
+}
+
+function buyReupg(id) { // don't change this stuff unless you know what you're doing
   switch(id) {
     case 11:
       if(game.resetPoints >= 2 && game.rtu11 === 0){
@@ -538,6 +506,7 @@ function buyReupg(id) {
         $("reupg11").className = "reupg2";
         $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
+    break;
     case 12:
       if(game.resetPoints >= 4 && game.rtu12 === 0){
         game.resetPoints -= 4;
@@ -545,6 +514,7 @@ function buyReupg(id) {
         $("reupg12").className = "reupg2";
         $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
+    break;
     case 13:
       if(game.resetPoints >= 8 && game.rtu13 === 0){
           game.resetPoints -= 8;
@@ -552,6 +522,7 @@ function buyReupg(id) {
           $("reupg13").className = "reupg2";
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
+    break;
     case 14:
       if(game.resetPoints >= 16 && game.rtu14 === 0){
           game.resetPoints -= 16;
@@ -560,6 +531,7 @@ function buyReupg(id) {
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
           showElement("subtab2");
       }
+    break;
     case 21:
       if(game.resetPoints >= 14 && game.rtu21 === 0){
           game.resetPoints -= 14;
@@ -567,6 +539,7 @@ function buyReupg(id) {
           $("reupg21").className = "reupg2";
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
+    break;
     case 22:
       if(game.resetPoints >= 30 && game.rtu22 === 0){
           game.resetPoints -= 30;
@@ -574,6 +547,7 @@ function buyReupg(id) {
           $("reupg22").className = "reupg2";
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
+    break;
     case 23:
       if(game.resetPoints >= 40 && game.rtu23 === 0){
           game.resetPoints -= 40;
@@ -581,23 +555,55 @@ function buyReupg(id) {
           $("reupg23").className = "reupg2";
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
+    break;
     case 24:
       if(game.resetPoints >= 50 && game.rtu24 === 0){
           game.resetPoints -= 50;
-          game.rtu24= 1;
+          game.rtu24 = 1;
           $("reupg24").className = "reupg2";
           $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
       }
+    break;
+    case 31:
+      if(game.resetPoints >= 160 && game.rtu31 === 0){
+          game.resetPoints -= 160;
+          game.rtu31 = 1;
+          $("reupg31").className = "reupg2";
+          $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+      }
+    break;
+    case 32:
+      if(game.resetPoints >= 160 && game.rtu32 === 0){
+          game.resetPoints -= 160;
+          game.rtu32 = 1;
+          $("reupg32").className = "reupg2";
+          $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+      }
+    break;
+    case 33:
+      if(game.resetPoints >= 180 && game.rtu33 === 0){
+          game.resetPoints -= 180;
+          game.rtu33 = 1;
+          $("reupg33").className = "reupg2";
+          $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
+          game.xPerMin *= 2;
+          $("cplane").innerHTML = "You are generating " + game.xPerMin + "x per minute. <br> Sacrificed y's: " + game.sacY;
+      }
+    break;
   }
-  }
+}
 
-function sacrificeY() {
+function sacrificeY() { // used for coordinate plane
   if(game.y >= Math.floor(game.sacYCost)){
     game.y -= Math.floor(game.sacYCost);
     convertNumber();
     game.sacY += Math.floor(game.sacYCost);
     game.sacYCost *= 1.1;
-    game.xPerMin += 1;
+    if(game.rtu32 === 1){
+      game.xPerMin += 3;
+    }else{
+      game.xPerMin += 1;
+    }
     $("cplane").innerHTML = "You are generating " + game.xPerMin + "x per minute. <br> Sacrificed y's: " + game.sacY;
     if(Math.floor(game.sacYCost) === 1){
       $("sacrifice").innerHTML = "Sacrifice a y in exchange for x generation"; 
@@ -607,33 +613,46 @@ function sacrificeY() {
   }
 }
 
-function changeTheme(theme) {
+function changeTheme(theme) { // theme change function
   switch(theme) {
     case 'light':
       $("style").href = "stylesheets/Dark.css";
-      $("theme").onclick = "changeTheme('dark')";
+      $("theme").innerHTML = "Switch Theme (Currently Dark)"
+      $("theme").onclick = () => changeTheme('dark');
     break;
     case 'dark':
       $("style").href = "stylesheets/Classic.css";
-      $("theme").onclick = "changeTheme('classic')";
+      $("theme").innerHTML = "Switch Theme (Currently Classic)"
+      $("theme").onclick = () => changeTheme('classic');
     break;
     case 'classic':
       $("style").href = "stylesheets/Void.css";
-      $("theme").onclick = "changeTheme('void')";
+      $("theme").innerHTML = "Switch Theme (Currently Void)"
+      $("theme").onclick = () => changeTheme('void');
     break;
     case 'void':
-      $("style").href = "stylesheets/Light.css"; // yes i know this makes no sense but it works lol nvm ohhhh it has to be a function reeee
-      $("theme").onclick = "changeTheme('light')";
+      $("style").href = "stylesheets/NoCss.css";
+      $("theme").innerHTML = "Switch Theme (Currently NoCSS)"
+      $("theme").onclick = () => changeTheme('nocss');
+    break;
+    case 'nocss':
+      $("style").href = "stylesheets/Light.css";
+      $("theme").innerHTML = "Switch Theme (Currently Light)"
+      $("theme").onclick = () => changeTheme('light');
     break;
   }
-} // this function does not work
+}
 
-function reset() {
+function reset() { // reset function
   showElement("resetPoints");
   showElement("br");
   showElement("resetting");
   hideElement("resetButton");
-  game.resetPoints += Math.floor(game.y+(game.x/100));
+  if(game.rtu31 === 1){
+    game.resetPoints += Math.floor((game.y+(game.x/100))*Math.log((game.y+(game.x/100)))); 
+  }else{
+    game.resetPoints += Math.floor(game.y+(game.x/100));
+  }
   $("resetPoints").innerHTML = "Reset Points: " + game.resetPoints;
   game.points = 0;
   game.clickers = 0;
@@ -650,13 +669,14 @@ function reset() {
   game.tickspeed = 50;
   if(game.rtu22 === 0){
     game.scaling = 1.1;
-    game.thicc = 0;
     game.genMult = 1;
-  }else{
+    game.thicc = 0;
+  }else if(game.rtu22 === 1){
     game.genMult = 3;
   }
   game.visible = 0;
   game.multCost = 50;
+  $("multButton").className = "multButton";
   $("clickerButton").innerHTML = "Buy for " + game.cost1 + " points";
   $("clickers").innerHTML = "Autoclickers: " + game.clickers;
   $("factoryButton").innerHTML = "Buy for " + game.cost2 + " points";

@@ -53,6 +53,13 @@ h1 {
   color: white; 
 }
 
+.multButton2 {
+  background-color: gray;
+  border-color: #000000;
+  border-width: 3px;
+  color: white;
+}
+
 .resetButton {
   background-color: purple;
   border-color: #FF00FF;

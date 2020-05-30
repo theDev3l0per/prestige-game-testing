@@ -10,7 +10,7 @@ h1 {
 
 .number {
   font-size: 25px;
-} 
+}
 
 .xButton {
   font-size: 18px;
@@ -26,6 +26,10 @@ h1 {
 }
 
 .multButton {
+  border-width: 3px;
+}
+
+.multButton2 {
   border-width: 3px;
 }
 
