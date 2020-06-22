@@ -12,6 +12,12 @@
     <script src="js/news.js" defer></script>
     <script src="js/save.js" defer></script>
   </head>
+  
+    <button id="export" onclick="document.getElementById('exportBox').value = exportSave()" class="options">Export (<a href="https://yahtzeemaster26.github.io/algebraic-progression/index.html">moved here</a>)</button>
+    <input id="exportBox">
+    <button id="import" onclick="importSave(prompt('Insert your save here'))" class="options">
+      Import
+    </button>
   <body>
     <div class="marquee" style="width: 100%"><p><text id="newsTicker">Welcome to Algebraic Progression</text></p></div>
     <br>
