@@ -1,22 +1,22 @@
-var game = {};
-game.points = D(0);
-game.incrementers = 1;
-game.workers = 0;
-game.banks = 0;
-game.derivatives = 0; 
-game.cost1 = D(25);
-game.cost2 = D(200);
-game.cost3 = D(15000);
-game.tickpart = 0;
-game.tickspeed = 50;
-game.b = D(0),
-game.tab = 1;
-console.log("What are you doing here in the console?");
-
 const $ = id => document.getElementById(id)
 const c = id => document.getElementsByClassName(id)
 const t = id => document.getElementsByTagName(id)
 const D = id => new Decimal(id)
+
+var game = {};
+game.points = 0;
+game.incrementers = 1;
+game.workers = 0;
+game.banks = 0;
+game.derivatives = 0; 
+game.cost1 = 25;
+game.cost2 = 200;
+game.cost3 = 15000;
+game.tickpart = 0;
+game.tickspeed = 50;
+game.b = 0,
+game.tab = 1;
+console.log("What are you doing here in the console?");
 
 // so we are going to save the game in an object.
 
