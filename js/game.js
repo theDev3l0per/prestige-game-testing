@@ -47,10 +47,11 @@ var mainGameLoop = window.setInterval(function() { // runs the loop
   }
 }, 33);
 
-function loop() { // don't change this stuff unless you know what you're doing // I
-  game.points += game.incrementers/30*(game.pu[0]==1 ? Math.log(game.time,6) : 1); //1 per sec be less scared
-  game.points += game.workers/3; //10 per sec
-  game.points += game.banks*100/3; //1000 per sec
+function loop() { // don't change this stuff unless you know what you're doing
+  game.points += game.incrementers/30*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1); //1 per sec 
+  game.points += game.workers/3*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1); //10 per sec
+  game.points += game.banks*100/3*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1); //1000 per sec
+  game.time += 1/30;
   $("points").innerHTML = `Points: ${Math.floor(game.points)}`;
   $("inc").innerHTML = `Incrementers: ${game.incrementers}`;
   $("workers").innerHTML = `Workers: ${game.workers}`;
@@ -115,21 +116,21 @@ function buyInc(x) {
     if (game.points > game.cost1){
       game.points -= game.cost1;
       game.incrementers += 1;
-      game.cost1 = Math.round(game.cost1*1.15);
+      game.cost1 = game.pu[1]==1 ? Math.round(game.cost1*1.1) : Math.round(game.cost1*1.15);
     }
     break;
     case 2:
     if (game.points > game.cost2){
       game.points -= game.cost2;
       game.workers += 1;
-      game.cost2 = Math.round(game.cost2*1.15);
+      game.cost2 = game.pu[1]==1 ? Math.round(game.cost2*1.1) : Math.round(game.cost2*1.15);
     }
     break;
     case 3:
     if (game.points > game.cost3){
       game.points -= game.cost3;
       game.banks += 1;
-      game.cost3 = Math.round(game.cost3*1.15);
+      game.cost3 = game.pu[1]==1 ? Math.round(game.cost3*1.1) : Math.round(game.cost1*1.15);
     }
     break;
   } 

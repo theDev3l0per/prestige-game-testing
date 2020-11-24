@@ -24,6 +24,8 @@ function load() {
 function reset() {
   if (confirm("Are you sure you want to reset?")) {
     game = {};
+    game.time = 0
+    game.tb = 0
     game.points = 0;
     game.incrementers = 1;
     game.workers = 0;
@@ -34,12 +36,11 @@ function reset() {
     game.cost3 = 15000;
     game.tickpart = 0;
     game.tickspeed = 50;
-    game.b = 0;
-    game.tb = 0;
+    game.b = 0,
     game.tab = 1;
-    game.prestigeUpgrades = [0,0,0,0,0,0,0,0,0,0];
+    game.pu = [0,0,0,0,0,0,0,0,0,0];
     game.puCosts = [1,3,5,5,10,15,20,30,50,50];
-    game.time = 0;
+    game.x = 1;
     save();
     load();
   }
