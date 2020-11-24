@@ -16,7 +16,7 @@ function save() {
   if (typeof localStorage.game == "undefined") localStorage.game = JSON.stringify(game)
   localStorage.game = JSON.stringify(loopAssign(JSON.parse(localStorage.game), game))
 }
-// btw there's a save button in the game also autosave
+
 function load() {
   if (typeof localStorage.game != "undefined") JSON.stringify(loopAssign(game, JSON.parse(localStorage.game)))
 }
@@ -37,6 +37,7 @@ function reset() {
     game.b = 0;
     game.tb = 0;
     game.tab = 1;
+    game.time = 0
     save();
     load();
   }

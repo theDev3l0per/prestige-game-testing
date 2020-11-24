@@ -4,6 +4,7 @@ const t = id => document.getElementsByTagName(id)
 const D = id => new Decimal(id)
 
 var game = {};
+game.time = 0
 game.tb = 0
 game.points = 0;
 game.incrementers = 1;
