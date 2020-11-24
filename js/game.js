@@ -20,6 +20,7 @@ game.b = 0,
 game.tab = 1;
 game.pu = [0,0,0,0,0,0,0,0,0,0];
 game.puCosts = [1,3,5,5,10,15,20,30,50,50];
+game.x = 1;
 console.log("What are you doing here in the console?");
 
 // so we are going to save the game in an object.
@@ -66,6 +67,17 @@ function loop() { // don't change this stuff unless you know what you're doing
       ? "inline-block"
       : "none";
   });
+  
+  game.x += 1;
+  if (game.x >= 11){
+    game.x = 1;
+  }
+  if(game.b >= game.puCosts[game.x-1] && game.pu[game.x-1] == 0){
+    c("pu"+(game.x-1)).className = "pubuyable";
+  }
+  if(game.pu[game.x-1] == 1){
+    c("pu"+(game.x-1)).className = "pubought";
+  }
 }
 
 function tabSwitch(x) {
@@ -108,9 +120,9 @@ function buyInc(x) {
 }
 
 function buyPU(x) {
-    if(game.b >= 1 && game.prestigeUpgs[x-1] == 0){
-      game.b -= 1;
-      game.prestigeUpgs[x-1] = 1;
+    if(game.b >= game.puCosts[x-1] && game.pu[x-1] == 0){
+      game.b -= game.puCosts[x-1];
+      game.pu[x-1] = 1;
     }
 }
 

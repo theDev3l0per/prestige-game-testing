@@ -14,7 +14,7 @@ function loopAssign(x, y) {
 
 function save() {
   if (typeof localStorage.game == "undefined") localStorage.game = JSON.stringify(game)
-  localStorage.game = JSON.stringify(loopAssign(JSON.parse(localStorage.game), game))
+  localStorage.game = JSON.stringify(game)
 }
 
 function load() {
