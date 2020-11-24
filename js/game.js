@@ -112,13 +112,14 @@ function tabSwitch(x) {
 }
 
 function buyInc(x) {
+  var ret = false
   switch (x) {
     case 1:
     if (game.points > game.cost1){
       game.points -= game.cost1;
       game.incrementers += 1;
       game.cost1 = game.pu[1]==1 ? Math.round(game.cost1*1.1) : Math.round(game.cost1*1.15);
-      return true
+      ret = true
     }
     break;
     case 2:
@@ -126,23 +127,34 @@ function buyInc(x) {
       game.points -= game.cost2;
       game.workers += 1;
       game.cost2 = game.pu[1]==1 ? Math.round(game.cost2*1.1) : Math.round(game.cost2*1.15);
-      return true
+      ret = true
     }
     break;
     case 3:
     if (game.points > game.cost3){
       game.points -= game.cost3;
       game.banks += 1;
-      game.cost3 = game.pu[1]==1 ? Math.round(game.cost3*1.1) : Math.round(game.cost1*1.15);
-      return true
+      game.cost3 = game.pu[1]==1 ? Math.round(game.cost3*1.1) : Math.round(game.cost3*1.15);
+      ret = true
     }
     break;
   } 
-  return false
+  return ret
 }
 
 function maxAll(x) {
-  while 
+  while (true) {
+    let a = buyInc(3)
+    if (!a) break
+  }
+  while (true) {
+    let a = buyInc(2)
+    if (!a) break
+  }
+  while (true) {
+    let a = buyInc(1)
+    if (!a) break
+  }
 }
 
 function buyPU(x) {

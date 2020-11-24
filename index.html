@@ -34,7 +34,7 @@
       Prestige
     </button><br><br>
     <div id="tab1disp" display="game.tab == 1">
-    <button display="game.tb > 0">
+    <button display="game.tb > 0" onclick="maxAll()">
       Max All
     </button><br display="game.tb > 0"><br display="game.tb > 0">
     <div id="inc">
@@ -42,12 +42,18 @@
     </div>
     <button id="incbuy" onclick="buyInc(1)" class="buyable">
       Buy an incrementer for 25 points
+    </button>
+    <button id="auto1" onclick="toggleAuto(1)" display="game.pu[3] == 1">
+      Auto: ON
     </button><br><br>
     <div id="workers">
       Workers: 0
     </div>
     <button id="workerbuy" onclick="buyInc(2)" class="buyable">
       Buy a worker for 200 points
+    </button>
+    <button id="auto2" onclick="toggleAuto(2)" display="game.pu[3] == 1">
+      Auto: ON
     </button><br><br>
     <div id="banks">
       Banks: 0
