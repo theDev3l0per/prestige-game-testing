@@ -3,6 +3,31 @@ body {
   margin: 2em;
 }
 
+button {
+  border-radius: 5px;
+}
+
 #points {
   font-size: 25px;
+}
+
+.tab {
+  font-size: 20px;
+  transition-duration: 0.2s;
+}
+
+.tab:hover {
+  color: white;
+  background-color: gray;
+}
+
+#tab3 {
+  color: blue;
+  background-color: cyan;
+  border-color: blue;
+}
+
+#tab3:hover {
+  color: cyan;
+  background-color: blue;
 }

@@ -1,12 +1,6 @@
+var game = require('./gamedata.json')
 console.log("What are you doing here in the console?");
-var game = {};
-game.points = 0;
-game.incrementers = 0;
-game.cost = 25;
-game.cost2 = 200;
-game.tickpart = 50;
-game.tickspeed = 1000;
-game.b = 0;
+
 
 const $ = id => document.getElementById(id)
 const c = id => document.getElementsByClassName(id)
