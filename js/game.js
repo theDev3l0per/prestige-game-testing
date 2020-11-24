@@ -73,10 +73,10 @@ function loop() { // don't change this stuff unless you know what you're doing
     game.x = 1;
   }
   if(game.b >= game.puCosts[game.x-1] && game.pu[game.x-1] == 0){
-    c("pu"+(game.x-1)).className = "pubuyable";
+    $("pu"+(game.x)).className = "pubuyable";
   }
   if(game.pu[game.x-1] == 1){
-    c("pu"+(game.x-1)).className = "pubought";
+    $("pu"+(game.x)).className = "pubought";
   }
 }
 
