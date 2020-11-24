@@ -23,7 +23,7 @@ function load() {
 
 function reset() {
   if (confirm("Are you sure you want to reset?")) {
-    var game = {};
+    game = {};
     game.points = 0;
     game.incrementers = 1;
     game.workers = 0;
