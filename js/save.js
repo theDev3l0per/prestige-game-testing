@@ -37,7 +37,9 @@ function reset() {
     game.b = 0;
     game.tb = 0;
     game.tab = 1;
-    game.time = 0
+    game.prestigeUpgrades = [0,0,0,0,0,0,0,0,0,0];
+    game.puCosts = [1,3,5,5,10,15,20,30,50,50];
+    game.time = 0;
     save();
     load();
   }

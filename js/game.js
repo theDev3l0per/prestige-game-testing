@@ -18,7 +18,8 @@ game.tickpart = 0;
 game.tickspeed = 50;
 game.b = 0,
 game.tab = 1;
-game.prestigeUpgrades = [0,0,0,0,0,0,0,0,0,0];
+game.pu = [0,0,0,0,0,0,0,0,0,0];
+game.puCosts = [1,3,5,5,10,15,20,30,50,50];
 console.log("What are you doing here in the console?");
 
 // so we are going to save the game in an object.
@@ -103,9 +104,14 @@ function buyInc(x) {
       game.cost3 = Math.round(game.cost3*1.15);
     }
     break;
-  }
-  
-  
+  } 
+}
+
+function buyPU(x) {
+    if(game.b >= 1 && game.prestigeUpgs[x-1] == 0){
+      game.b -= 1;
+      game.prestigeUpgs[x-1] = 1;
+    }
 }
 
 function prestige() {
