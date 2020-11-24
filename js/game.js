@@ -47,8 +47,8 @@ var mainGameLoop = window.setInterval(function() { // runs the loop
   }
 }, 33);
 
-function loop() { // don't change this stuff unless you know what you're doing
-  game.points += game.incrementers/30; //1 per sec
+function loop() { // don't change this stuff unless you know what you're doing // I
+  game.points += game.incrementers/30*(game.pu[0]==1 ? Math.log(game.time,6) : 1); //1 per sec be less scared
   game.points += game.workers/3; //10 per sec
   game.points += game.banks*100/3; //1000 per sec
   $("points").innerHTML = `Points: ${Math.floor(game.points)}`;
