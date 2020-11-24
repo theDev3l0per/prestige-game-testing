@@ -27,13 +27,10 @@ function showElement(element) { // shows element
 
 function hideElement(element) { // hides element
   $(element).style.display = "none";
-}
+} 
 
 function init() { // only run this once 
- hideElement("tab3");
- if (game.b >= 0){
-   showElement("tab3");
- }
+ 
 }
 
 init();
@@ -49,7 +46,7 @@ var mainGameLoop = window.setInterval(function() { // runs the loop
 function loop() { // don't change this stuff unless you know what you're doing
   game.points += game.incrementers/30; //1 per sec
   game.points += game.workers/3; //10 per sec
-  game.points += game.banks*10/3; //1000 per sec
+  game.points += game.banks*100/3; //1000 per sec
   $("points").innerHTML = "Points: " + Math.floor(game.points);
   $("inc").innerHTML = "Incrementers: " + game.incrementers;
   $("workers").innerHTML = "Workers: " + game.workers;
@@ -57,6 +54,8 @@ function loop() { // don't change this stuff unless you know what you're doing
   $("incbuy").innerHTML = "Buy an incrementer for " + game.cost1 + " points";
   $("workerbuy").innerHTML = "Buy a worker for " + game.cost2 + " points";
   $("bankbuy").innerHTML = "Buy a bank for " + game.cost3 + " points";
+  
+
 
   Array.from(document.querySelectorAll("body *")).forEach(elem => {
     if (!elem.getAttribute("display")) return elem;
@@ -115,8 +114,7 @@ function buyInc(x) {
     game.cost3 = 15000;
     game.tickpart = 0;
     game.tickspeed = 50;
-    game.tb += 1;
+    game.tb += Math.round(Math.log2(game.points/100000))
     game.b += Math.round(Math.log2(game.points/100000))
-    showElement("tab3");
   }
 }
