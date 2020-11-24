@@ -85,8 +85,18 @@ function buyInc(x) {
     }
     break;
     case 2:
+    if (game.points > game.cost2){
+      game.points -= game.cost2;
+      game.workers += 1;
+      game.cost2 = Math.round(game.cost2*1.15);
+    }
     break;
     case 3:
+    if (game.points > game.cost3){
+      game.points -= game.cost3;
+      game.banks += 1;
+      game.cost3 = Math.round(game.cost3*1.15);
+    }
     break;
   }
 }
