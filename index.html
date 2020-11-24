@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css" id="style">
-    
   </head>
   
   <body>
@@ -15,7 +14,10 @@
     <script src="js/save.js"></script>
     <div>
       <b>Welcome to Prestige Game</b>
-    </div>
+    </div><br class="prestige" display="game.points >= 100000"><br class="prestige" display="game.points >= 100000">
+    <button id="prestige" class="prestige" display="game.points >= 100000" onclick="prestige()">
+      Prestige for 0 b
+    </button><br>
     <div id="points">
       Points: 0
     </div>
@@ -25,7 +27,7 @@
     <button id="tab2" class="tab" onclick="tabSwitch(2)">
       Options
     </button>
-    <button id="tab3" class="tab" onclick="tabSwitch(3)">
+    <button id="tab3" class="tab" onclick="tabSwitch(3)" display="game.b >= 0">
       Prestige
     </button><br><br>
     <div id="tab1disp" display="game.tab == 1">

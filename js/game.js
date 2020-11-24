@@ -4,6 +4,7 @@ const t = id => document.getElementsByTagName(id)
 const D = id => new Decimal(id)
 
 var game = {};
+game.tb = 0
 game.points = 0;
 game.incrementers = 1;
 game.workers = 0;
@@ -29,7 +30,10 @@ function hideElement(element) { // hides element
 }
 
 function init() { // only run this once 
- 
+ hideElement("tab3");
+ if (game.b >= 0){
+   showElement("tab3");
+ }
 }
 
 init();
@@ -98,5 +102,21 @@ function buyInc(x) {
       game.cost3 = Math.round(game.cost3*1.15);
     }
     break;
+  }
+  
+  function prestige() {
+    game.points = 0;
+    game.incrementers = 1;
+    game.workers = 0;
+    game.banks = 0;
+    game.derivatives = 0; 
+    game.cost1 = 25;
+    game.cost2 = 200;
+    game.cost3 = 15000;
+    game.tickpart = 0;
+    game.tickspeed = 50;
+    game.tb += 1;
+    game.b += Math.round(Math.log2(game.points/100000))
+    showElement("tab3");
   }
 }

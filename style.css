@@ -21,10 +21,11 @@ button {
   background-color: gray;
 }
 
-#tab3 {
+#tab3, .prestige {
   color: blue;
   background-color: cyan;
   border-color: blue;
+  transition-duration: 0.2;
 }
 
 #tab3:hover {
