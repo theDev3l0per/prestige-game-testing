@@ -38,3 +38,30 @@ button {
   width: 125px;
   transition-duration: 0.2s;
 }
+
+.pulocked {
+  height: 100px;
+  width: 150px;
+  color: black;
+  background-color: #aaaaaa;
+  border-color: red;
+  transition-duration: 0.2s;
+}
+
+.pubuyable {
+  height: 100px;
+  width: 150px;
+  color: white;
+  background-color: red;
+  border-color: red;
+  transition-duration: 0.2s;
+}
+
+.pubought {
+  height: 100px;
+  width: 150px;
+  color: white;
+  background-color: green;
+  border-color: green;
+  transition-duration: 0.2s;
+}
