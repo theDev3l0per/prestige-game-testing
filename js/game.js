@@ -4,7 +4,7 @@ game.incrementers = 1;
 game.workers = 0;
 game.banks = 0;
 game.derivatives = 0; 
-game.cost = 25;
+game.cost1 = 25;
 game.cost2 = 200;
 game.cost3 = 15000;
 game.tickpart = 0;
@@ -46,6 +46,45 @@ function loop() { // don't change this stuff unless you know what you're doing
   game.points += game.incrementers/30;
   $("points").innerHTML = "Points: " + Math.floor(game.points);
   $("inc").innerHTML = "Incrementers: " + game.incrementers;
-  
-  
+  $("workers").innerHTML = "Workers: " + game.workers;
+  $("banks").innerHTML = "Banks: " + game.banks;
+  $("incbuy").innerHTML = "Buy an incrementer for " + game.cost1 + " points";
+  $("workerbuy").innerHTML = "Buy a worker for " + game.cost2 + " points";
+  $("bankbuy").innerHTML = "Buy a bank for " + game.cost3 + " points";
+
+  Array.from(document.querySelectorAll("body *")).forEach(elem => {
+    if (!elem.getAttribute("display")) return elem;
+    elem.style.display = eval(elem.getAttribute("display"))
+      ? "inline-block"
+      : "none";
+  });
+}
+
+function tabSwitch(x) {
+  switch (x) {
+    case 1:
+    game.tab = 1;
+    break;
+    case 2:
+    game.tab = 2;
+    break;
+    case 3:
+    game.tab = 3;
+  }
+}
+
+function buyInc(x) {
+  switch (x) {
+    case 1:
+    if (game.points > game.cost1){
+      game.points -= game.cost1;
+      game.incrementers += 1;
+      game.cost1 = Math.round(game.cost1*1.15);
+    }
+    break;
+    case 2:
+    break;
+    case 3:
+    break;
+  }
 }

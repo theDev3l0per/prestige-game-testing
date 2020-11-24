@@ -1,4 +1,5 @@
 function loopAssign(x, y) {
+  
     for (var key in y) {
         if (!y.hasOwnProperty(key)) continue;
         if (typeof y[key] == "object") {
@@ -12,7 +13,8 @@ function loopAssign(x, y) {
 }
 
 function save() {
-  localStorage.game = loopAssign(localStorage.game, game)
+  if (typeof localStorage.game == "undefined") localStorage.game = JSON.stringify()
+  if (typeof game != "undefined") localStorage.game = loopAssign(localStorage.game, game)
 }
 
 function load() {

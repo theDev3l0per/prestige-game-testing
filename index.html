@@ -10,22 +10,22 @@
   </head>
   
   <body>
-    <script src="js/break_infinity_min.js" defer></script>
-    <script src="js/game.js" defer></script>
-    <script src="js/save.js" defer></script>
+    <script src="js/break_infinity_min.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/save.js"></script>
     <div>
       <b>Welcome to Prestige Game</b>
     </div>
     <div id="points">
       Points: 0
     </div>
-    <button id="tab1" class="tab" onclick="game.tab == 1">
+    <button id="tab1" class="tab" onclick="tabSwitch(1)">
       Production
     </button>
-    <button id="tab2" class="tab" onclick="game.tab == 2">
+    <button id="tab2" class="tab" onclick="tabSwitch(2)">
       Options
     </button>
-    <button id="tab3" class="tab" onclick="game.tab == 3">
+    <button id="tab3" class="tab" onclick="tabSwitch(3)">
       Prestige
     </button><br><br>
     <div id="tab1disp" display="game.tab == 1">
