@@ -106,6 +106,8 @@ function buyInc(x) {
 }
 
 function prestige() {
+    game.b += Math.floor(Math.log2(game.points/100000))+1;
+    game.tb += Math.floor(Math.log2(game.points/100000))+1;
     game.points = 0;
     game.incrementers = 1;
     game.workers = 0;
@@ -116,6 +118,4 @@ function prestige() {
     game.cost3 = 15000;
     game.tickpart = 0;
     game.tickspeed = 50;
-    game.tb += Math.round(Math.log2(game.points/100000))+1
-    game.b += Math.round(Math.log2(game.points/100000))+1
-  }
+}
