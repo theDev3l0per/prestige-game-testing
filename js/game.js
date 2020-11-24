@@ -17,6 +17,7 @@ game.tickpart = 0;
 game.tickspeed = 50;
 game.b = 0,
 game.tab = 1;
+game.prestigeUpgrades = [0,0,0,0,0,0,0,0,0,0];
 console.log("What are you doing here in the console?");
 
 // so we are going to save the game in an object.
@@ -54,7 +55,8 @@ function loop() { // don't change this stuff unless you know what you're doing
   $("incbuy").innerHTML = `Buy an incrementer for ${game.cost1} points`;
   $("workerbuy").innerHTML = `Buy a worker for ${game.cost2} points`;
   $("bankbuy").innerHTML = `Buy a bank for ${game.cost3} points`;
-  $("prestige").innerHTML = `Prestige for ${Math.round(Math.log2(game.points/100000))+1} b`
+  $("prestige").innerHTML = `Prestige for ${Math.floor(Math.log2(game.points/100000))+1} b`
+  $("b").innerHTML = `You have ${game.b} b`
 
   Array.from(document.querySelectorAll("body *")).forEach(elem => {
     if (!elem.getAttribute("display")) return elem;
