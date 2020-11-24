@@ -78,6 +78,22 @@ function loop() { // don't change this stuff unless you know what you're doing
   if(game.pu[game.x-1] == 1){
     $("pu"+(game.x)).className = "pubought";
   }
+  
+  if(game.points >= game.cost1){
+    $("incbuy").className = "buyable";
+  }else{
+    $("incbuy").className = "buyableLocked";
+  }
+  if(game.points >= game.cost2){
+    $("workerbuy").className = "buyable";
+  }else{
+    $("workerbuy").className = "buyableLocked";
+  }
+  if(game.points >= game.cost3){
+    $("bankbuy").className = "buyable";
+  }else{
+    $("bankbuy").className = "buyableLocked";
+  }
 }
 
 function tabSwitch(x) {

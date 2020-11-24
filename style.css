@@ -65,3 +65,22 @@ button {
   border-color: green;
   transition-duration: 0.2s;
 }
+
+.buyable {
+  border-color: green;
+  color: green;
+  background-color: #dddddd;
+  transition-duration: 0.2s;
+}
+
+.buyable:hover {
+  color: white;
+  background-color: green;
+}
+
+.buyableLocked {
+  border-color: red;
+  color: black;
+  background-color: #aaaaaa;
+  transition-duration: 0.2s;
+}
