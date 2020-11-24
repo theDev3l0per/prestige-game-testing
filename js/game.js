@@ -118,6 +118,7 @@ function buyInc(x) {
       game.points -= game.cost1;
       game.incrementers += 1;
       game.cost1 = game.pu[1]==1 ? Math.round(game.cost1*1.1) : Math.round(game.cost1*1.15);
+      return true
     }
     break;
     case 2:
@@ -125,6 +126,7 @@ function buyInc(x) {
       game.points -= game.cost2;
       game.workers += 1;
       game.cost2 = game.pu[1]==1 ? Math.round(game.cost2*1.1) : Math.round(game.cost2*1.15);
+      return true
     }
     break;
     case 3:
@@ -132,9 +134,15 @@ function buyInc(x) {
       game.points -= game.cost3;
       game.banks += 1;
       game.cost3 = game.pu[1]==1 ? Math.round(game.cost3*1.1) : Math.round(game.cost1*1.15);
+      return true
     }
     break;
   } 
+  return false
+}
+
+function maxAll(x) {
+  while 
 }
 
 function buyPU(x) {
