@@ -13,10 +13,10 @@ function loopAssign(x, y) {
 }
 
 function save() {
-  if (typeof localStorage.game == "undefined") localStorage.game = JSON.stringify()
-  if (typeof game != "undefined") localStorage.game = loopAssign(localStorage.game, game)
+  if (typeof localStorage.game == "undefined") localStorage.game = JSON.stringify(game)
+  localStorage.game = JSON.stringify(loopAssign(JSON.parse(localStorage.game), game))
 }
-
+// btw there's a save button in the game also autosave
 function load() {
-  if (typeof localStorage.game != "undefined") game = localStorage.game
+  if (typeof localStorage.game != "undefined") game = JSON.parse(localStorage.game)
 }
