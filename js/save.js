@@ -1,6 +1,22 @@
 const Decimal = require("../break_eternity.js")
-const fs = require('fs');
-var data = require('./gamedata.json')
-const path = require('path');
-const Discord = require('discord.js');
-function save() {fs.writeFileSync(path.resolve(__dirname, './gamedata.json'), JSON.stringify(data, null, "\t"))}
+
+function loopAssign(x, y) {
+    for (var key in y) {
+        if (!y.hasOwnProperty(key)) continue;
+        if (typeof y[key] == "object") {
+            loopAssign(x[key],y[key])
+        }
+        else {
+            x[key] = y[key]
+        }
+    }
+    return x
+}
+
+function save() {
+  localStorage.game = loopAssign(localStorage.game, game)
+}
+
+function load() {
+  if (localStorage.game)
+}
