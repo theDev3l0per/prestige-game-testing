@@ -6,6 +6,7 @@ game.banks = 0;
 game.derivatives = 0; 
 game.cost = 25;
 game.cost2 = 200;
+game.cost3 = 15000;
 game.tickpart = 0;
 game.tickspeed = 50;
 game.b = 0,
@@ -45,4 +46,6 @@ function loop() { // don't change this stuff unless you know what you're doing
   game.points += game.incrementers/30;
   $("points").innerHTML = "Points: " + Math.floor(game.points);
   $("inc").innerHTML = "Incrementers: " + game.incrementers;
+  
+  
 }

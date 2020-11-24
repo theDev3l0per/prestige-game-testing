@@ -1,5 +1,3 @@
-const Decimal = require("../break_eternity.js")
-
 function loopAssign(x, y) {
     for (var key in y) {
         if (!y.hasOwnProperty(key)) continue;
@@ -18,5 +16,5 @@ function save() {
 }
 
 function load() {
-  if (localStorage.game)
+  if (typeof localStorage.game != "undefined") game = localStorage.game
 }

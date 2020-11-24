@@ -6,34 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css" id="style">
-    <script src="js/break_infinity_min.js" defer></script>
-    <script src="js/game.js" defer></script>
-    <script src="js/save.js" defer></script>
+    
   </head>
   
   <body>
+    <script src="js/break_infinity_min.js" defer></script>
+    <script src="js/game.js" defer></script>
+    <script src="js/save.js" defer></script>
     <div>
       <b>Welcome to Prestige Game</b>
     </div>
     <div id="points">
       Points: 0
     </div>
-    <button id="tab1" class="tab">
+    <button id="tab1" class="tab" onclick="game.tab == 1">
       Production
     </button>
-    <button id="tab2" class="tab">
+    <button id="tab2" class="tab" onclick="game.tab == 2">
       Options
     </button>
-    <button id="tab3" class="tab">
+    <button id="tab3" class="tab" onclick="game.tab == 3">
       Prestige
     </button><br><br>
-    <div id="tab1disp">
+    <div id="tab1disp" display="game.tab == 1">
     <div id="inc">
       Incrementers: 1
     </div>
-    <button id="incbuy" onclick="buyInc()">
+    <button id="incbuy" onclick="buyInc(1)">
       Buy an incrementer for 25 points
+    </button><br><br>
+    <div id="workers">
+      Workers: 0
+    </div>
+    <button id="workerbuy" onclick="buyInc(2)">
+      Buy a worker for 200 points
+    </button><br><br>
+    <div id="banks">
+      Banks: 0
+    </div>
+    <button id="bankbuy" onclick="buyInc(3)">
+      Buy a bank for 15000 points
     </button>
     </div>
+    <div id="tab2disp" display="game.tab == 2">
+      <button id="save">
+        Save
+      </button>
+      <button id="reset">
+        Reset the game
+      </button>
+    </div>
+    <script>load(); setInterval(save, 10000)</script>
   </body>
 </html>
