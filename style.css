@@ -25,10 +25,10 @@ button {
   color: blue;
   background-color: cyan;
   border-color: blue;
-  transition-duration: 0.2;
+  transition-duration: 0.2s;
 }
 
-#tab3:hover {
+#tab3:hover, .prestige:hover {
   color: cyan;
   background-color: blue;
 }
@@ -36,4 +36,5 @@ button {
 #prestige {
   height: 75px;
   width: 125px;
+  transition-duration: 0.2s;
 }
