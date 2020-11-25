@@ -89,3 +89,9 @@ button {
   font-size: 12px;
   color: gray;
 }
+
+.discord {
+  color: cyan;
+  background-color: blue;
+  border-color: blue;
+}
