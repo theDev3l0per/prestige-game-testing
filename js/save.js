@@ -45,6 +45,8 @@ function reset() {
     game.x = 1;
     game.automators = [false,false,false,false];
     game.autoprestigeamt = 1;
+    game.pps = 0;
+    game.prestiges = 0;
     save();
     load();
   }

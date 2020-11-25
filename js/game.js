@@ -26,6 +26,7 @@ game.x = 1;
 game.automators = [false,false,false,false];
 game.autoprestigeamt = 1;
 game.pps = 0;
+game.prestiges = 0;
 console.log("What are you doing here in the console?");
 
 // so we are going to save the game in an object.
@@ -75,6 +76,7 @@ function loop() { // don't change this stuff unless you know what you're doing
   $("pu1").innerHTML = `Gain a multiplier to point production based on time played <br> Cost: 1 b <br> Currently: ${Math.round(2*Math.log10(game.time))}x`
   $("pu3").innerHTML = `Banks are more powerful based on Incrementers bought <br> Cost: 5 b <br> Currently: ${Math.round(Math.log10(game.incrementers+1)+1)}x`
   $("pu8").innerHTML = `Incrementers are more powerful based on Workers bought <br> Cost: 30 b <br> Currently: ${Math.round(Math.log10(game.workers+1)+1)}x`
+  $("info").innerHTML = `You have a total of ${game.incrementers+game.workers+game.banks} buildings.<br>You have collected a total of ${game.tb} b.<br>You have prestiged ${game.prestiges} times.<br>You have played this game for ${Math.floor(game.time)} seconds.`
   game.autoprestigeamt = $("inputBox").value;
 
   Array.from(document.querySelectorAll("body *")).forEach(elem => {
@@ -154,16 +156,7 @@ function loop() { // don't change this stuff unless you know what you're doing
 }
 
 function tabSwitch(x) {
-  switch (x) {
-    case 1:
-    game.tab = 1;
-    break;
-    case 2:
-    game.tab = 2;
-    break;
-    case 3:
-    game.tab = 3;
-  }
+   game.tab = x;
 }
 
 function buyInc(x) {
@@ -228,6 +221,7 @@ function buyPU(x) {
 function prestige() {
     game.b += Math.floor(Math.log2(game.points/100000))*(game.pu[4]==1 ? 2 : 1)+1;
     game.tb += Math.floor(Math.log2(game.points/100000))*(game.pu[4]==1 ? 2 : 1)+1;
+    game.prestiges += 1;
     game.points = 0;
     game.incrementers = 1;
     game.workers = 0;

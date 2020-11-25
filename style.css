@@ -21,14 +21,14 @@ button {
   background-color: gray;
 }
 
-#tab3, .prestige {
+#tab4, .prestige {
   color: blue;
   background-color: cyan;
   border-color: blue;
   transition-duration: 0.2s;
 }
 
-#tab3:hover, .prestige:hover {
+#tab4:hover, .prestige:hover {
   color: cyan;
   background-color: blue;
 }

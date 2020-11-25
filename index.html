@@ -33,7 +33,10 @@
     <button id="tab2" class="tab" onclick="tabSwitch(2)">
       Options
     </button>
-    <button id="tab3" class="tab" onclick="tabSwitch(3)" display="game.tb > 0">
+    <button id="tab3" class="tab" onclick="tabSwitch(3)">
+      Statistics
+    </button>
+    <button id="tab4" class="tab" onclick="tabSwitch(4)" display="game.tb > 0">
       Prestige
     </button><br><br>
     <div id="tab1disp" display="game.tab == 1">
@@ -86,6 +89,14 @@
       </button>
     </div>
     <div id="tab3disp" display="game.tab == 3">
+      <div id="info">
+        You have a total of x buildings.<br>
+        You have collected a total of x b.<br>
+        You have prestiged x times.<br>
+        You have played this game for x seconds.
+      </div>
+    </div>
+    <div id="tab4disp" display="game.tab == 4">
       <table>
         <tr>
           <td>
