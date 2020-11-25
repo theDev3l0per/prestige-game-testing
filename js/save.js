@@ -41,6 +41,7 @@ function reset() {
     game.pu = [0,0,0,0,0,0,0,0,0,0];
     game.puCosts = [1,3,5,5,10,15,20,30,50,50];
     game.x = 1;
+    game.automators = [true,true,true];
     save();
     load();
   }

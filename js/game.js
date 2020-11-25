@@ -21,7 +21,7 @@ game.tab = 1;
 game.pu = [0,0,0,0,0,0,0,0,0,0];
 game.puCosts = [1,3,5,5,10,15,20,30,50,50];
 game.x = 1;
-game.automators = [true,true,true];
+game.automators = [false,false,false];
 console.log("What are you doing here in the console?");
 
 // so we are going to save the game in an object.
@@ -62,9 +62,9 @@ function loop() { // don't change this stuff unless you know what you're doing
   $("bankbuy").innerHTML = `Buy a bank for ${game.cost3} points`;
   $("prestige").innerHTML = `Prestige for ${Math.floor(Math.log2(game.points/100000))*(game.pu[4]==1 ? 2 : 1)+1} b`
   $("b").innerHTML = `You have ${game.b} b`
-  $("pu1").innerHTML = `Gain a multiplier to point production based on time played <br> Cost: 1 b <br> Currently: ${2*Math.log10(game.time)}x`
-  $("pu3").innerHTML = `Banks are more powerful based on Incrementers bought <br> Cost: 5 b <br> Currently: ${Math.log10(game.incrementers+1)+1}x`
-  $("pu8").innerHTML = `Incrementers are more powerful based on Workers bought <br> Cost: 30 b <br> Currently: ${Math.log10(game.workers+1)+1}x`
+  $("pu1").innerHTML = `Gain a multiplier to point production based on time played <br> Cost: 1 b <br> Currently: ${Math.round(2*Math.log10(game.time))}x`
+  $("pu3").innerHTML = `Banks are more powerful based on Incrementers bought <br> Cost: 5 b <br> Currently: ${Math.round(Math.log10(game.incrementers+1)+1)}x`
+  $("pu8").innerHTML = `Incrementers are more powerful based on Workers bought <br> Cost: 30 b <br> Currently: ${Math.round(Math.log10(game.workers+1)+1)}x`
 
   Array.from(document.querySelectorAll("body *")).forEach(elem => {
     if (!elem.getAttribute("display")) return elem;
@@ -102,6 +102,35 @@ function loop() { // don't change this stuff unless you know what you're doing
   }else{
     $("bankbuy").className = "buyableLocked";
   }
+  
+  if(game.automators[2] == true){
+    var ret = false;
+    if (game.points > game.cost3){
+      game.points -= game.cost3;
+      game.banks += 1;
+      game.cost3 = game.pu[1]==1 ? Math.round(game.cost3*1.1) : Math.round(game.cost3*1.15);
+      ret = true;
+    }
+  }
+  if(game.automators[1] == true){
+    var ret = false;
+    if (game.points > game.cost2){
+      game.points -= game.cost2;
+      game.workers += 1;
+      game.cost2 = game.pu[1]==1 ? Math.round(game.cost2*1.1) : Math.round(game.cost2*1.15);
+      ret = true;
+    }
+  }
+  if(game.automators[0] == true){
+    var ret = false;
+    if (game.points > game.cost1){
+      game.points -= game.cost1;
+      game.incrementers += 1;
+      game.cost1 = game.pu[1]==1 ? Math.round(game.cost1*1.1) : Math.round(game.cost1*1.15);
+      ret = true;
+    }
+  }
+  
 }
 
 function tabSwitch(x) {
@@ -185,6 +214,19 @@ function prestige() {
     game.tickspeed = 50;
 }
 
-function toggleAuto() {
-  
+function toggleAuto(x) {
+  switch (x) {
+    case 1:
+     game.automators[0] = !game.automators[0]
+     $("auto1").innerHTML = `Auto: ${game.automators[0] ? "ON" : "OFF"}`;
+    break;
+    case 2:
+      game.automators[1] = !game.automators[1]
+      $("auto2").innerHTML = `Auto: ${game.automators[1] ? "ON" : "OFF"}`
+    break;
+    case 3:
+      game.automators[2] = !game.automators[2]
+      $("auto2").innerHTML = `Auto: ${game.automators[2] ? "ON" : "OFF"}` 
+    break;
+  }
 }
