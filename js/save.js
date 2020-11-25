@@ -31,10 +31,11 @@ function reset() {
     game.workers = 0;
     game.banks = 0;
     game.derivatives = 0; 
-    game.deriviativecost = 100;
-    game.cost1 = 25;
+    game.dpower = 0;
+    game.cost1 = 25; 
     game.cost2 = 200;
     game.cost3 = 15000;
+    game.cost4 = 100;
     game.tickpart = 0;
     game.tickspeed = 50;
     game.b = 0,
@@ -42,7 +43,8 @@ function reset() {
     game.pu = [0,0,0,0,0,0,0,0,0,0];
     game.puCosts = [1,3,5,5,10,15,20,30,50,50];
     game.x = 1;
-    game.automators = [false,false,false];
+    game.automators = [false,false,false,false];
+    game.autoprestigeamt = 1;
     save();
     load();
   }

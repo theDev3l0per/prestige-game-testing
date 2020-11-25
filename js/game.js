@@ -24,6 +24,7 @@ game.pu = [0,0,0,0,0,0,0,0,0,0];
 game.puCosts = [1,3,5,5,10,15,20,30,50,50];
 game.x = 1;
 game.automators = [false,false,false,false];
+game.autoprestigeamt = 1;
 console.log("What are you doing here in the console?");
 
 // so we are going to save the game in an object.
@@ -250,4 +251,8 @@ function toggleAuto(x) {
       $("autoprestige").innerHTML = `Auto-Prestige: ${game.automators[3] ? "ON" : "OFF"}` 
     break;
   }
+}
+
+function updateAutoPrestige() {
+  game.autoprestigeamt = $("inputBox").value
 }
