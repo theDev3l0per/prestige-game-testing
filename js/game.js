@@ -11,6 +11,7 @@ game.incrementers = 1;
 game.workers = 0;
 game.banks = 0;
 game.derivatives = 0; 
+game.deriviativecost = 100;
 game.cost1 = 25;
 game.cost2 = 200;
 game.cost3 = 15000;
@@ -21,7 +22,7 @@ game.tab = 1;
 game.pu = [0,0,0,0,0,0,0,0,0,0];
 game.puCosts = [1,3,5,5,10,15,20,30,50,50];
 game.x = 1;
-game.automators = [false,false,false];
+game.automators = [false,false,false,false];
 console.log("What are you doing here in the console?");
 
 // so we are going to save the game in an object.
@@ -173,6 +174,12 @@ function buyInc(x) {
       ret = true
     }
     break;
+    case 4:
+      if (game.b > game.deriviativecost) {
+      game.b -= game.derivativecost
+      game.derivatives += 1; 
+      game.deriviativecost *= 1.15;
+      }
   } 
   return ret
 }
@@ -226,7 +233,11 @@ function toggleAuto(x) {
     break;
     case 3:
       game.automators[2] = !game.automators[2]
-      $("auto2").innerHTML = `Auto: ${game.automators[2] ? "ON" : "OFF"}` 
+      $("auto3").innerHTML = `Auto: ${game.automators[2] ? "ON" : "OFF"}` 
+    break;
+    case 4:
+      game.automators[3] = !game.automators[3]
+      $("autoprestige").innerHTML = `Auto-Prestige: ${game.automators[3] ? "ON" : "OFF"}` 
     break;
   }
 }

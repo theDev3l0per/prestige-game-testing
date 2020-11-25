@@ -60,7 +60,10 @@
     </div>
     <button id="bankbuy" onclick="buyInc(3)" class="buyable">
       Buy a bank for 15000 points
-    </button>
+    </button> <br><br>
+    <button id="deriviativebuy" onclick="buyInc(4)" class="buyable" display="game.pu[9] == 1">
+      Buy a deriviative for 100 b
+    </button> <br><br>
     <button id="auto3" onclick="toggleAuto(3)" display="game.pu[6] == 1">
       Auto: OFF
     </button>
@@ -130,6 +133,11 @@
           </td>
         </tr>
       </table>
+      <br><br>
+      <button id="autoprestige" display="game.pu[8] == 1">
+        Auto-Prestige: OFF
+      </button><br>
+      <input type="text" id="inputBox" display="game.pu[8] == 1">
     </div>
     <br><br><br><br>
     <div>
