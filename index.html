@@ -64,9 +64,15 @@
     <button id="auto3" onclick="toggleAuto(3)" display="game.pu[6] == 1">
       Auto: OFF
     </button><br><br>
-    <button id="deriviativebuy" onclick="buyInc(4)" class="buyable" display="game.pu[9] == 1">
-      Buy a deriviative for 100 b
-    </button> <br><br>
+    <div id="derivatives" display="game.pu[9] == 1">
+      Derivatives: 0
+    </div><br>
+    <div id="dpower" display="game.pu[9] == 1">
+      You have 0 Derivative Power, giving a 1x multiplier to point production
+    </div><br>
+    <button id="derivativebuy" onclick="buyInc(4)" class="buyable" display="game.pu[9] == 1">
+      Buy a derivative for 100 b
+    </button><br><br>
     </div>
     <div id="tab2disp" display="game.tab == 2">
       <button id="save" onclick="save()">

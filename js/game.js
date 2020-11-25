@@ -11,10 +11,11 @@ game.incrementers = 1;
 game.workers = 0;
 game.banks = 0;
 game.derivatives = 0; 
-game.deriviativecost = 100;
+game.dpower = 0;
 game.cost1 = 25;
 game.cost2 = 200;
 game.cost3 = 15000;
+game.dcost = 100;
 game.tickpart = 0;
 game.tickspeed = 50;
 game.b = 0,
@@ -102,6 +103,11 @@ function loop() { // don't change this stuff unless you know what you're doing
     $("bankbuy").className = "buyable";
   }else{
     $("bankbuy").className = "buyableLocked";
+  }
+  if(game.b >= game.cost4){
+    $("derivativebuy").className = "buyable";
+  }else{
+    $("derivativebuy").className = "buyableLocked";
   }
   
   if(game.automators[2] == true){
