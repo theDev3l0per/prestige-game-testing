@@ -84,3 +84,8 @@ button {
   background-color: #aaaaaa;
   transition-duration: 0.2s;
 }
+
+#pps {
+  font-size: 12px;
+  color: gray;
+}

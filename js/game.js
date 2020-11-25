@@ -25,6 +25,7 @@ game.puCosts = [1,3,5,5,10,15,20,30,50,50];
 game.x = 1;
 game.automators = [false,false,false,false];
 game.autoprestigeamt = 1;
+game.pps = 0;
 console.log("What are you doing here in the console?");
 
 // so we are going to save the game in an object.
@@ -57,7 +58,9 @@ function loop() { // don't change this stuff unless you know what you're doing
   game.points += game.banks*100/3*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[2]==1 ? Math.log10(game.incrementers+1)+1 : 1)*(Math.log10(game.dpower+1)+1); //1000 per sec
   game.dpower += game.derivatives/30
   game.time += 1/30;
+  game.pps = Math.floor((game.incrementers*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[7]==1 ? Math.log10(game.workers+1)+1 : 1)*(Math.log10(game.dpower+1)+1))+(game.workers*10*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(Math.log10(game.dpower+1)+1))+(game.banks*1000*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[2]==1 ? Math.log10(game.incrementers+1)+1 : 1)*(Math.log10(game.dpower+1)+1)));
   $("points").innerHTML = `Points: ${Math.floor(game.points)}`;
+  $("pps").innerHTML = `You are getting ${game.pps} points per second`;
   $("inc").innerHTML = `Incrementers: ${game.incrementers}`;
   $("workers").innerHTML = `Workers: ${game.workers}`;
   $("banks").innerHTML = `Banks: ${game.banks}`;
@@ -72,6 +75,7 @@ function loop() { // don't change this stuff unless you know what you're doing
   $("pu1").innerHTML = `Gain a multiplier to point production based on time played <br> Cost: 1 b <br> Currently: ${Math.round(2*Math.log10(game.time))}x`
   $("pu3").innerHTML = `Banks are more powerful based on Incrementers bought <br> Cost: 5 b <br> Currently: ${Math.round(Math.log10(game.incrementers+1)+1)}x`
   $("pu8").innerHTML = `Incrementers are more powerful based on Workers bought <br> Cost: 30 b <br> Currently: ${Math.round(Math.log10(game.workers+1)+1)}x`
+  game.autoprestigeamt = $("inputBox").value;
 
   Array.from(document.querySelectorAll("body *")).forEach(elem => {
     if (!elem.getAttribute("display")) return elem;
@@ -142,7 +146,11 @@ function loop() { // don't change this stuff unless you know what you're doing
       ret = true;
     }
   }
-  
+  if(game.automators[3] == true){
+    if(Math.floor(Math.log2(game.points/100000))*(game.pu[4]==1 ? 2 : 1)+1 >= game.autoprestigeamt){
+      prestige();
+    }
+  }
 }
 
 function tabSwitch(x) {
@@ -240,19 +248,15 @@ function toggleAuto(x) {
     break;
     case 2:
       game.automators[1] = !game.automators[1]
-      $("auto2").innerHTML = `Auto: ${game.automators[1] ? "ON" : "OFF"}`
+      $("auto2").innerHTML = `Auto: ${game.automators[1] ? "ON" : "OFF"}`;
     break;
     case 3:
       game.automators[2] = !game.automators[2]
-      $("auto3").innerHTML = `Auto: ${game.automators[2] ? "ON" : "OFF"}` 
+      $("auto3").innerHTML = `Auto: ${game.automators[2] ? "ON" : "OFF"}`;
     break;
     case 4:
       game.automators[3] = !game.automators[3]
-      $("autoprestige").innerHTML = `Auto-Prestige: ${game.automators[3] ? "ON" : "OFF"}` 
+      $("autoprestige").innerHTML = `Auto-Prestige: ${game.automators[3] ? "ON" : "OFF"}`;
     break;
   }
-}
-
-function updateAutoPrestige() {
-  game.autoprestigeamt = $("inputBox").value
 }
