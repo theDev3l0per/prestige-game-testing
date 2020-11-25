@@ -40,7 +40,7 @@ function hideElement(element) { // hides element
 } 
 
 function init() { // only run this once 
- 
+  
 }
 
 init();
@@ -77,6 +77,10 @@ function loop() { // don't change this stuff unless you know what you're doing
   $("pu3").innerHTML = `Banks are more powerful based on Incrementers bought <br> Cost: 5 b <br> Currently: ${Math.round(Math.log10(game.incrementers+1)+1)}x`
   $("pu8").innerHTML = `Incrementers are more powerful based on Workers bought <br> Cost: 30 b <br> Currently: ${Math.round(Math.log10(game.workers+1)+1)}x`
   $("info").innerHTML = `You have a total of ${game.incrementers+game.workers+game.banks} buildings.<br>You have collected a total of ${game.tb} b.<br>You have prestiged ${game.prestiges} times.<br>You have played this game for ${Math.floor(game.time)} seconds.`
+  $("auto1").innerHTML = `Auto: ${game.automators[0] ? "ON" : "OFF"}`;
+  $("auto2").innerHTML = `Auto: ${game.automators[1] ? "ON" : "OFF"}`;
+  $("auto3").innerHTML = `Auto: ${game.automators[2] ? "ON" : "OFF"}`;
+  $("autoprestige").innerHTML = `Auto-Prestige: ${game.automators[3] ? "ON" : "OFF"}`;
   game.autoprestigeamt = $("inputBox").value;
 
   Array.from(document.querySelectorAll("body *")).forEach(elem => {
@@ -190,7 +194,7 @@ function buyInc(x) {
       if (game.b > game.cost4) {
       game.b -= game.cost4
       game.derivatives += 1; 
-      game.cost4 *= 1.15;
+      game.cost4 = Math.round(game.cost4*1.15);
       }
   } 
   return ret
