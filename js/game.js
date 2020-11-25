@@ -21,6 +21,7 @@ game.tab = 1;
 game.pu = [0,0,0,0,0,0,0,0,0,0];
 game.puCosts = [1,3,5,5,10,15,20,30,50,50];
 game.x = 1;
+game.automators = [true,true,true];
 console.log("What are you doing here in the console?");
 
 // so we are going to save the game in an object.
@@ -61,9 +62,9 @@ function loop() { // don't change this stuff unless you know what you're doing
   $("bankbuy").innerHTML = `Buy a bank for ${game.cost3} points`;
   $("prestige").innerHTML = `Prestige for ${Math.floor(Math.log2(game.points/100000))*(game.pu[4]==1 ? 2 : 1)+1} b`
   $("b").innerHTML = `You have ${game.b} b`
-  $("pu1").innerHTML = `Gain a multiplier to point production based on time played <br> Cost: 1 b <br> Currently: ${Math.round(200*Math.log10(game.time)/100)}x`
-  $("pu3").innerHTML = `Banks are more powerful based on Incrementers bought <br> Cost: 5 b <br> Currently: ${Math.log10(game.incrementers+1)+1}`
-  $("pu8").innerHTML = `Incrementers are more powerful based on Workers bought <br> Cost: 30 b <br> Currently: ${Math.log10(game.workers+1)+1}`
+  $("pu1").innerHTML = `Gain a multiplier to point production based on time played <br> Cost: 1 b <br> Currently: ${2*Math.log10(game.time)}x`
+  $("pu3").innerHTML = `Banks are more powerful based on Incrementers bought <br> Cost: 5 b <br> Currently: ${Math.log10(game.incrementers+1)+1}x`
+  $("pu8").innerHTML = `Incrementers are more powerful based on Workers bought <br> Cost: 30 b <br> Currently: ${Math.log10(game.workers+1)+1}x`
 
   Array.from(document.querySelectorAll("body *")).forEach(elem => {
     if (!elem.getAttribute("display")) return elem;
@@ -78,6 +79,9 @@ function loop() { // don't change this stuff unless you know what you're doing
   }
   if(game.b >= game.puCosts[game.x-1] && game.pu[game.x-1] == 0){
     $("pu"+(game.x)).className = "pubuyable";
+  }
+  if(game.b < game.puCosts[game.x-1] && game.pu[game.x-1] == 0){
+    $("pu"+(game.x)).className = "pulocked";
   }
   if(game.pu[game.x-1] == 1){
     $("pu"+(game.x)).className = "pubought";
@@ -179,4 +183,8 @@ function prestige() {
     game.cost3 = 15000;
     game.tickpart = 0;
     game.tickspeed = 50;
+}
+
+function toggleAuto() {
+  
 }
