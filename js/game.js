@@ -15,7 +15,7 @@ game.dpower = 0;
 game.cost1 = 25;
 game.cost2 = 200;
 game.cost3 = 15000;
-game.dcost = 100;
+game.cost4 = 100;
 game.tickpart = 0;
 game.tickspeed = 50;
 game.b = 0,
@@ -51,17 +51,21 @@ var mainGameLoop = window.setInterval(function() { // runs the loop
 }, 33);
 
 function loop() { // don't change this stuff unless you know what you're doing
-  game.points += game.incrementers/30*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[7]==1 ? Math.log10(game.workers+1)+1 : 1); //1 per sec 
-  game.points += game.workers/3*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1); //10 per sec
-  game.points += game.banks*100/3*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[2]==1 ? Math.log10(game.incrementers+1)+1 : 1); //1000 per sec
+  game.points += game.incrementers/30*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[7]==1 ? Math.log10(game.workers+1)+1 : 1)*(Math.log10(game.dpower+1)+1); //1 per sec 
+  game.points += game.workers/3*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(Math.log10(game.dpower+1)+1); //10 per sec
+  game.points += game.banks*100/3*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[2]==1 ? Math.log10(game.incrementers+1)+1 : 1)*(Math.log10(game.dpower+1)+1); //1000 per sec
+  game.dpower += game.derivatives/30
   game.time += 1/30;
   $("points").innerHTML = `Points: ${Math.floor(game.points)}`;
   $("inc").innerHTML = `Incrementers: ${game.incrementers}`;
   $("workers").innerHTML = `Workers: ${game.workers}`;
   $("banks").innerHTML = `Banks: ${game.banks}`;
+  $("derivatives").innerHTML = `Derivatives: ${game.derivatives}`;
   $("incbuy").innerHTML = `Buy an incrementer for ${game.cost1} points`;
   $("workerbuy").innerHTML = `Buy a worker for ${game.cost2} points`;
   $("bankbuy").innerHTML = `Buy a bank for ${game.cost3} points`;
+  $("derivativebuy").innerHTML = `Buy a derivative for ${game.cost4} b`;
+  $("dpower").innerHTML = `You have ${Math.floor(game.dpower)} Derivative Power, giving a ${Math.round(Math.log10(game.dpower+1)+1)}x multiplier to point production`
   $("prestige").innerHTML = `Prestige for ${Math.floor(Math.log2(game.points/100000))*(game.pu[4]==1 ? 2 : 1)+1} b`
   $("b").innerHTML = `You have ${game.b} b`
   $("pu1").innerHTML = `Gain a multiplier to point production based on time played <br> Cost: 1 b <br> Currently: ${Math.round(2*Math.log10(game.time))}x`
@@ -181,10 +185,10 @@ function buyInc(x) {
     }
     break;
     case 4:
-      if (game.b > game.deriviativecost) {
-      game.b -= game.derivativecost
+      if (game.b > game.cost4) {
+      game.b -= game.cost4
       game.derivatives += 1; 
-      game.deriviativecost *= 1.15;
+      game.cost4 *= 1.15;
       }
   } 
   return ret
