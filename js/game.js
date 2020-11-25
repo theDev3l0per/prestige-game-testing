@@ -48,9 +48,9 @@ var mainGameLoop = window.setInterval(function() { // runs the loop
 }, 33);
 
 function loop() { // don't change this stuff unless you know what you're doing
-  game.points += game.incrementers/30*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[7]==1 ? Math.log10(game.workers) : 1); //1 per sec 
+  game.points += game.incrementers/30*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[7]==1 ? Math.log10(game.workers+1)+1 : 1); //1 per sec 
   game.points += game.workers/3*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1); //10 per sec
-  game.points += game.banks*100/3*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[2]==1 ? Math.log10(game.incrementers) : 1); //1000 per sec
+  game.points += game.banks*100/3*(game.pu[0]==1 ? 2*Math.log10(game.time) : 1)*(game.pu[2]==1 ? Math.log10(game.incrementers+1)+1 : 1); //1000 per sec
   game.time += 1/30;
   $("points").innerHTML = `Points: ${Math.floor(game.points)}`;
   $("inc").innerHTML = `Incrementers: ${game.incrementers}`;
@@ -62,6 +62,8 @@ function loop() { // don't change this stuff unless you know what you're doing
   $("prestige").innerHTML = `Prestige for ${Math.floor(Math.log2(game.points/100000))*(game.pu[4]==1 ? 2 : 1)+1} b`
   $("b").innerHTML = `You have ${game.b} b`
   $("pu1").innerHTML = `Gain a multiplier to point production based on time played <br> Cost: 1 b <br> Currently: ${Math.round(200*Math.log10(game.time)/100)}x`
+  $("pu3").innerHTML = `Banks are more powerful based on Incrementers bought <br> Cost: 5 b <br> Currently: ${Math.log10(game.incrementers+1)+1}`
+  $("pu8").innerHTML = `Incrementers are more powerful based on Workers bought <br> Cost: 30 b <br> Currently: ${Math.log10(game.workers+1)+1}`
 
   Array.from(document.querySelectorAll("body *")).forEach(elem => {
     if (!elem.getAttribute("display")) return elem;
